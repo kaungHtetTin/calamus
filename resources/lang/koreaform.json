@@ -1,0 +1,142 @@
+{
+  "firstform" : [ {
+    "eCode" : "a",
+    "enroll" : 48,
+    "level" : "Basic course",
+    "sub" : [ {
+      "cate" : "Basic Word Construction",
+      "code" : "basic_word_construction",
+      "eCode" : "a",
+      "pic" : "https://www.calamuseducation.com/easykorean/layouticon/basic_word_construction.png"
+    }, {
+      "cate" : "Writing",
+      "code" : "basic_writing",
+      "eCode" : "a",
+      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_writing.png"
+    }, {
+      "cate" : "Grammar",
+      "code" : "basic_grammar",
+      "eCode" : "a",
+      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_grammar1.png"
+    },{
+      "cate" : "Reading",
+      "code" : "basic_reading",
+      "eCode" : "a",
+      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_reading.jpg"
+    } ]
+  },
+   {
+    "eCode" : "b",
+    "enroll" : 60,
+    "level" : "Level One Course",
+    "sub" : [ {
+      "cate" : "Part A \nLevel One",
+      "code" : "LevelOnePartA",
+      "eCode" : "b",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/level1a.png"
+    },
+    {
+      "cate" : "Part B \nLevel One",
+      "code" : "LevelOnePartB",
+      "eCode" : "b",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/level1b.png"
+    },
+    {
+      "cate" : "Part C \nLevel One",
+      "code" : "LevelOnePartC",
+      "eCode" : "c",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/level1c.png"
+    }
+    ]
+  },
+  
+   {
+    "eCode" : "z",
+    "enroll" : 20,
+    "level" : "Lesson With K-Drama",
+    "sub" : [ {
+      "cate" : "Fling At Convenience Store",
+      "code" : "FlingAtConvenicenceStore",
+      "eCode" : "z",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/fling.jpg"
+    },
+    {
+      "cate" : "Single And Ready To Mingle",
+      "code" : "SingleAndReadyToMingle",
+      "eCode" : "z",
+      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/singleready.jpg"
+    }
+    ]
+  }
+  
+  ],
+  "function" : [ {
+    "cate" : "Exam",
+    "link" : "https://www.calamuseducation.com/exam/basicexam1.html",
+    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/exam.png"
+  },
+  {
+    "cate" : "VocabLearn",
+    "link" : "https://www.calamuseducation.com/easykorean/learnVocabulary/learnVocal.html",
+    "pic" : "https://www.calamuseducation.com/easykorean/learnVocabulary/vocalLearnIcon.png"
+  },
+  {
+    "cate" : "Activity",
+    "link" : "https://www.calamuseducation.com/calamus/activity/korea",
+    "pic" : "https://www.calamuseducation.com/uploads/icons/activity.png"
+  },
+  {
+    "cate" : "Song Request",
+    "link" : "https://www.calamuseducation.com/calamus/artists/korea",
+    "pic" : "https://www.calamuseducation.com/uploads/icons/requestsong.png"
+  },
+  {
+    "cate" : "Name Generator",
+    "link" : "https://www.calamuseducation.com/easykorean/namegenerator/namegenerator.html",
+    "pic" : "https://www.calamuseducation.com/easykorean/layouticon/namegenerator.png"
+  },
+  {
+    "cate" : "Guide Line",
+    "link" : "https://www.calamuseducation.com/easykorean/guideline.html",
+    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/guideline.png"
+  }
+  
+  
+  ],
+  "secondform" : [ {
+    "cate" : "Game",
+    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/game.png"
+  },
+   {
+    "cate" : "NumberAndTime",
+    "pic" : "https://www.calamuseducation.com/uploads/icons/calendar.png"
+  },
+  {
+    "cate" : "Conversation",
+    "pic" : "https://www.calamuseducation.com/uploads/icons/conversation.png"
+  },
+  {
+    "cate" : "TipsAndSlang",
+    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/tip_and_slang.png"
+  },
+  
+  {
+    "cate" : "WordsOnTopics",
+    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/word_on_topic.png"
+  }, {
+    "cate" : "Phrase",
+    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/general_note.png"
+  }, {
+    "cate" : "UsefulVerbs",
+    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/usefulverb.png"
+  } ],
+  "videoform" : [ {
+    "cate" : "Translation"
+  }, {
+    "cate" : "DramaLyrics"
+  }, {
+    "cate" : "KidSong"
+  }, {
+    "cate" : "General"
+  } ]
+}

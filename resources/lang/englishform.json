@@ -1,0 +1,103 @@
+{
+  "firstform" : [ {
+    "eCode" : "a",
+    "enroll" : 110,
+    "level" : "Note Books",
+    "sub" : [ {
+      "cate" : "Basic Grammar",
+      "code" : "b_grammar",
+      "eCode" : "a",
+      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_notes.png"
+    }, {
+      "cate" : "Sentence Construction",
+      "code" : "b_sentence_construction",
+      "eCode" : "a",
+      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_notes.png"
+    }, {
+      "cate" : "Translation",
+      "code" : "b_translation",
+      "eCode" : "a",
+      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_notes.png"
+    } ]
+  },
+  
+   {
+    "eCode" : "b",
+    "enroll" : 100,
+    "level" : "Basic English Course",
+    "sub" : [ {
+      "cate" : "Grammar",
+      "code" : "basic_grammar",
+      "eCode" : "b",
+      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_grammar1.png"
+    }, {
+      "cate" : "Basic Speaking",
+      "code" : "basic_speaking",
+      "eCode" : "b",
+      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_speaking.png"
+    } ]
+  },
+  
+   {
+    "eCode" : "z",
+    "enroll" : 110,
+    "level" : "Let's Learn English (VOA)",
+    "sub" : [ {
+      "cate" : "Beginning Level 1",
+      "code" : "voa_b_level1",
+      "eCode" : "z",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/studying.png"
+    }, {
+      "cate" : "Beginning Level 2",
+      "code" : "voa_b_level2",
+      "eCode" : "z",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/studying.png"
+    },
+     {
+      "cate" : "How To Pronouce",
+      "code" : "HowToPronounce",
+      "eCode" : "z",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/studying.png"
+    }]
+  }],
+  "function" : [ {
+    "cate" : "Exam",
+    "link" : "https://www.calamuseducation.com/calamus/exam/english",
+    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/exam.png"
+  },
+    {
+    "cate" : "Song Request",
+    "link" : "https://www.calamuseducation.com/calamus/artists/english",
+    "pic" : "https://www.calamuseducation.com/uploads/icons/requestsong.png"
+  },
+  {
+    "cate" : "Guide Line",
+    "link" : "https://www.calamuseducation.com/calamus",
+    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/guideline.png"
+  } ],
+  "secondform" : [ {
+    "cate" : "Game",
+    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/game.png"
+  }, {
+    "cate" : "TipsAndSlang",
+    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/tip_and_slang.png"
+  }, {
+    "cate" : "WordsOnTopics",
+    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/word_on_topic.png"
+  }, {
+    "cate" : "Proverbs",
+    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/proverb.png"
+  }, {
+    "cate" : "Phrase",
+    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/general_note.png"
+  } ],
+  "videoform" : [ {
+    "cate" : "Idioms"
+  }, {
+    "cate" : "Weekly Proverbs"
+  }, {
+    "cate" : "Translation"
+  }, {
+    "cate" : "General"
+  } ]
+}
