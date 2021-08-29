@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 use App\Models\artist;
 use Illuminate\Http\Request;
 
+// make changes from local pc
 class ArtistController extends Controller
 {
+
     public function handleArtistList(){
         $jon= file_get_contents(base_path('resources/lang/artist.json'));
         $arr=json_decode($jon,true);
