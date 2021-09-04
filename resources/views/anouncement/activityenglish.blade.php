@@ -67,7 +67,7 @@
                     <img src="{{$learner->image}}" class="userImg"> <b>{{$learner->name}} </b>
                 </div>
             @endforeach
-            (Within 1 months)
+            (Within 1 month)
         </div>
         
         <div class="users">

@@ -23,62 +23,7 @@ class PostController extends Controller
         $major="english";
         $userId=$req->userId;
         $count=$req->count;
-        $selection=$req->selection;
-        
-        if($selection=="me"){
-        $posts=DB::table('posts')
-        ->selectRaw("
-                learners.learner_name as userName,
-        	    learners.learner_phone as userId,
-        	    ee_user_datas.token as userToken,
-        	    learners.learner_image as userImage,
-        	    ee_user_datas.is_vip as vip,
-        	    posts.post_id as postId,
-        	    posts.body as body,
-        	    posts.post_like as postLikes,
-        	    posts.comments,
-        	    posts.image as postImage,
-        	    posts.view_count as viewCount,
-        	    posts.has_video
-            ")
-        ->where('posts.major',$major)
-        ->where('posts.learner_id',$userId)
-        ->join('learners','learners.learner_phone','=','posts.learner_id')
-        ->join('ee_user_datas','ee_user_datas.phone','=','posts.learner_id')
-        ->orderBy('posts.id','desc')
-        ->offset($count)
-        ->limit(30)
-        ->get();
-         if(!sizeof($posts)==0){
-                
-                foreach($posts as $post){
-                    
-                    $post->is_liked=0;
-                    $likeRows=mylike::where('content_id',$post->postId)->get();
-                    
-                    foreach ($likeRows as $row){
-                    
-                         $likesArr=json_decode($row->likes,true);
-                    
-                         $user_ids=array_column($likesArr,"user_id");
-                         
-                        if(in_array( $userId, $user_ids)){
-                            $post->is_liked=1;
-                            
-                        }
-                    }
-                        $arr[]=$post;
-                
-                }
-                
-                return $arr;
-                    
-            }else{
-                    return false;
-            }
-         
-        }else{
-            
+
         $posts=DB::table('posts')
         ->selectRaw("
                 learners.learner_name as userName,
@@ -99,7 +44,7 @@ class PostController extends Controller
         ->join('ee_user_datas','ee_user_datas.phone','=','posts.learner_id')
         ->orderBy('posts.id','desc')
         ->offset($count)
-        ->limit(30)
+        ->limit(10)
         ->get();
         
             if(!sizeof($posts)==0){
@@ -130,8 +75,6 @@ class PostController extends Controller
                     return false;
             }
         
-         
-        }
     }
     
     public function fetchDiscussion(Request $req){
@@ -399,6 +342,13 @@ class PostController extends Controller
             ]);
        }
        
+       if($major=="english" and $learner_id!="1000" and $learner_id!="09979638384"){
+            EnglishUserData::where('phone', $learner_id)
+            ->update([
+              'discuss_count'=>DB::raw('discuss_count+1')
+            ]);
+       }
+       
     }
     
     
@@ -588,6 +538,12 @@ class PostController extends Controller
     }
     
     
+    public function getVideodownloadLink($postId){
+          $postData=post::where('post_id',$postId)->first();
+          $link=$postData->video_url;
+          
+          return $link;
+    }
     
     
     //testing area

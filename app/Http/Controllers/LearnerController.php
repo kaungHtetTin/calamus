@@ -219,7 +219,7 @@ class LearnerController extends Controller
         ->get();
         
         $data['user']=$userData;
-		$data['version']="2.11"; //easy english
+		$data['version']="2.12"; //easy english
         $data['vipCourses']=$vipCourses;
         return $data;
         

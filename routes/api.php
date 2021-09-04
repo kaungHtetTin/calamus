@@ -17,6 +17,7 @@ use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\FriendController;
 use App\Http\Controllers\FirebaseNotiPushController;
+use App\Http\Controllers\AppController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -92,12 +93,14 @@ Route::post('/comments/like',[LikeController::class,'addCommentLike']);
 Route::get('/comments/likes',[LikeController::class,'fetchCommentsLikes']);
 
 Route::get('/songs/get',[SongController::class,'getSong']);
+Route::get('/songs/v2/get',[SongController::class,'getSongNewVersion']);
 Route::get('/songs/popular',[SongController::class,'getPopularSong']);
 Route::post('/songs/like',[LikeController::class,'addSongLike']);
 Route::post('/songs/download',[SongController::class,'downloadSong']);
 Route::get('/songs/search',[SongController::class,'searchASong']);
 Route::get('/songs/artists',[SongController::class,'getArtist']);
 Route::get('/songs/{artist}',[SongController::class,'getSongByArtist']);
+Route::get('/songs/v2/{artist}',[SongController::class,'getSongByArtistNewVersion']);
 Route::get('/songs/popular/{artist}',[SongController::class,'getPopularSongByArtist']);
 
 Route::post('/posts/add',[PostController::class,'addPost']);
@@ -105,6 +108,9 @@ Route::post('/posts/delete',[PostController::class,'deletePost']);
 Route::post('/posts/report',[PostController::class,'reportPost']);
 Route::post('/posts/viewcount',[PostController::class,'getAndUpdateViewCount']);
 Route::post('/posts/edit',[PostController::class,'editPost']);
+Route::get('/posts/videourl/{postId}',[PostController::class,'getVideodownloadLink']);
+
+
 Route::post('/posts/like',[LikeController::class,'addPostLike']);
 Route::get('/posts/likes',[LikeController::class,'fetchPostLikes']);
 Route::get('/anouncement',[AnouncementController::class,'getAnouncementLink']);
@@ -132,6 +138,14 @@ Route::get('/payment/korea',function(){
    return view("anouncement.koreapayment"); 
 });
 
+Route::get('/payment/english',function(){
+   return view("anouncement.englishpayment"); 
+});
+
+Route::get('/english/credit',function(){
+     return view('anouncement.englishcredit');
+});
+
 
 
 //Common Routes for admin
@@ -151,12 +165,13 @@ Route::post('/removefriendrequest',[FriendController::class,'RemoveFriendRequest
 Route::get('/getfriends/{id}/{major}',[FriendController::class,'getFriends']);
 Route::get('/getfriendreq/{id}/{major}',[FriendController::class,'getFriendRequests']);
 
-
-Route::get('/unfriend',[FriendController::class,'unfriend']);
-Route::get('/addfriend',[FriendController::class,'addFriend']);
-Route::get('/confirmfriend',[FriendController::class,'confrimFriend']);
-
 Route::post('/pushnotification',[FirebaseNotiPushController::class,'pushNotificationToSingleUser']);
+
+//app ads routing
+Route::get('/appads/{count}',[AppController::class,'getAppAds']);
+Route::post('/appads/click',[AppController::class,'clickAds']);
+
+
 
 
 

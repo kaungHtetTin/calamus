@@ -255,12 +255,21 @@ class CommentController extends Controller
     	//increase discussion count;
         $major=post::where('post_id', $post_id)->first();
     	$major=$major->major;
+    	
      	if($major=="korea" and $writer_id!="10000" and $writer_id!="09979638384"){
             KoreanUserData::where('phone', $writer_id)
             ->update([
               'discuss_count'=>DB::raw('discuss_count+1')
             ]);
          }
+         
+        if($major=="english" and $writer_id!="10000" and $writer_id!="09979638384"){
+            EnglishUserData::where('phone', $writer_id)
+            ->update([
+              'discuss_count'=>DB::raw('discuss_count+1')
+            ]);
+         }
+         
         return "added";
     }
     

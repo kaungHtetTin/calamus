@@ -8,7 +8,6 @@ use App\Models\weekSong;
 use App\Models\anouncement;
 
 
-//testing pull request on this code
 class AnouncementController extends Controller
 
 {
@@ -204,5 +203,79 @@ class AnouncementController extends Controller
             'songs'=>$songs,
             'logins'=>$logins
             ]);
+    }
+    
+    public function activityOfEnglishUsers(Request $req){
+        
+        // the most login user
+        $logins=DB::table('ee_user_datas')
+            ->selectRaw("
+                learner_name as name,
+                learner_image as image
+            ")
+            ->join('learners','ee_user_datas.phone','=','learners.learner_phone')
+            ->orderBy('login_time','desc')
+            ->limit(10)->get();
+        
+        // the song favourate users
+        $songs=DB::table('ee_user_datas')
+            ->selectRaw("
+                learner_name as name,
+                learner_image as image
+            ")
+            ->join('learners','ee_user_datas.phone','=','learners.learner_phone')
+            ->orderBy('song','desc')
+            ->limit(10)->get();
+        
+        // the most discussing user
+        $discussUsers=DB::table('ee_user_datas')
+            ->selectRaw("
+                learner_name as name,
+                learner_image as image
+            ")
+            ->join('learners','ee_user_datas.phone','=','learners.learner_phone')
+            ->orderBy('discuss_count','desc')
+            ->limit(5)->get();
+        
+        // try-hard learning users
+        $learners=DB::table('ee_user_datas')
+            ->selectRaw("
+                learner_name as name,
+                learner_image as image
+            ")
+            ->join('learners','ee_user_datas.phone','=','learners.learner_phone')
+            ->orderBy('learn_count','desc')
+            ->limit(5)->get();
+        
+        return view ('anouncement.activityenglish',[
+            'learners'=>$learners,
+            'discussUsers'=>$discussUsers,
+            'songs'=>$songs,
+            'logins'=>$logins
+            ]);
+    }
+    
+    
+    public function advertiseEasyEnglish(){
+        return view('anouncement.easyenglish');
+    }
+    
+    public function advertiseEasyKorean(){
+        return view('anouncement.easykorea');
+    }
+    
+    public function koreaRewardedUser(){
+        $learners=DB::table('ko_user_datas')
+        ->selectRaw("
+            learner_name as name,
+            learner_image as image
+        ")
+        ->join('learners','ko_user_datas.phone','=','learners.learner_phone')
+        ->orderBy('learn_count','desc') 
+        ->limit(5)->get();
+        
+         return view ('anouncement.rewardedkorea',[
+            'learners'=>$learners,
+        ]);
     }
 }

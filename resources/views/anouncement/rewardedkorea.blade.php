@@ -33,12 +33,12 @@
             background-color:rgb(187, 222, 251);
             padding:10px;
             font-weight:bold;
-            font-size:18px;
+            font-size:16px;
         }
         
         .userImg{
-            width:45px;
-            height:45px;
+            width:40px;
+            height:40px;
             border-radius:50%;
             margin-right:5px;
         }
@@ -51,65 +51,29 @@
     </style>
   </head>
   <body >
-    <div class="container">
-      <h3 class="mt-2 ml-1 mb-3 text-primary" style="">Activities</h3>
-    
-        <hr>
-        
-        <div class="users">
+    <div >
+
+        <div class="">
             <div class="cate">
-                <i class="material-icons">school</i> လေ့လာမှု အားကောင်းဆုံးသောသူများ
+                <i class="material-icons">school</i> ကြိုးစားအားထုတ်မှုအကောင်းဆုံးဆု
                 
             </div>
-            
+        
             @foreach($learners as $learner)
+                
                 <div class="userList">
                     <img src="{{$learner->image}}" class="userImg"> <b>{{$learner->name}} </b>
                 </div>
+                
             @endforeach
-            (Within 1 months)
+    
+            <p class="text-primary" style="padding:15px; text-align:justify;">
+*** ဆုရရှိသူများအား Easy Korean မှ phone bill 2000 MMK ချီးမြင့်ပေးမည်ဖြစ်ပါသဖြင့်
+Easy Korean Developer Group သို့ ဆက်သွယ်ပေးပါရန် ***
+            </p>
+  
         </div>
         
-        <div class="users">
-            <div class="cate">
-              <i class="material-icons">public</i> ပါဝင်ဆွေးနွေးမှု အများဆုံးသောသူများ
-            </div>
-              
-            @foreach($discussUsers as $discussUser)
-                <div class="userList">
-                    <img src="{{$discussUser->image}}" class="userImg"> <b>{{$discussUser->name}} </b>
-                </div>
-            @endforeach
-            (Within 1 months)
-        </div>
-        
-        <div class="users">
-            <div class="cate">
-                <i class="material-icons">queue_music</i> တေးဂီတ ကြိုက်နှစ်သက်ဆုံးသောသူများ
-            </div>
-              
-            @foreach($songs as $song)
-                <div class="userList">
-                    <img src="{{$song->image}}" class="userImg"> <b>{{$song->name}} </b>
-                </div>
-            @endforeach
-            (All time)
-        </div>
-        
-        <div class="users">
-            <div class="cate">
-                <i class="material-icons">android</i> App အသုံးပြုမှု အများဆုံးသောသူများ
-            </div>
-            
-            
-            @foreach($logins as $login)
-                <div class="userList">
-                    <img src="{{$login->image}}" class="userImg"> <b>{{$login->name}} </b>
-                </div>
-            @endforeach
-            (All time)
-        </div>
-     <hr>
     </div>
 
     <script

@@ -44,9 +44,14 @@
     {
       "cate" : "Part C \nLevel One",
       "code" : "LevelOnePartC",
-      "eCode" : "c",
+      "eCode" : "b",
       "pic" : "https://www.calamuseducation.com/uploads/icons/level1c.png"
-    }
+    },{
+      "cate" : "Reading",
+      "code" : "LevelOneReading",
+      "eCode" : "b",
+      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_reading.jpg"
+    } 
     ]
   },
   

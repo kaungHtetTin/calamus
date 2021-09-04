@@ -43,21 +43,21 @@
     "enroll" : 110,
     "level" : "Let's Learn English (VOA)",
     "sub" : [ {
-      "cate" : "Beginning Level 1",
+      "cate" : "Beginning\nLevel 1",
       "code" : "voa_b_level1",
       "eCode" : "z",
-      "pic" : "https://www.calamuseducation.com/uploads/icons/studying.png"
+      "pic" : "https://www.calamuseducation.com/uploads/icons/learning.png"
     }, {
-      "cate" : "Beginning Level 2",
+      "cate" : "Beginning\nLevel 2",
       "code" : "voa_b_level2",
       "eCode" : "z",
-      "pic" : "https://www.calamuseducation.com/uploads/icons/studying.png"
+      "pic" : "https://www.calamuseducation.com/uploads/icons/learning.png"
     },
      {
       "cate" : "How To Pronouce",
       "code" : "HowToPronounce",
       "eCode" : "z",
-      "pic" : "https://www.calamuseducation.com/uploads/icons/studying.png"
+      "pic" : "https://www.calamuseducation.com/uploads/icons/learning.png"
     }]
   }],
   "function" : [ {
@@ -65,15 +65,15 @@
     "link" : "https://www.calamuseducation.com/calamus/exam/english",
     "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/exam.png"
   },
+  {
+    "cate" : "Activity",
+    "link" : "https://www.calamuseducation.com/calamus/activity/english",
+    "pic" : "https://www.calamuseducation.com/uploads/icons/activity.png"
+  },
     {
     "cate" : "Song Request",
     "link" : "https://www.calamuseducation.com/calamus/artists/english",
     "pic" : "https://www.calamuseducation.com/uploads/icons/requestsong.png"
-  },
-  {
-    "cate" : "Guide Line",
-    "link" : "https://www.calamuseducation.com/calamus",
-    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/guideline.png"
   } ],
   "secondform" : [ {
     "cate" : "Game",

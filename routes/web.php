@@ -47,6 +47,8 @@ Route::post('/anounce/englishone/{userid}',[AnouncementController::class,'voteEn
 Route::get('/anounce/test/{userid}',[AnouncementController::class,'showTestAnouncement']);
 Route::post('/anounce/song/{userid}',[AnouncementController::class,'requestSong'])->name('songRequest');
 Route::post('/songs/vote/{userid}',[RequestedSongController::class,'voteASong'])->name("voteASong");
+Route::get('/anounce/advertist/english/{userid}',[AnouncementController::class,'advertiseEasyEnglish']);
+Route::get('/anounce/advertist/korea/{userid}',[AnouncementController::class,'advertiseEasyKorean']);
 
 Route::get('/artists/{nation}',[ArtistController::class,'getArtist']);
 Route::get('/artists/request/{id}',[RequestedSongController::class,'getRequestSong'])->name("requestedSongList");
@@ -55,11 +57,17 @@ Route::get('/songs/mostvoted/{nation}',[RequestedSongController::class,'getMostV
 
 //activity 
 Route::get('/activity/korea',[AnouncementController::class,'activityOfKoreaUsers']);
+Route::get('/activity/english',[AnouncementController::class,'activityOfEnglishUsers']);
+Route::get('/activity/korea/reward/{userid}',[AnouncementController::class,'koreaRewardedUser']);
 
 //exam
 Route::get('/exam/english/',[ExamController::class,'showEnglishExam']);
 Route::get('/exam/english/leveltest/{test}',[ExamController::class,'showEnglishLevelTest'])->name('showEnglishLevelTest');
 Route::post('/exam/english/leveltest/one/{userid}',[ExamController::class,'checkEnglishLevelTestOne'])->name('checkEnglishLevelTestOne');
+
+Route::get('/english/credit',function(){
+     return view('anouncement.englishcredit');
+});
 
 
 

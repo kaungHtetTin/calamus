@@ -30,6 +30,12 @@ class EnglishUserDataController extends Controller
             
         ]);
         
+        EnglishUserData::where('phone',$userId)
+            ->update([
+                'learn_count'=>DB::raw("learn_count+1")
+            
+        ]);
+        
         $data=EnglishUserData::where('phone',$userId)->get();
         return $data;
     }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\artist;
 use Illuminate\Http\Request;
 
-// make changes from local pc
+
 class ArtistController extends Controller
 {
 
