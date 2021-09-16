@@ -61,14 +61,21 @@ Route::get('/activity/english',[AnouncementController::class,'activityOfEnglishU
 Route::get('/activity/korea/reward/{userid}',[AnouncementController::class,'koreaRewardedUser']);
 
 //exam
+
+
 Route::get('/exam/english/',[ExamController::class,'showEnglishExam']);
 Route::get('/exam/english/leveltest/{test}',[ExamController::class,'showEnglishLevelTest'])->name('showEnglishLevelTest');
-Route::post('/exam/english/leveltest/one/{userid}',[ExamController::class,'checkEnglishLevelTestOne'])->name('checkEnglishLevelTestOne');
+
+Route::get('/exam/korea',[ExamController::class,'showKoreaExam']);
+Route::get('/exam/korea/basic/{test}',[ExamController::class,'showKoreaBasicCourseExam'])->name('showKoreaBasicCourseExam');
+
 
 Route::get('/english/credit',function(){
      return view('anouncement.englishcredit');
 });
 
+
+ 
 
 
 

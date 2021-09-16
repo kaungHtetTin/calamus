@@ -35,6 +35,16 @@
       "code" : "basic_speaking",
       "eCode" : "b",
       "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_speaking.png"
+    }, {
+      "cate" : "Basic Listening",
+      "code" : "basic_listening",
+      "eCode" : "b",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/listening1.png"
+    },{
+      "cate" : "Basic Reading",
+      "code" : "basic_reading",
+      "eCode" : "b",
+      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_reading.jpg"
     } ]
   },
   

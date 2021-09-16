@@ -18,6 +18,7 @@ use App\Http\Controllers\SongController;
 use App\Http\Controllers\FriendController;
 use App\Http\Controllers\FirebaseNotiPushController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\ExamController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -166,6 +167,9 @@ Route::get('/getfriends/{id}/{major}',[FriendController::class,'getFriends']);
 Route::get('/getfriendreq/{id}/{major}',[FriendController::class,'getFriendRequests']);
 
 Route::post('/pushnotification',[FirebaseNotiPushController::class,'pushNotificationToSingleUser']);
+
+Route::post('/exam/result/update',[ExamController::class,'updateExamResult']);
+
 
 //app ads routing
 Route::get('/appads/{count}',[AppController::class,'getAppAds']);

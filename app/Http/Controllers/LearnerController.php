@@ -271,7 +271,7 @@ class LearnerController extends Controller
         
         $data['user']=$userData;
         $data['vipCourses']=$vipCourses;
-		$data['version']="2.17"; //easy korean
+		$data['version']="2.19"; //easy korean
         
         return $data;
 	   
