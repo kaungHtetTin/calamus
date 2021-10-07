@@ -12,6 +12,8 @@ use App\Models\Report;
 use App\Models\mylike;
 use App\Models\KoreanUserData;
 use App\Models\EnglishUserData;
+use App\Models\lesson;
+use App\Models\study;
 
 class PostController extends Controller
 {
@@ -492,6 +494,22 @@ class PostController extends Controller
         //new method
         $post_id=$req->post_Id;
         $userId=$req->user_id;
+        
+        $lessonId=lesson::where('date',$post_id)->first();
+        $lessonId=$lessonId->id;
+        
+         $lessonInfo=study::where('lesson_id',$lessonId)->where('learner_id',$userId)->first();
+        if(!$lessonInfo){
+            $study=new study;
+            $study->learner_id=$userId;
+            $study->lesson_id=$lessonId;
+            $study->frequent=1;
+            $study->save();
+        }else{
+            study::where('lesson_id',$lessonId)->where('learner_id',$userId)
+            ->update(['frequent'=>DB::raw("frequent+1")]);
+        }
+        
         post::where('post_id', $post_id)
         ->update([
           'view_count'=>DB::raw('view_count+1')

@@ -7,17 +7,17 @@
       "cate" : "Basic Grammar",
       "code" : "b_grammar",
       "eCode" : "a",
-      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_notes.png"
+      "pic" : "https://www.calamuseducation.com/uploads/icons/basic_notes.png"
     }, {
       "cate" : "Sentence Construction",
       "code" : "b_sentence_construction",
       "eCode" : "a",
-      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_notes.png"
+      "pic" : "https://www.calamuseducation.com/uploads/icons/basic_notes.png"
     }, {
       "cate" : "Translation",
       "code" : "b_translation",
       "eCode" : "a",
-      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_notes.png"
+      "pic" : "https://www.calamuseducation.com/uploads/icons/basic_notes.png"
     } ]
   },
   
@@ -29,12 +29,12 @@
       "cate" : "Grammar",
       "code" : "basic_grammar",
       "eCode" : "b",
-      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_grammar1.png"
+      "pic" : "https://www.calamuseducation.com/uploads/icons/basic_grammar1.png"
     }, {
       "cate" : "Basic Speaking",
       "code" : "basic_speaking",
       "eCode" : "b",
-      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_speaking.png"
+      "pic" : "https://www.calamuseducation.com/uploads/icons/basic_speaking.png"
     }, {
       "cate" : "Basic Listening",
       "code" : "basic_listening",
@@ -44,7 +44,7 @@
       "cate" : "Basic Reading",
       "code" : "basic_reading",
       "eCode" : "b",
-      "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/basic_reading.jpg"
+      "pic" : "https://www.calamuseducation.com/uploads/icons/basic_reading.jpg"
     } ]
   },
   
@@ -73,7 +73,7 @@
   "function" : [ {
     "cate" : "Exam",
     "link" : "https://www.calamuseducation.com/calamus/exam/english",
-    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/exam.png"
+    "pic" : "https://www.calamuseducation.com/uploads/icons/exam.png"
   },
   {
     "cate" : "Activity",
@@ -87,24 +87,24 @@
   } ],
   "secondform" : [ {
     "cate" : "Game",
-    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/game.png"
+    "pic" : "https://www.calamuseducation.com/uploads/icons/game.png"
   }, {
     "cate" : "TipsAndSlang",
-    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/tip_and_slang.png"
+    "pic" : "https://www.calamuseducation.com/uploads/icons/tip_and_slang.png"
   }, {
     "cate" : "WordsOnTopics",
-    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/word_on_topic.png"
+    "pic" : "https://www.calamuseducation.com/uploads/icons/word_on_topic.png"
   }, {
     "cate" : "Proverbs",
-    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/proverb.png"
+    "pic" : "https://www.calamuseducation.com/uploads/icons/proverb.png"
   }, {
     "cate" : "Phrase",
-    "pic" : "https://www.calamuseducation.com/easyenglish/knavy5241/mobile/icons/general_note.png"
+    "pic" : "https://www.calamuseducation.com/uploads/icons/general_note.png"
   } ],
   "videoform" : [ {
     "cate" : "Idioms"
   }, {
-    "cate" : "Weekly Proverbs"
+    "cate" : "WeeklyProverbs"
   }, {
     "cate" : "Translation"
   }, {

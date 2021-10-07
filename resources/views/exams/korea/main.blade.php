@@ -1,3 +1,5 @@
+
+
 <html>
     <header>
         
@@ -34,7 +36,7 @@
         <p>Allowed Time - 30 min</p>
         <p>စာမေးပွဲဝင်ရောက်ဖြေဆိုရန် Start Exam ကို နှိပ် ပါ။</p>
      
-        <a href="{{route('showKoreaBasicCourseExam',1)}}?userid={{$userid}}" style="text-decoration:none"><button class="btn-success rounded">Start Exam</button></a>
+        <a href="{{route('showKoreaBasicCourseExam',rand(1,2))}}?userid={{$userid}}" style="text-decoration:none"><button class="btn-success rounded">Start Exam</button></a>
         
         <hr style="height:10px;">
             

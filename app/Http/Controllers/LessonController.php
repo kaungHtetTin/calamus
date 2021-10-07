@@ -164,15 +164,16 @@ class LessonController extends Controller
         $major=$req->major;
         $cate=$req->cate;
         $count=$req->count;
-        
+    
         $lessons=DB::table('lessons')
         ->selectRaw("
                  *
             ")
         ->where('lessons.major',$major)
-        ->where('lessons.cate',$cate)
+        ->where('lessons_categories.category',$cate)
+        ->join('lessons_categories','lessons_categories.id','=','lessons.category_id')
         ->orderBy('lessons.isVideo','desc')
-        ->orderBy('id','asc')
+        ->orderBy('lessons.id','asc')
         ->offset($count)
         ->limit(30)
         ->get();
@@ -191,7 +192,8 @@ class LessonController extends Controller
                  *
             ")
         ->where('lessons.major',$major)
-        ->where('lessons.cate',$cate)
+        ->where('lessons_categories.category',$cate)
+        ->join('lessons_categories','lessons_categories.id','=','lessons.category_id')
         ->orderBy('lessons.id','desc')
         ->offset($count)
         ->limit(30)
