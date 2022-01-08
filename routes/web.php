@@ -50,6 +50,9 @@ Route::post('/anounce/song/{userid}',[AnouncementController::class,'requestSong'
 Route::post('/songs/vote/{userid}',[RequestedSongController::class,'voteASong'])->name("voteASong");
 Route::get('/anounce/advertist/english/{userid}',[AnouncementController::class,'advertiseEasyEnglish']);
 Route::get('/anounce/advertist/korea/{userid}',[AnouncementController::class,'advertiseEasyKorean']);
+Route::get('/anounce/englishtwo/{userid}',function(){
+   return view('anouncement.ano.englishtwo'); 
+});
 
 Route::get('/artists/{nation}',[ArtistController::class,'getArtist']);
 Route::get('/artists/request/{id}',[RequestedSongController::class,'getRequestSong'])->name("requestedSongList");

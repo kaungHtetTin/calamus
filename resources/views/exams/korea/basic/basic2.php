@@ -484,7 +484,11 @@ function questionFormatThree($question, $answer,$no){
             
                 }
             }
+<<<<<<< HEAD
             ajax.open("POST","https://www.calamuseducation.com/calamus-v2/api/exam/result/update",true);
+=======
+            ajax.open("POST","https://www.calamuseducation.com/calamus/api/exam/result/update",true);
+>>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
             ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             ajax.send("userid=<?php echo $userid?>&major=korea&test=basic_exam&result="+result);
 

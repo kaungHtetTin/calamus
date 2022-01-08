@@ -30,7 +30,60 @@ class LessonController extends Controller
              $response['nextPageToken']=null;
         }
         
+<<<<<<< HEAD
         
+=======
+        //the default lesson   return view('controller.view',);
+        $lesson=lesson::where('cate',"basic_word_construction")
+                 ->paginate(16);
+        return view('easykorea.home',[
+            'lessons'=>$lesson,
+            'words'=>$word
+        ]);
+    }
+     
+     
+    public function showLessonDetail($id){
+        $lesson=lesson::find($id);
+        $lessonData=file_get_contents($lesson->link);
+        $lessonData=json_decode($lessonData);
+        return view('easykorea.detailactivity',['lessonData'=>$lessonData]);
+    }
+    
+    public function showVideo($id){
+        $lesson=lesson::find($id);
+        $post=post::where('post_id',$lesson->date)->first();
+        $comments=DB::table('comment')
+	    ->selectRaw('
+	        learners.learner_name as userName,
+    	    learners.learner_image as userImage,
+    	    comment.body,
+    	    comment.time,
+    	    comment.writer_id as userId
+	        ')
+	    ->where('comment.post_id',$lesson->date)
+	    ->join('learners','learners.learner_phone','=','comment.writer_id')
+	    ->join('ko_user_datas','ko_user_datas.phone','=','comment.writer_id')
+	    ->orderBy('comment.time')
+	    ->get();
+        
+        
+    
+        return view('easykorea.videolessonactivity',[
+        'lessonData'=>$lesson,
+        'post'=>$post,
+        'comments'=>$comments
+        ]);
+        
+        
+    }
+    
+    public function fetchLessons(Request $req){
+        $major=$req->major;
+        $cate=$req->cate;
+        $count=$req->count;
+    
+>>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
         $lessons=DB::table('lessons')
         ->selectRaw("
                 lessons.id,
@@ -48,10 +101,16 @@ class LessonController extends Controller
                 ELSE 0
                 END as learned
             ")
+<<<<<<< HEAD
         ->where('lessons.category_id',$cate)
         ->join("lessons_categories","lessons_categories.id","=","lessons.category_id")
+=======
+        ->where('lessons.major',$major)
+        ->where('lessons_categories.category',$cate)
+        ->join('lessons_categories','lessons_categories.id','=','lessons.category_id')
+>>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
         ->orderBy('lessons.isVideo','desc')
-        ->orderBy('id','asc')
+        ->orderBy('lessons.id','asc')
         ->offset($count)
         ->limit($limit)
         ->get();
@@ -88,7 +147,13 @@ class LessonController extends Controller
                 ELSE 0
                 END as learned
             ")
+<<<<<<< HEAD
         ->where('lessons.category_id',$cate)
+=======
+        ->where('lessons.major',$major)
+        ->where('lessons_categories.category',$cate)
+        ->join('lessons_categories','lessons_categories.id','=','lessons.category_id')
+>>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
         ->orderBy('lessons.id','desc')
         ->offset($count)
         ->limit($limit)

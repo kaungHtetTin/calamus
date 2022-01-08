@@ -14,7 +14,13 @@ use App\Models\KoreanUserData;
 use App\Models\lesson;
 use App\Models\study;
 use App\Models\EnglishUserData;
+<<<<<<< HEAD
 date_default_timezone_set("Asia/Yangon");
+=======
+use App\Models\lesson;
+use App\Models\study;
+
+>>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
 class PostController extends Controller
 {
     
@@ -296,6 +302,50 @@ class PostController extends Controller
             ->update(['frequent'=>DB::raw("frequent+1")]);
         }
         
+<<<<<<< HEAD
+=======
+         $postData=DB::table('posts')
+        ->selectRaw("
+               
+        	    posts.post_like as postLikes,
+        	    posts.comments,
+        	    posts.view_count,
+        	    CASE
+                WHEN  EXISTS (SELECT NULL FROM likes l 
+                WHERE l.user_id ='$userId'and l.content_id =posts.post_id) THEN 1
+                ELSE 0
+                END as is_liked
+        	    
+            ")
+        ->where('posts.post_id',$post_id)
+        ->get();
+        
+        return $postData;
+    }
+    
+    
+    
+    public function getAndUpdateViewCount(Request $req){
+        //new method
+        $post_id=$req->post_Id;
+        $userId=$req->user_id;
+        
+        $lessonId=lesson::where('date',$post_id)->first();
+        $lessonId=$lessonId->id;
+        
+         $lessonInfo=study::where('lesson_id',$lessonId)->where('learner_id',$userId)->first();
+        if(!$lessonInfo){
+            $study=new study;
+            $study->learner_id=$userId;
+            $study->lesson_id=$lessonId;
+            $study->frequent=1;
+            $study->save();
+        }else{
+            study::where('lesson_id',$lessonId)->where('learner_id',$userId)
+            ->update(['frequent'=>DB::raw("frequent+1")]);
+        }
+        
+>>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
         post::where('post_id', $post_id)
         ->update([
           'view_count'=>DB::raw('view_count+1')
