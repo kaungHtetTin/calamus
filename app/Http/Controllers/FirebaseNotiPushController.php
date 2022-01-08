@@ -53,7 +53,11 @@ class FirebaseNotiPushController extends Controller
         return FirebaseNotiPushController:: sendNotification($fields);
     }
 
-    public static function pushNotificationToTopic($to,$title,$message){
+    public static function pushNotificationToTopic(Request $req){
+        $to=$req->to;
+        $title=$req->title;
+        $message=$req->message;
+        
         $payload = array();
         $payload['team'] = 'Calamus';
         $payload['go'] = "Easy Korean";

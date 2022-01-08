@@ -13,8 +13,6 @@ class WordOfTheDayController extends Controller
         $thisDay =date('j');
         $saveDay=DB::table('Timer')->value('day');
         $fetchId=DB::table('Timer')->value('english');
-        
-        
         if($thisDay==$saveDay){
             $word=DB::table('WordOfDay')
             ->where('id',$fetchId)

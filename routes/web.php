@@ -8,6 +8,7 @@ use App\Http\Controllers\SongController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\RequestedSongController;
+use App\Http\Controllers\StudyPlanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,10 +70,14 @@ Route::get('/exam/english/leveltest/{test}',[ExamController::class,'showEnglishL
 Route::get('/exam/korea',[ExamController::class,'showKoreaExam']);
 Route::get('/exam/korea/basic/{test}',[ExamController::class,'showKoreaBasicCourseExam'])->name('showKoreaBasicCourseExam');
 
+Route::get('/studyplan/korea',[StudyPlanController::class,'showKoreaStudyPlan']);
+Route::get('/studyplan/english',[StudyPlanController::class,'showEnglishStudyPlan']);
+Route::get('/studyplan/korea/detail',[StudyPlanController::class,'studyPlanDetail'])->name('studyPlanDetail');
 
 Route::get('/english/credit',function(){
      return view('anouncement.englishcredit');
 });
+
 
 
  

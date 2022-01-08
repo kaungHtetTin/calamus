@@ -14,10 +14,9 @@ class FriendController extends Controller
 {
     //
     
-    public function addFriend(Request $req){
+    public function addFriend(Request $req,$major){
         $myId=$req->my_id;
         $otherId=$req->other_id;
-        $major=$req->major;
         $count=$major."_count";
         $myFriCount=Friend::where('user_id',$myId)->pluck($count)->first();
         
@@ -25,8 +24,6 @@ class FriendController extends Controller
         $myName=learner::where('learner_phone',$myId)->pluck('learner_name')->first();
         if($major=="korea")$friToken=KoreanUserData::where('phone',$otherId)->pluck('token')->first();
         if($major=="english")$friToken=EnglishUserData::where('phone',$otherId)->pluck('token')->first();
-        
-       
         
         $reqRow=FriendRequest::where("user_id",$otherId)->first();
         if($reqRow){
@@ -102,16 +99,12 @@ class FriendController extends Controller
 			FirebaseNotiPushController::pushNotificationToSingleUserByServer($friToken,"Request",$myName." sent a friend request.","3");
 			return "first request";
         }
-        
-      
-        
     }
     
     
-    public function RemoveFriendRequest(Request $req){
+    public function RemoveFriendRequest(Request $req,$major){
         $myId=$req->my_id;
         $otherId=$req->other_id;
-        $major=$req->major;
         $count=$major."_count";
    
         $reqRow=FriendRequest::where("user_id",$myId)->first();
@@ -136,10 +129,9 @@ class FriendController extends Controller
         }
     }
     
-    public function confrimFriend(Request $req){
+    public function confrimFriend(Request $req,$major){
         $myId=$req->my_id;
         $otherId=$req->other_id;
-        $major=$req->major;
         $count=$major."_count";
         
         //get data for push notification;
@@ -238,10 +230,9 @@ class FriendController extends Controller
         
     }
     
-    public function unfriend(Request $req){
+    public function unfriend(Request $req,$major){
         $myId=$req->my_id;
         $otherId=$req->other_id;
-        $major=$req->major;
         $count=$major."_count";
         
         $friRow=Friend::where("user_id",$myId)->first();
@@ -279,15 +270,12 @@ class FriendController extends Controller
         }
     }
     
-    public function getFriends($id,$major){
+    public function getFriends(Request $req,$major){
         
-        if($major=="korea"){
-            $joinTable="ko_user_datas";
-        }else{
-            $joinTable="ee_user_datas";
-        }
+        $dataStore=$req->mCode;
+        $id=$req->userId;
         
-        
+        $joinTable=$dataStore."_user_datas";  
         $friendRow=Friend::where('user_id',$id)->first();
         $friend=$friendRow->$major;
         
@@ -314,13 +302,12 @@ class FriendController extends Controller
         return $arr;
     }
     
-    public function getFriendRequests($id,$major){
-        if($major=="korea"){
-            $joinTable="ko_user_datas";
-        }else{
-            $joinTable="ee_user_datas";
-        }
+    public function getFriendRequests(Request $req, $major){
         
+        $dataStore=$req->mCode;
+        $id=$req->userId;
+        
+        $joinTable=$dataStore."_user_datas";
         
         $friendReqRow=FriendRequest::where('user_id',$id)->first();
         

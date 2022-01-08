@@ -10,199 +10,19 @@ use App\Models\Notification;
 use Illuminate\Support\Facades\Storage;
 use App\Models\KoreanUserData;
 use App\Models\EnglishUserData;
+date_default_timezone_set("Asia/Yangon");
 
 class CommentController extends Controller
 {
     
-     public function fetchCommentEnglish(Request $req){
-         //new method
-       $post_id=$req->post_id;
-	    $time=$req->time;
-	    $userId=$req->user_id;
-	    
-        if(!empty($time)){
-    	        $affect=DB::table('notification')
-    	       ->where('time',$time)
-    	       ->update(['seen'=>1]);
-    	      
-    	 }
-
-	    $posts=DB::table('posts')
-        ->selectRaw("
-                learners.learner_name as userName,
-        	    learners.learner_phone as userId,
-        	    ee_user_datas.token as userToken,
-        	    learners.learner_image as userImage,
-        	    ee_user_datas.is_vip as vip,
-        	    posts.post_id as postId,
-        	    posts.body as body,
-        	    posts.post_like as postLikes,
-        	    posts.comments,
-        	    posts.image as postImage
-        	  
-            ")
-        ->where('posts.post_id',$post_id)
-        ->join('learners','learners.learner_phone','=','posts.learner_id')
-        ->join('ee_user_datas','ee_user_datas.phone','=','posts.learner_id')
-        ->get();
-       
-        foreach($posts as $post){
-                    
-            $post->is_liked=0;
-            
-            $likeRows=mylike::where('content_id',$post->postId)->get();
-            foreach ($likeRows as $row){
-                     
-                $likesArr=json_decode($row->likes,true);
-                
-                $user_ids=array_column($likesArr,"user_id");
-                     
-                if(in_array( $userId, $user_ids)){
-                    $post->is_liked=1;
-                        
-                }else{
-                    $post->is_liked=0;
-                }
-            }
-            
-             $arr[]=$post;
-            
-        }
-        
-	    $go['post']=$arr;
-	    
-	    $comments=DB::table('comment')
-	    ->selectRaw("
-	        learners.learner_name as userName,
-    	    ee_user_datas.token as userToken,
-    	    learners.learner_image as userImage,
-    	    ee_user_datas.is_vip as vip,
-    	    comment.body,
-    	    comment.time,
-    	    comment.writer_id as userId,
-    	    comment.likes,
-    	    comment.image as commentImage,
-    	    CASE
-            WHEN  EXISTS (SELECT NULL FROM comment_likes l 
-            WHERE l.user_id ='$userId'and l.comment_id =comment.time) THEN 1
-            ELSE 0
-            END as is_liked
-    	   
-	        ")
-	    ->where('comment.post_id',$post_id)
-	    ->join('learners','learners.learner_phone','=','comment.writer_id')
-	    ->join('ee_user_datas','ee_user_datas.phone','=','comment.writer_id')
-	    ->orderBy('comment.time')
-	    ->get();
-	    
-	    $go['comments']=$comments;
-	    
-	    return $go;
-	    
-    }
-    
-    
-    public function fetchCommentKorean(Request $req){
-        //new method
-        $post_id=$req->post_id;
-	    $time=$req->time;
-	    $userId=$req->user_id;
-	    
-        if(!empty($time)){
-    	        $affect=DB::table('notification')
-    	       ->where('time',$time)
-    	       ->update(['seen'=>1]);
-    	      
-    	 }
-
-	    $posts=DB::table('posts')
-        ->selectRaw("
-                learners.learner_name as userName,
-        	    learners.learner_phone as userId,
-        	    ko_user_datas.token as userToken,
-        	    learners.learner_image as userImage,
-        	    ko_user_datas.is_vip as vip,
-        	    posts.post_id as postId,
-        	    posts.body as body,
-        	    posts.post_like as postLikes,
-        	    posts.comments,
-        	    posts.image as postImage
-        	  
-            ")
-        ->where('posts.post_id',$post_id)
-        ->join('learners','learners.learner_phone','=','posts.learner_id')
-        ->join('ko_user_datas','ko_user_datas.phone','=','posts.learner_id')
-        ->get();
-       
-        foreach($posts as $post){
-                    
-            $post->is_liked=0;
-            
-            $likeRows=mylike::where('content_id',$post->postId)->get();
-            foreach ($likeRows as $row){
-                     
-                $likesArr=json_decode($row->likes,true);
-                
-                $user_ids=array_column($likesArr,"user_id");
-                     
-                if(in_array( $userId, $user_ids)){
-                    $post->is_liked=1;
-                        
-                }else{
-                    $post->is_liked=0;
-                }
-            }
-            
-             $arr[]=$post;
-            
-        }
-        
-	    $go['post']=$arr;
-	    
-	    $comments=DB::table('comment')
-	    ->selectRaw("
-	        learners.learner_name as userName,
-    	    ko_user_datas.token as userToken,
-    	    learners.learner_image as userImage,
-    	    ko_user_datas.is_vip as vip,
-    	    comment.body,
-    	    comment.time,
-    	    comment.writer_id as userId,
-    	    comment.likes,
-    	    comment.image as commentImage,
-    	    CASE
-            WHEN  EXISTS (SELECT NULL FROM comment_likes l 
-            WHERE l.user_id ='$userId'and l.comment_id =comment.time) THEN 1
-            ELSE 0
-            END as is_liked
-    	   
-	        ")
-	    ->where('comment.post_id',$post_id)
-	    ->join('learners','learners.learner_phone','=','comment.writer_id')
-	    ->join('ko_user_datas','ko_user_datas.phone','=','comment.writer_id')
-	    ->orderBy('comment.time')
-	    ->get();
-	    
-	    $go['comments']=$comments;
-	    
-	    return $go;
-	    
-    }
-    
-    
-   
-
     public function addComment(Request $req){
       
-    
         $post_id=$req->post_id;
         $writer_id=$req->writer_id;  
-	    $time=$req->time;
+	    $time=round(microtime(true) * 1000);
 	    $owner_id=$req->owner_id;
 		$action=$req->action;
 		$image="";
-		
-	 
 		
 		if(!empty($req->body)){
 		      $body=$req->body;
@@ -212,8 +32,6 @@ class CommentController extends Controller
 		
 		$myPath="https://www.calamuseducation.com/uploads/";
 		
-		
-      
         if(!empty($req->myfile)){
             $file=$req->file('myfile');
             $result=Storage::disk('calamusPost')->put('comments',$file);
@@ -272,6 +90,100 @@ class CommentController extends Controller
          
         return "added";
     }
+    
+
+    public function fetchComment(Request $req,$major){
+        
+        $dataStore=$req->mCode;
+        $post_id=$req->postId;
+        $time=$req->time;
+        $userId=$req->userId;
+        
+        $dataStore=$dataStore."_user_datas";
+	    
+        if($time!=0){
+    	        $affect=DB::table('notification')
+    	       ->where('time',$time)
+    	       ->update(['seen'=>1]);
+    	 }
+
+	    $posts=DB::table('posts')
+        ->selectRaw("
+                learners.learner_name as userName,
+        	    learners.learner_phone as userId,
+        	    $dataStore.token as userToken,
+        	    learners.learner_image as userImage,
+        	    $dataStore.is_vip as vip,
+        	    posts.post_id as postId,
+        	    posts.body as body,
+        	    posts.post_like as postLikes,
+        	    posts.comments,
+        	    posts.image as postImage
+        	  
+            ")
+        ->where('posts.post_id',$post_id)
+        ->join('learners','learners.learner_phone','=','posts.learner_id')
+        ->join("$dataStore","$dataStore.phone",'=','posts.learner_id')
+        ->get();
+        
+        foreach($posts as $post){
+                    
+            $post->is_liked=0;
+            
+            $likeRows=mylike::where('content_id',$post->postId)->get();
+            foreach ($likeRows as $row){
+                     
+                $likesArr=json_decode($row->likes,true);
+                
+                $user_ids=array_column($likesArr,"user_id");
+                     
+                if(in_array( $userId, $user_ids)){
+                    $post->is_liked=1;
+                        
+                }else{
+                    $post->is_liked=0;
+                }
+            }
+            
+             $arr[]=$post;
+             
+           
+            
+        }
+        
+    
+	    $go['post']=$arr;
+	    
+	    $comments=DB::table('comment')
+	    ->selectRaw("
+	        learners.learner_name as userName,
+    	    $dataStore.token as userToken,
+    	    learners.learner_image as userImage,
+    	    $dataStore.is_vip as vip,
+    	    comment.body,
+    	    comment.time,
+    	    comment.writer_id as userId,
+    	    comment.likes,
+    	    comment.image as commentImage,
+    	    CASE
+            WHEN  EXISTS (SELECT NULL FROM comment_likes l 
+            WHERE l.user_id ='$userId'and l.comment_id =comment.time) THEN 1
+            ELSE 0
+            END as is_liked
+    	   
+	        ")
+	    ->where('comment.post_id',$post_id)
+	    ->join('learners','learners.learner_phone','=','comment.writer_id')
+	    ->join("$dataStore","$dataStore.phone",'=','comment.writer_id')
+	    ->orderBy('comment.time')
+	    ->get();
+	    
+	    $go['comments']=$comments;
+	    
+	    return $go;
+	    
+    }
+
     
     public function deleteComment(Request $req){
         $time=$req->time;

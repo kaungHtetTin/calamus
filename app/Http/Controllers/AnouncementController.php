@@ -62,46 +62,7 @@ class AnouncementController extends Controller
     }
     
 
-    
-    public function addSongForWeeks(Request $req){
-        $songOne=$req->songOne;
-        $songTwo=$req->songTwo;
-        $songThree=$req->songThree;
-        
-        DB::table('anouncement')->updateOrInsert(
-                    	 ['id'=>1],
-                    	 [
-                    	       'is_seen'=>"[]"
-                    	 ]
-        );
-        
-        DB::table('weekSongs')->updateOrInsert(
-                    	 ['id'=>1],
-                    	 [
-                    	       'song_name'=>$songOne,
-                    	        'votes'=>0
-                    	 ]
-        );
-        
-        DB::table('weekSongs')->updateOrInsert(
-                    	 ['id'=>2],
-                    	 [
-                    	       'song_name'=>$songTwo,
-                    	       'votes'=>0
-                    	 ]
-        );
-        DB::table('weekSongs')->updateOrInsert(
-                    	 ['id'=>3],
-                    	 [
-                    	       'song_name'=>$songThree,
-                    	        'votes'=>0
-                    	 ]
-        );
-        
-        return "Added";
-        
-    }
-    
+
     public function requestSong(Request $req,$userid){
         
         $seenUsers=anouncement::where('id','1')->get()->first();

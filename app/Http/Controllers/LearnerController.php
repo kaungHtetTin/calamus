@@ -91,9 +91,89 @@ class LearnerController extends Controller
 		return json_encode($result);
     }
     
-    
-    public function getProfileData(Request $req){
+    public function loadUserData(Request $req,$major){
+        
         $phone=$req->phone;
+		$token=$req->token;
+		
+		if($major=="english"){
+		    $dataTable="ee_user_datas";
+		    $loginTime=EnglishUserData::where('phone',$phone)->first();
+		    $data['version']="2.14"; 
+		}else if($major=="korea"){
+		    $dataTable="ko_user_datas";
+		    $loginTime=KoreanUserData::where('phone',$phone)->first();
+		    $data['version']="2.21";
+		}
+		
+		if(!$loginTime){
+	       DB::table("$dataTable")
+    	    ->updateOrInsert(
+    	        ['phone'=>$phone],
+    	        [
+    	            'token'=>$token,
+    	            'login_time'=>DB::raw('login_time+1'),
+    	            'last_active'=>now(),
+    	            'first_join'=>now()
+    	       ]
+    	   );
+	   }else{
+	        DB::table("$dataTable")
+    	    ->updateOrInsert(
+    	        ['phone'=>$phone],
+    	        [
+    	            'token'=>$token,
+    	            'login_time'=>DB::raw('login_time+1'),
+    	            'last_active'=>now(),
+    	       ]
+    	   );
+	   }
+		
+
+	   $userData=DB::table('learners')
+        ->selectRaw("
+                learners.learner_name as name,
+		        learners.learner_email as email,
+		        learners.learner_image as imageUrl,
+		        $dataTable.game_score as gameScore,
+		        $dataTable.is_vip as isVip
+            ")
+        ->where('learners.learner_phone',$phone)
+        ->join("$dataTable","$dataTable.phone",'=',"learners.learner_phone")
+        ->first();
+        
+        $vipCourses=DB::table('VipUsers')
+        ->selectRaw('
+            VipUsers.course_id
+            ')
+        ->where('VipUsers.phone',$phone)
+        ->where('VipUsers.major',$major)
+        ->get();
+        
+        $enrolls=DB::table('courses')
+            ->selectRaw("
+                courses.course_id,
+                count(*) as learned,
+                courses.lessons_count as total
+            ")
+            ->groupBy("courses.course_id")
+            ->where("studies.learner_id",$phone)
+            ->where("courses.major",$major)
+            ->join("lessons_categories","lessons_categories.course_id","=","courses.course_id")
+            ->join("lessons","lessons_categories.id","=","lessons.category_id")
+            ->join("studies","lessons.id","=","studies.lesson_id")
+            ->get();
+        
+        $data['user']=$userData;
+        $data['vipCourses']=$vipCourses;
+        $data['enrollProgress']=$enrolls;
+        return $data;
+        
+    }
+    
+    
+    public function getProfileData($major,$phone){
+         
         return learner::where('learner_phone',$phone)->first();
     }
     
@@ -177,137 +257,27 @@ class LearnerController extends Controller
         return learner::where('learner_phone',$phone)->first();
     }
     
-    public function easyEnglishLogin(Request $req){
-        
-        $phone=$req->phone;
-		$token=$req->token;
-		
-	    DB::table('ee_user_datas')
-	    ->updateOrInsert(
-	        ['phone'=>$phone],
-	        [
-	            'token'=>$token,
-	            'login_time'=>DB::raw('login_time+1'),
-	            'last_active'=>now(),
-	       ]
-	   );
-	   
-	   $tempdata=EnglishUserData::where('phone',$phone)->first();
-	   $login_time=$tempdata->login_time;
-	   if($login_time<2){
-	       EnglishUserData::where('phone',$phone)->update(['first_join'=>now()]);
-	   }
-	  
-	   $userData=DB::table('learners')
-        ->selectRaw('
-                learners.learner_name as name,
-		        learners.learner_email as email,
-		        learners.learner_image as imageUrl,
-		        ee_user_datas.game_score as gameScore,
-		        ee_user_datas.is_vip as isVip
-            ')
-        ->where('learners.learner_phone',$phone)
-        ->join('ee_user_datas','ee_user_datas.phone','=','learners.learner_phone')
-        ->first();
-        
-        $vipCourses=DB::table('VipUsers')
-        ->selectRaw('
-            VipUsers.course
-            ')
-        ->where('VipUsers.phone',$phone)
-        ->where('VipUsers.major','english')
-        ->get();
-        
-        $data['user']=$userData;
-		$data['version']="2.12"; //easy english
-        $data['vipCourses']=$vipCourses;
-        return $data;
-        
-    }
     
-    public function koreanLogin(Request $req){
-        $phone=$req->phone;
-		$token=$req->token;
-	//	
-		$today=date("Y/m/d h:i:sa");
-		
-	//	$token="abcdef";
-	    DB::table('ko_user_datas')
-	    ->updateOrInsert(
-	        ['phone'=>$phone],
-	        [
-	            'token'=>$token,
-	            'login_time'=>DB::raw('login_time+1'),
-	            'last_active'=>now(),
-	       ]
-	   );
-	   
-	   $tempdata=KoreanUserData::where('phone',$phone)->first();
-	   $login_time=$tempdata->login_time;
-	   if($login_time<2){
-	       KoreanUserData::where('phone',$phone)->update(['first_join'=>now()]);
-	   }
-	  
-	   
-	   $userData=DB::table('learners')
-        ->selectRaw('
-                learners.learner_name as name,
-		        learners.learner_email as email,
-		        learners.learner_image as imageUrl,
-		        ko_user_datas.game_score as gameScore,
-		        ko_user_datas.is_vip as isVip
-            ')
-        ->where('learners.learner_phone',$phone)
-        ->join('ko_user_datas','ko_user_datas.phone','=','learners.learner_phone')
-        ->first();
+    public function getTopGamer(Request $req,$major){
         
-        $vipCourses=DB::table('VipUsers')
-            ->selectRaw('
-                VipUsers.course
-                ')
-            ->where('VipUsers.phone',$phone)
-            ->where('VipUsers.major','korea')
-            ->get();
+        $mCode=$req->mCode;
         
-        $data['user']=$userData;
-        $data['vipCourses']=$vipCourses;
-		$data['version']="2.19"; //easy korean
-        
-        return $data;
-	   
-    }
-    
-    public function getKoreanTopGamer(){
-         $koreanTopGamers=DB::table('learners')
-        ->selectRaw('
+        $dataStore=$mCode."_user_datas";
+         $TopGamers=DB::table('learners')
+        ->selectRaw("
                 learners.learner_name,
                 learners.learner_image,
-        	    ko_user_datas.game_score
-            ')
-        ->join('ko_user_datas','ko_user_datas.phone','=','learners.learner_phone')
-        ->orderBy('ko_user_datas.game_score','desc')
+        	    $dataStore.game_score
+            ")
+        ->join($dataStore,"$dataStore.phone",'=','learners.learner_phone')
+        ->orderBy("$dataStore.game_score",'desc')
         ->limit(5)
         ->get();
         
-        return $koreanTopGamers;
+        return $TopGamers;
     }
     
-    public function getEnglishTopGamer(){
-         $englishTopGamers=DB::table('learners')
-        ->selectRaw('
-                learners.learner_name,
-                learners.learner_image,
-        	    ee_user_datas.game_score
-            ')
-        ->join('ee_user_datas','ee_user_datas.phone','=','learners.learner_phone')
-        ->orderBy('ee_user_datas.game_score','desc')
-        ->limit(5)
-        ->get();
-        
-        return $englishTopGamers;
-    }
-    
-      public function getUserProfile($myId,$otherId,$major){
+    public function getUserProfile($major,$myId,$otherId){
           
         $count=$major."_count";  
           
@@ -321,6 +291,25 @@ class LearnerController extends Controller
         }
         
         $data['token']=$token->token;
+        $data['is_vip']=$token->is_vip;
+        
+        $enrolls=DB::table('courses')
+            ->selectRaw("
+                courses.course_id,
+                courses.title,
+                count(*) as learned,
+                courses.lessons_count as total
+            ")
+            ->groupBy("courses.course_id")
+            ->where("studies.learner_id",$otherId)
+            ->where("courses.major",$major)
+            ->join("lessons_categories","lessons_categories.course_id","=","courses.course_id")
+            ->join("lessons","lessons_categories.id","=","lessons.category_id")
+            ->join("studies","lessons.id","=","studies.lesson_id")
+            ->get();
+        
+        $data['enroll']=$enrolls;
+        
         $reqRow=FriendRequest::where("user_id",$otherId)->first();
         if($reqRow){
             
@@ -378,16 +367,12 @@ class LearnerController extends Controller
         return $data;
     }
     
-    public function searchSomeone($major,$search){
+    public function searchSomeone(Request $req,$major){
         
-        if($major=="korea"){
-            $joinTable="ko_user_datas";
-        }else{
-            $joinTable="ee_user_datas";
-        }
-        
-      //  $users=learner::where('learner_name','like',"%$search%")->Orwhere('learner_phone',$search)->get();
-        
+        $search=$req->search;
+        $mCode=$req->mCode;
+        $joinTable=$mCode."_user_datas";
+       
         $users=DB::table($joinTable)
         ->selectRaw("
                 learners.learner_name as userName,

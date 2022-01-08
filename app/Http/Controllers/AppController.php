@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class AppController extends Controller
 {
-    public function getAppAds($count){
+    public function getAppAds(){
         $app=App::inRandomOrder()->first();
         return $app;
     }

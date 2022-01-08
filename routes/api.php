@@ -19,6 +19,8 @@ use App\Http\Controllers\FriendController;
 use App\Http\Controllers\FirebaseNotiPushController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\UserDataController;
+use App\Http\Controllers\CourseController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -34,147 +36,149 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//course routing
+Route::post('/{major}/start/course',[CourseController::class,'startACourse']);
+Route::get('/{major}/course/enroll',[CourseController::class,'getCourseEnrollData']);
 
-//these routes are used for easy English App
-Route::post('/login/english',[LearnerController::class,'easyEnglishLogin']);
-Route::get('/posts/english',[PostController::class,'fetchEnglishPost']);
-Route::post('/comments/english',[CommentController::class,'fetchCommentEnglish']);
-Route::get('/wordofdays/english',[WordOfTheDayController::class,'getEnglishWordOfTheday']);
-Route::get('/notifications/english',[NotificationController::class,'fetchEnglishNotification']);
-Route::get('/game/english',[GameWordController::class,'getEngilshGameWord']);
-Route::get('/gamers/english/scores',[LearnerController::class,'getEnglishTopGamer']);
-Route::post('/gamers/english/scores/update',[EnglishUserDataController::class,'updateGameScore']);
-Route::post('/click/english',[EnglishUserDataController::class,'recordAClickOnEnglish']);
 
-Route::get('/form/english', function () {
+//studying routing
+Route::post('/{major}/studyalesson',[UserDataController::class,'studyALesson']);
+Route::post('/{major}/setstudytime',[UserDataController::class,'setStudyTime']);
 
-    return file_get_contents(base_path('resources/lang/englishform.json'));
+//lesson routing
+Route::get('/{major}/lessons',[LessonController::class,'fetchLessons']);
+Route::get('/{major}/lessons/video',[LessonController::class,'fetchVideos']);
+Route::get('/{major}/lessons/search/video',[LessonController::class,'findAVideo']);
+Route::get('/{major}/lessons/dayplan',[LessonController::class,'getDayPlan']);
+Route::get('/{major}/lessons/category',[CourseController::class,'getCategoryByCourse']);
+Route::get('/{major}/lessons-by-day',[LessonController::class,'getLessonsByDayPlan']);
+
+
+//announcement routing
+Route::get('/{major}/announcement',[AnouncementController::class,'getAnouncementLink']);
+
+//post routing
+Route::get('/{major}/posts',[PostController::class,'fetchPost']);
+Route::get('/{major}/posts/user',[PostController::class,'fetchDiscussion']);
+Route::post('/{major}/posts/add',[PostController::class,'addPost']);
+Route::post('/{major}/posts/delete',[PostController::class,'deletePost']);
+Route::post('/{major}/posts/report',[PostController::class,'reportPost']);
+Route::post('/{major}/posts/viewcount',[PostController::class,'getAndUpdateViewCount']);
+Route::post('/{major}/posts/edit',[PostController::class,'editPost']);
+Route::get('/{major}/posts/videourl',[PostController::class,'getVideodownloadLink']);
+
+//comment routing
+Route::get('/{major}/comments',[CommentController::class,'fetchComment']); //comment time =notificatio time(0 for commentactivity)
+Route::post('/{major}/comments/add',[CommentController::class,'addComment']);
+Route::post('/{major}/comments/delete',[CommentController::class,'deleteComment']);
+
+//like routing
+Route::post('/{major}/comments/like',[LikeController::class,'addCommentLike']);
+Route::get('/{major}/comments/likes',[LikeController::class,'fetchCommentsLikes']);
+Route::post('/{major}/posts/like',[LikeController::class,'addPostLike']);
+Route::get('/{major}/posts/likes',[LikeController::class,'fetchPostLikes']);
+Route::post('/{major}/songs/like',[LikeController::class,'addSongLike']);
+
+//song routing
+Route::get('/{major}/songs',[SongController::class,'getSong']);
+Route::get('/{major}/songs/search',[SongController::class,'searchASong']);
+Route::get('/{major}/songs/popular',[SongController::class,'getPopularSong']);
+Route::get('/{major}/songs/by/artist',[SongController::class,'getSongByArtist']);
+Route::get('/{major}/songs/by/artist/popular',[SongController::class,'getPopularSongByArtist']);
+
+Route::get('/{major}/songs/lyrics/{url}', function ($major,$url) {
+    $url="../uploads/songs/lyrics/".$url.".txt";
+    return readfile($url);
 });
+Route::post('/{major}/songs/download',[SongController::class,'downloadSong']);
+Route::get('/{major}/songs/artists',[SongController::class,'getArtist']);
 
-//these routes are used for easy Korea app
-Route::get('/posts/korean',[PostController::class,'fetchKoreanPost']);
 
-Route::get('/posts/korean/T',[PostController::class,'fetchKoreanPostT']);
 
-Route::post('/comments/korean',[CommentController::class,'fetchCommentKorean']);
-Route::get('/notifications/korean',[NotificationController::class,'fetchKoreanNotification']);
-Route::get('/game/korean',[GameWordController::class,'getKoreanGameWord']);
-Route::get('/gamers/korean/scores',[LearnerController::class,'getKoreanTopGamer']);
-Route::post('/gamers/korean/scores/update',[KoreanUserDataController::class,'updateGameScore']);
-Route::get('/wordofdays/korean',[WordOfTheDayController::class,'getKoreaWordOfTheDay']);
-Route::post('/login/korean',[LearnerController::class,'koreanLogin']);
-Route::post('/click/korean',[KoreanUserDataController::class,'recordAClickOnKorea']);
+//user routing
+Route::get('/{major}/search',[LearnerController::class,'searchSomeone']);
+
+
+//password reset
+Route::get('/{major}/searchaccount',[PasswordController::class,'searchAccount']);
+Route::get('/{major}/emailverify',[PasswordController::class,'verifyEmail']);
+Route::post('/{major}/resetpasswordbycode',[PasswordController::class,'resetPasswordByCode']);
+Route::get('/{major}/checkpassword',[PasswordController::class,'checkCurrentPassword']);
+Route::post('/{major}/resetpasswordbyuser',[PasswordController::class,'resetPasswordByUser']);
+
+//friend routing
+Route::post('/{major}/addfriend',[FriendController::class,'addFriend']);
+Route::post('/{major}/confirmfriend',[FriendController::class,'confrimFriend']);
+Route::post('/{major}/unfriend',[FriendController::class,'unfriend']);
+Route::post('/{major}/removefriendrequest',[FriendController::class,'RemoveFriendRequest']);
+Route::get('/{major}/getfriends',[FriendController::class,'getFriends']);
+Route::get('/{major}/getfriendrequests',[FriendController::class,'getFriendRequests']);
+
+//notification routing
+Route::get('/{major}/notifications',[NotificationController::class,'fetchNotification']);
+Route::post('/{major}/pushnotification',[FirebaseNotiPushController::class,'pushNotificationToSingleUser']);
+Route::post('/{major}/pushnotification/topic',[FirebaseNotiPushController::class,'pushNotificationToTopic']);
+
+//game routing
+Route::get('/{major}/gamers',[LearnerController::class,'getTopGamer']);
+Route::get('/{major}/gameword',[GameWordController::class,'getGameWord']);
+
+//easy English App
+Route::get('/english/wordofdays',[WordOfTheDayController::class,'getEnglishWordOfTheday']);
+Route::get('/english/credit',function(){return view('anouncement.englishcredit');});
+Route::post('/english/gamers/scores/update',[EnglishUserDataController::class,'updateGameScore']);
+Route::post('/{major}/click/english',[EnglishUserDataController::class,'recordAClickOnEnglish']);
+
+
+
+
+//easy Korea app
+Route::get('/korea/wordofdays',[WordOfTheDayController::class,'getKoreaWordOfTheDay']);
+Route::post('/korea/gamers/scores/update',[KoreanUserDataController::class,'updateGameScore']);
+Route::post('/{major}/click/korean',[KoreanUserDataController::class,'recordAClickOnKorea']);
 
 
 //there are common routes
 
-Route::post('/signup',[LearnerController::class,'signUp']);
-Route::post('/login',[LearnerController::class,'logIng']);
-Route::post('/editprofile',[LearnerController::class,'editProfile']);
-Route::get('/getprofile',[LearnerController::class,'getProfileData']);
-Route::get('/getprofile/{myId}/{otherId}/{major}',[LearnerController::class,'getUserProfile']);
-Route::get('/peopleyoumayknow/{myId}/{major}',[LearnerController::class,'peopleYouMayKnow']);
-Route::get('/search/{major}/{search}',[LearnerController::class,'searchSomeone']);
-
-//password reset
-Route::get('/searchaccount/{phone}/{major}',[PasswordController::class,'searchAccount']);
-Route::get('/emailverify/{phone}/{code}',[PasswordController::class,'verifyEmail']);
-Route::get('/resetpasswordbycode/{phone}/{code}/{password}',[PasswordController::class,'resetPasswordByCode']);
-Route::get('/checkpassword/{phone}/{password}',[PasswordController::class,'checkCurrentPassword']);
-Route::get('/resetpasswordbyuser/{phone}/{currentPassword}/{newPassword}',[PasswordController::class,'resetPasswordByUser']);
-
-Route::get('/posts/special',[PostController::class,'fetchDiscussion']);
-Route::get('/lessons',[LessonController::class,'fetchLessons']);
-Route::get('/lessons/video',[LessonController::class,'fetchVideos']);
-Route::get('/lessons/video/find',[LessonController::class,'findAVideo']);
-
-Route::post('/comments/add',[CommentController::class,'addComment']);
-Route::post('/comments/delete',[CommentController::class,'deleteComment']);
-Route::post('/comments/like',[LikeController::class,'addCommentLike']);
-Route::get('/comments/likes',[LikeController::class,'fetchCommentsLikes']);
-
-Route::get('/songs/get',[SongController::class,'getSong']);
-Route::get('/songs/v2/get',[SongController::class,'getSongNewVersion']);
-Route::get('/songs/popular',[SongController::class,'getPopularSong']);
-Route::post('/songs/like',[LikeController::class,'addSongLike']);
-Route::post('/songs/download',[SongController::class,'downloadSong']);
-Route::get('/songs/search',[SongController::class,'searchASong']);
-Route::get('/songs/artists',[SongController::class,'getArtist']);
-Route::get('/songs/{artist}',[SongController::class,'getSongByArtist']);
-Route::get('/songs/v2/{artist}',[SongController::class,'getSongByArtistNewVersion']);
-Route::get('/songs/popular/{artist}',[SongController::class,'getPopularSongByArtist']);
-
-Route::post('/posts/add',[PostController::class,'addPost']);
-Route::post('/posts/delete',[PostController::class,'deletePost']);
-Route::post('/posts/report',[PostController::class,'reportPost']);
-Route::post('/posts/viewcount',[PostController::class,'getAndUpdateViewCount']);
-Route::post('/posts/edit',[PostController::class,'editPost']);
-Route::get('/posts/videourl/{postId}',[PostController::class,'getVideodownloadLink']);
+Route::post('/{major}/signup',[LearnerController::class,'signUp']);
+Route::post('/{major}/login',[LearnerController::class,'logIng']);
+Route::post('/{major}/login/data',[LearnerController::class,'loadUserData']);
+Route::get('/{major}/login/data',[LearnerController::class,'loadUserData']);
+Route::post('/{major}/editprofile',[LearnerController::class,'editProfile']);
+Route::get('/{major}/getprofile/{userId}',[LearnerController::class,'getProfileData']);
+Route::get('/{major}/getprofile/{myId}/{otherId}',[LearnerController::class,'getUserProfile']);
 
 
-Route::post('/posts/like',[LikeController::class,'addPostLike']);
-Route::get('/posts/likes',[LikeController::class,'fetchPostLikes']);
-Route::get('/anouncement',[AnouncementController::class,'getAnouncementLink']);
+Route::post('/exam/result/update',[ExamController::class,'updateExamResult']);
+Route::get('/{major}/login/data',[LearnerController::class,'loadUserData']);
 
 
+//app ads routing
+Route::get('/{major}/appads/{page}',[AppController::class,'getAppAds']);
+Route::post('/{major}/appads/click',[AppController::class,'clickAds']);
 
-Route::get('/form/korea', function () {
+//app form routing
+Route::get('/{major}/appform',[CourseController::class,'getAppForm']);
 
-    return file_get_contents(base_path('resources/lang/koreaform.json'));
-});
+//app routing
 
-Route::get('/songs/lyrics/{url}', function ($url) {
-
-    return file_get_contents("https://www.calamuseducation.com/uploads/songs/lyrics/".$url.".txt");
-   
-});
-
-Route::get('/playvideo/{id}',function($id){
+Route::get('{major}/playvideo/{id}',function($major,$id){
     return view("anouncement.videoplay",[
             'id'=>$id
         ]);
 });
 
-Route::get('/payment/korea',function(){
-   return view("anouncement.koreapayment"); 
+Route::get('/{major}/vimeo',[LessonController::class,'loadPlayer']);
+
+Route::get('/{major}/form', function ($major) {
+    return file_get_contents(base_path('resources/lang/'.$major.'form.json'));
 });
-
-Route::get('/payment/english',function(){
-   return view("anouncement.englishpayment"); 
+Route::get('/{major}/payment',function($major){
+   return view("payment.$major"); 
 });
-
-Route::get('/english/credit',function(){
-     return view('anouncement.englishcredit');
+Route::get('/{major}/version',function($major){
+   return view("version.$major"); 
 });
-
-
-
-//Common Routes for admin
-Route::get('/posts/report',[PostController::class,'fetchReportedPost']);
-Route::post('/posts/report/remove',[PostController::class,'removePostFromReportList']);
-Route::get('/wordofdays/korean/all',[WordOfTheDayController::class,'getKoreanWordOfTheDayLists']);
-Route::post('/notificaltion/public/add',[NotificationController::class,'addPublicNotification']);
-Route::post('/lesson/video/add',[LessonController::class,'addLesson']);
-Route::get('/notifications/admin',[NotificationController::class,'fetchNotificationForAdmin']);
-Route::post('anouncement/songadding',[AnouncementController::class,'addSongForWeeks']);
-
-//friend controlling
-Route::post('/addfriend',[FriendController::class,'addFriend']);
-Route::post('/confirmfriend',[FriendController::class,'confrimFriend']);
-Route::post('/unfriend',[FriendController::class,'unfriend']);
-Route::post('/removefriendrequest',[FriendController::class,'RemoveFriendRequest']);
-Route::get('/getfriends/{id}/{major}',[FriendController::class,'getFriends']);
-Route::get('/getfriendreq/{id}/{major}',[FriendController::class,'getFriendRequests']);
-
-Route::post('/pushnotification',[FirebaseNotiPushController::class,'pushNotificationToSingleUser']);
-
-Route::post('/exam/result/update',[ExamController::class,'updateExamResult']);
-
-
-//app ads routing
-Route::get('/appads/{count}',[AppController::class,'getAppAds']);
-Route::post('/appads/click',[AppController::class,'clickAds']);
-
 
 
 

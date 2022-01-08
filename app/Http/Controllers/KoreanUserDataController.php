@@ -22,7 +22,7 @@ class KoreanUserDataController extends Controller
     public function recordAClickOnKorea(Request $req){
         $userId=$req->user_id;
         $record=$req->record;
-        
+    
         KoreanUserData::where('phone',$userId)
             ->update([
                 $record=>DB::raw("$record+1")

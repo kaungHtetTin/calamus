@@ -10,19 +10,21 @@ use App\Models\KoreanUserData;
 
 class SongController extends Controller
 {
-    public function getSong(Request $req){
-        $major=$req->major;
-        $userId=$req->userId;
-        $count=$req->count;
+    public function getSong(Request $req,$major){
         
-         $Songs=DB::table('Songs')
+        $userId=$req->userId;
+        $page=$req->page;
+        $limit=10;
+        $count=($page-1)*$limit;
+        
+        $Songs=DB::table('Songs')
             ->selectRaw("
                    *
                 ")
             ->where('Songs.type',$major)
             ->orderBy('Songs.id','desc')
             ->offset($count)
-            ->limit(30)
+            ->limit($limit)
             ->get();
         
             if(!sizeof($Songs)==0){
@@ -47,70 +49,18 @@ class SongController extends Controller
                         $arr[]=$song;
                 
                 }
-                
-                return $arr;
+                $response['songs']=$arr;
+                return $response;
                     
             }else{
                     return false;
             }
         
-        
-        
     }
     
-     public function getSongNewVersion(Request $req){
-        $major=$req->major;
+     public function getPopularSong(Request $req,$major){
+        
         $userId=$req->userId;
-        $count=$req->count;
-        
-         $Songs=DB::table('Songs')
-            ->selectRaw("
-                   *
-                ")
-            ->where('Songs.type',$major)
-            ->orderBy('Songs.id','desc')
-            ->offset($count)
-            ->limit(10)
-            ->get();
-        
-            if(!sizeof($Songs)==0){
-                
-                foreach($Songs as $song){
-                    
-                    $song->is_liked=0;
-                    
-                    $likeRows=mylike::where('content_id',$song->song_id)->get();
-                    
-                    foreach ($likeRows as $row){
-                    
-                         $likesArr=json_decode($row->likes,true);
-                    
-                         $user_ids=array_column($likesArr,"user_id");
-                         
-                        if(in_array( $userId, $user_ids)){
-                            $song->is_liked=1;
-                            
-                        }
-                    }
-                        $arr[]=$song;
-                
-                }
-                
-                return $arr;
-                    
-            }else{
-                    return false;
-            }
-        
-        
-        
-    }
-    
-    
-     public function getPopularSong(Request $req){
-        $major=$req->major;
-        $userId=$req->userId;
-        
         
         $Songs=DB::table('Songs')
             ->selectRaw("
@@ -121,9 +71,9 @@ class SongController extends Controller
             ->limit(50)
             ->get();
         
-            if(!sizeof($Songs)==0){
+        if(!sizeof($Songs)==0){
                 
-                foreach($Songs as $song){
+            foreach($Songs as $song){
                     
                     $song->is_liked=0;
                     
@@ -148,19 +98,16 @@ class SongController extends Controller
                     
             }else{
                     return false;
-            }
-        
-        
-        
+        }
     }
     
     
     
     
-     public function searchASong(Request $req){
-        $major=$req->major;
-        $userId=$req->userId;
+    public function searchASong(Request $req,$major){
+         
         $searching=$req->search;
+        $userId=$req->userId;
         
          $Songs=DB::table('Songs')
             ->selectRaw("
@@ -215,44 +162,51 @@ class SongController extends Controller
                 ]);
     }
     
-    public function getArtist(Request $req){
-        $major=$req->major;
-           $count=$req->count;
-           $Songs=DB::table('Songs')
-            ->selectRaw("
+    public function getArtist(Request $req,$major){
+
+        $page=$req->page;
+        $limit=50;
+        $count=($page-1)*$limit;
+        $artists=DB::table('Songs')
+        ->selectRaw("
                     artist,
                     url
                  ")
-            ->groupBy('artist')
-            ->where('Songs.type',$major)
-            ->orderBy('Songs.artist','asc')
-            ->offset($count)
-            ->limit(50)
-            ->get();
-            
+        ->groupBy('artist')
+        ->where('Songs.type',$major)
+        ->orderBy('Songs.artist','asc')
+        ->offset($count)
+        ->limit($limit)
+        ->get();
         
-        return $Songs;
+        $response['artists']=$artists;
+        return $response;
         
     }
     
-    public function getSongByArtist(Request $req,$artist){
-        $count=$req->count;
-        $major=$req->major;
+    public function getSongByArtist(Request $req,$major){
+        
+        $artist=$req->artist;
         $userId=$req->userId;
-           $Songs=DB::table('Songs')
+        $page=$req->page;
+        $limit=10;
+        
+        $count=($page-1)*$limit;
+      
+        $Songs=DB::table('Songs')
             ->selectRaw("
                       *
                  ")
             ->where('Songs.artist',$artist)
             ->orderBy('Songs.id','desc')
             ->offset($count)
-            ->limit(30)
+            ->limit($limit)
             ->get();
             
             
-            if(!sizeof($Songs)==0){
+        if(!sizeof($Songs)==0){
                 
-                foreach($Songs as $song){
+            foreach($Songs as $song){
                     
                     $song->is_liked=0;
                     
@@ -271,65 +225,22 @@ class SongController extends Controller
                     }
                         $arr[]=$song;
                 
-                }
-                
-                return $arr;
-                    
-            }else{
-                    return false;
             }
-        
-    }
-    
-      public function getSongByArtistNewVersion(Request $req,$artist){
-        $count=$req->count;
-        $major=$req->major;
-        $userId=$req->userId;
-           $Songs=DB::table('Songs')
-            ->selectRaw("
-                      *
-                 ")
-            ->where('Songs.artist',$artist)
-            ->orderBy('Songs.id','desc')
-            ->offset($count)
-            ->limit(10)
-            ->get();
             
+            $response['songs']=$arr;    
+            return $response;
             
-            if(!sizeof($Songs)==0){
-                
-                foreach($Songs as $song){
                     
-                    $song->is_liked=0;
-                    
-                    $likeRows=mylike::where('content_id',$song->song_id)->get();
-                    
-                    foreach ($likeRows as $row){
-                    
-                         $likesArr=json_decode($row->likes,true);
-                    
-                         $user_ids=array_column($likesArr,"user_id");
-                         
-                        if(in_array( $userId, $user_ids)){
-                            $song->is_liked=1;
-                            
-                        }
-                    }
-                        $arr[]=$song;
-                
-                }
-                
-                return $arr;
-                    
-            }else{
-                    return false;
-            }
+        }else{
+            return false;
+        }
         
     }
     
     
-        public function getPopularSongByArtist(Request $req,$artist){
-        $major=$req->major;
+    public function getPopularSongByArtist(Request $req,$major){
+        
+        $artist=$req->artist;
         $userId=$req->userId;
         
         $Songs=DB::table('Songs')
@@ -341,9 +252,9 @@ class SongController extends Controller
             ->limit(20)
             ->get();
         
-            if(!sizeof($Songs)==0){
+        if(!sizeof($Songs)==0){
                 
-                foreach($Songs as $song){
+            foreach($Songs as $song){
                     
                     $song->is_liked=0;
                     
@@ -364,14 +275,11 @@ class SongController extends Controller
                 
                 }
                 
-                return $arr;
+            return $arr;
                     
-            }else{
-                    return false;
-            }
-        
-        
-        
+        }else{
+            return false;
+        }
     }
     
     

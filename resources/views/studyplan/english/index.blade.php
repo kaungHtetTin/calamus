@@ -1,5 +1,3 @@
-
-
 <html>
     <header>
         
@@ -15,7 +13,7 @@
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
           crossorigin="anonymous"
         />
-        <title>Korea Exam</title>
+        <title>English Learning Plan</title>
         
         <style>
             .button{
@@ -25,20 +23,30 @@
     </header>
     <body style="padding:10px">
         
-        <h3 class="text-primary">Exams</h3>
-        <p>မိမိရဲ့ အရည်အချင်းတွေကို အကောင်းဆုံး စစ်ဆေးနိုင်တစ်ခုတည်းသောနည်းလမ်းကတော့ စာမေပွဲဖြေဆိုခြင်းပဲဖြစ်ပါတယ်။ </p>
-        <p>The only way to better test your skills is to take an exam.</p>
+        <h3 class="text-primary">Learning Plan</h3>
+        <p>Easy English App တွင် အင်္ဂလိပ်ဘာသာစကားကို လေ့လာနေသော ကျောင်းသူ/ကျောင်းသူများသည် Easy English ၏ Learning Plan ကို အသုံးပြု၍ အင်္ဂလိပ်ဘာသာစကားကို
+        ကျွမ်းကျင်သည်အထိ လွယ်ကူစွာ သင်ယူလေ့လာနိုင်ပါသည်။
+        </p>
+        
         <hr style="height:10px;">
         
-        <h6 class="text-primary"><i class="fa fa-mortar-board"></i>Basic Course Exam</h6>
+        <h6 class="text-primary"><i class="fa fa-mortar-board"></i>Basic Course Learning Plan</h6>
         <!--<p>မိမိရဲ့လက်ရှိ ကျွမ်းကျင်မှုအဆင့် (Level) ကို Level Test Exam တွင် ဝင်ရောက်စစ်ဆေးနိုင်ပါသည်။</p>-->
-        <p>Total marks - 50</p>
-        <p>Allowed Time - 30 min</p>
-        <p>စာမေးပွဲဝင်ရောက်ဖြေဆိုရန် Start Exam ကို နှိပ် ပါ။</p>
+        <p>Total Learning Time - 21 Days (3 Weeks)</p>
+        <p>Learning Plan ကိုကြည့်ရှုရန် Start ကို နှိပ်ပါ။</p>
      
-        <a href="{{route('showKoreaBasicCourseExam',rand(1,2))}}?userid={{$userid}}" style="text-decoration:none"><button class="btn-success rounded">Start Exam</button></a>
+        <a href="{{route('studyPlanDetail')}}?userid={{$userid}}&course=11" style="text-decoration:none"><button class="btn-success rounded">Start Basic Learning Plan</button></a>
         
         <hr style="height:10px;">
+        
+        <h6 class="text-primary"><i class="fa fa-mortar-board"></i>Elementary Course Learning Plan</h6>
+        <!--<p>မိမိရဲ့လက်ရှိ ကျွမ်းကျင်မှုအဆင့် (Level) ကို Level Test Exam တွင် ဝင်ရောက်စစ်ဆေးနိုင်ပါသည်။</p>-->
+        <p>Comming Soon!</p>
+        
+        <hr style="height:10px;">
+        
+        
+        
             
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

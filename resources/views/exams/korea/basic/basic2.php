@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>Basic Exam</title>
+    <title>Basic Exam2</title>
 
 
     <style>
@@ -73,161 +73,163 @@
 <?php
 
 //question  1 to 10
-$question[] ="1. 눈이 나쁩니다. ( ...... )을 씁니다. ";
-$answer[]=["사전","수박","안경","지갑"];
+$question[] ="1. 날씨가 좋습니다. (       ) 이 맑습니다.";
+$answer[]=["공기","하늘","밤","구름"];
 
-$question[]="2. 저는 ( ...... ) 에 갑니다. 밥을 먹습니다.";
-$answer[]=["식당","서점","학교","회사"];
+$question[]="2. 저는 (       ) 에 갔습니다. 책을 샀습니다.";
+$answer[]=["도서관","식당","학교","서점"];
 
-$question[]="3. 비가 옵니다. 하지만 ( ...... ) 이 없습니다.";
-$answer[]=["가방","우산","책","모자 "];
+$question[]="3. 수빈 씨와 저는 오늘 (         ) 만났습니다.";
+$answer[]=["가장","먼저 ","처음","제일 "];
 
-$question[]="4. 우리 언니는 모델입니다. 키가 ( ...... ) 큽니다. ";
-$answer[]=["아주","아직","가끔"," 먼저"];
+$question[]="4. 가방에 책이 많습니다. 가방이 (        ) 무겁습니다.";
+$answer[]=["너무","오래 ","자주"," 일찍 "];
 
-$question[]="5. 저는 사과를 좋아합니다. 그래서 ( ...... ) 먹습니다. ";
-$answer[]=["아마","가장","보통","자주"];
+$question[]="5.  머리가 (      ). 그래서 약을 먹습니다. ";
+$answer[]=["나쁩니다","아픕니다","예쁩니다","좋습니다"];
 
-$question[]="6.  오빠가 아직 안 옵니다. 오빠를 ( ...... ).";
-$answer[]=["있습니다","기다립니다","보냅니다","가르칩니다"];
+$question[]="6. 오빠는 춤을 배웠습니다. 춤을 잘 (      ).";
+$answer[]=["모릅니다","씁니다 ","부릅니다","춥니다"];
 
-$question[]="7. 주스가 없습니다. 그래서 물을 ( ...... ).";
-$answer[]=["합니다","모릅니다","좋습니다"," 마십니다"];
+$question[]="7. 교실에 학생들이 없습니다. 그래서  (         ).";
+$answer[]=["무섭습니다","조용합니다","작습니다"," 깨끗합니다"];
 
-$question[]="8. 도서관입니다. 책이 아주 ( ...... ).";
-$answer[]=["많습니다","넓습니다","쉽습니다","가볍습니다"];
+$question[]="8. 이 그림이 마음에 (        ). 이것을 사고 싶습니다.";
+$answer[]=["잡니다","듭니다","납니다","옵니다"];
 
-$question[]="9. 친구의 생일입니다. 그래서 친구들과 같이 사진을( ...... ).";
-$answer[]=["만납니다","빌립니다","찍습니다","배웁니다"];
+$question[]="9. 운동을 많이 합니다. 그래서  (           ).";
+$answer[]=["친절합니다","따뜻합니다","좋습니다","건강합니다"];
 
-$question[]="10. 저는 매일 밤 12 시에 잡니다. 아침 7시에 ( ...... ).";
-$answer[]=["옵니다","갑니다","일어납니다","먹습니다"];
+$question[]="10. 바람이 많이 붑니다. 창문을 (          ).";
+$answer[]=["닦습니다 ","엽니다","닫습니다","놓습니다"];
 
 //question 11 to 20
-$question[]="11. 시장에 갑니다. 고기 ( ...... ) 채소를 삽니다.";
-$answer[]=["과","만","하고","도"];
+$question[]="우산이 있어요?";
+$answer[]=["네, 우산이에요.","아니요, 우산을 써요.","네, 우산이 있어요.","아니요. 우산이 아니에요."];
 
-$question[]="12. 커피를 좋아합니다. 우유  ( ...... ) 좋아합니다. ";
-$answer[]=["는","도","를","가"];
+$question[]="오늘 회사에 가요?";
+$answer[]=["네, 회사에 없어요.","아니요, 회사에 안 가요.","네, 회사가 아니에요.","아니요, 회사에서 일해요."];
 
-$question[]="13. 저녁을 ( ...... ) 텔레비전을 봅니다. ";
-$answer[]=["먹지만","먹으러","먹으니까","먹고"];
+$question[]="예나 씨, 저 먼저 갈게요.";
+$answer[]=["잘 가요.","고마워요.","반가워요.","안녕하세요."];
 
-$question[]="14. 저는 미국에 있습니다. 부모님  ( ...... ) 한국에 있습니다.";
-$answer[]=["은","하고","는","도"];
+$question[]="늦어서 미안해요.";
+$answer[]=["고마워요.","죄송해요.","아니에요.","부탁해요."];
 
-$question[]="15. 친구들을 파티에   ( ...... ) 싶습니다.";
-$answer[]=["초대하고","가르치고","기다리고","만나고"];
+$question[]="언제 박물관에 갈 거예요?";
+$answer[]=["저녁에 갈 거예요.","친구하고 갈 거예요.","시장에 갈 거예요.","같이 갈 거예요."];
 
-$question[]="16. 한국에는 사계절   ( ...... ) 있습니다.";
-$answer[]=["이","은","는","가"];
+$question[]="한국어가 어때요?";
+$answer[]=["좀 어려워요.","배우고 있어요.","한국에 가요.","노래를 좋아해요"];
 
-$question[]="17. 지금 비가 ( ...... ) 너무 덥습니다.";
-$answer[]=["오니까","오면","오고","오지만"];
+$question[]="집에 어떻게 가요?";
+$answer[]=["지금 가요.","공원에 가요.","버스로 가요.","친구하고 가요."];
 
-$question[]="18. 집 근처 ( ...... ) 백화점이 없습니다.";
-$answer[]=["고","하고","에","는"];
+$question[]="여기 앉으세요.";
+$answer[]=["그렇습니다.","고맙습니다.","환영합니다.","축하합니다."];
 
-$question[]="19. 축구 ( ...... ) 좋아하는 사람들이 많습니다.";
-$answer[]=["를","을","도","에"];
+$question[]="예나 씨, 연필 좀 주세요.";
+$answer[]=["괜찮아요.","반가워요.","여기 있어요.","잘 지냈어요."];
 
-$question[]="20. 수업이   ( ...... ) 전화하세요.";
-$answer[]=["끝나지만","끝나면","끝나서"," 끝나려고"];
+$question[]="구두가 커요?";
+$answer[]=["네, 구두예요.","네, 구두가 예뻐요.","아니요, 구두가 있어요.","아니요, 구두가 작아요."];
 
 //question no 21 to 30
 
-$question[]="21-students.jpg";
-$answer[]=["가수","학생","요리사","회사원"];
+$question[] ="21. 비빔밥이 맛있습니다. 불고기도 맛있습니다.";
+$answer[]=["고기","시간","요일","음식"];
 
-$question[]="22-park.jpg";
-$answer[]=["공원","도서관","회사","학교"];
+$question[]="22.  날씨가 따뜻합니다. 꽃도 많이 핍니다.";
+$answer[]=["산","가을","봄","날짜"];
 
-$question[]="23-spa.jpg";
-$answer[]=["화장실","사무실","미용실","거실"];
+$question[]="23.  제 친구 히카루는 일본 사람입니다. 저는 한국 사람입니다. ";
+$answer[]=["장소","친구 ","나라","가족 "];
 
-$question[]="24-apple.jpg";
-$answer[]=["복숭아","바나나","수박","사과"];
+$question[]="24. 토요일에 공원에 갑니다. 일요일에는 쉽니다. ";
+$answer[]=["주말","여름 ","오후"," 달력"];
 
-$question[]="25-shoes.jpg";
-$answer[]=["시계","구두","책","의자"];
+$question[]="25. 저는 수영을 좋아합니다. 내일도 친구들과 수영장에 갈 겁니다.";
+$answer[]=["저녁","취미","주말","친구"];
 
-$question[]="26-grape.jpg";
-$answer[]=["망고","토마토","딸기","포도"];
+$question[]="26.  제 언니는 25 살입니다. 저는 20살입니다.";
+$answer[]=["이름","가족 ","숫자","나이"];
 
-$question[]="27-family.jpg";
-$answer[]=["아버지","어머니","가족","동생"];
+$question[]="27.  떡볶이는 3000 원입니다. 만두는 5000원입니다.";
+$answer[]=["옷","값","일"," 맛"];
 
-$question[]="28-korea.jpg";
-$answer[]=["중국","일본","태국"," 한국"];
+$question[]="28.  바람이 붑니다. 시원합니다.";
+$answer[]=["날씨","음식","여름","새벽"];
 
-$question[]="29-ring.jpg";
-$answer[]=["귀걸이","반지","팔찌","목거리"];
+$question[]="29.  사과는 빨간색입니다. 바나나는 노란색입니다. ";
+$answer[]=["과자","과일","채소","색깔"];
 
-$question[]="30-green.jpg";
-$answer[]=["초록색","빨간색","노란색","파란색"];
+$question[]="30. 내일 친구를 만납니다. 영화도 보고 쇼핑도 할 겁니다. ";
+$answer[]=["장소 ","영화","계획","날짜"];
+
 
 //question no 31 to 40
 
-$question[]="31. 딸기를 먹습니다. 딸기가 맛있습니다. ";
-$answer[]=["날씨","과일","생일","공부"];
+$question[]="31-cooker.jpg";
+$answer[]=["요리사","경찰","간호사","서냉님"];
 
-$question[]="32. 저는 김예원입니다. 이 사람은 최수빈입니다.";
-$answer[]=["나이","이름","가족","시간"];
+$question[]="32-library.jpg";
+$answer[]=["꽃집","도서관","은행","영화관"];
 
-$question[]="33. 내일은 토요일입니다. 놀이공원에 가겠습니다.";
-$answer[]=["계획","날짜","약속","장소"];
+$question[]="33-flowers.jpg";
+$answer[]=["나무","모자","옷","꽃다발"];
 
-$question[]="34. 오빠가 있습니다. 언니도 있습니다.";
-$answer[]=["취미","직업","친구","가족"];
+$question[]="34-cherry.jpg";
+$answer[]=["참외","체리","귤","딸기"];
 
-$question[]="35. 한국에는 봄, 여름, 가을, 겨울이 있습니다. 지금은 겨울입니다.";
-$answer[]=["날씨","나라","계절","휴일"];
+$question[]="35-desk.jpg";
+$answer[]=["의자","책상","침대","냉장고"];
 
-$question[]="36. 오늘은 7월 1일입니다. 내일은 7월 2일입니다.";
-$answer[]=["날짜","방학","하루"," 아침"];
+$question[]="36-skirt.jpg";
+$answer[]=["바지","신발","원피스","티셔츠"];
 
-$question[]="37. 오늘은 하늘이 맑습니다. 덥지 않습니다. ";
-$answer[]=[" 주말","날씨","봄","구름"];
+$question[]="37-cat.jpg";
+$answer[]=["호랑이","고양이","사자","여우"];
 
-$question[]="38. 아버지는 의사입니다. 어머니는 선생님입니다.";
-$answer[]=["학교","병원","집","직업"];
+$question[]="38-chinese.jpg";
+$answer[]=["일본","중국","한국"," 태국"];
 
-$question[]="39. 누나는 미국에 있습니다. 저는 한국에 있습니다.";
-$answer[]=["나라","방학","여행","장소"];
+$question[]="39-clips.jpg";
+$answer[]=["머리카락","머리띠","머리핀","머리끈"];
 
-$question[]="40. 운동을 좋아합니다. 친구들과 농구를 자주 합니다.";
-$answer[]=["공부","시간","취미","쇼핑"];
+$question[]="40-white.jpg";
+$answer[]=["파란색","노란색","빨간색 ","하얀색"];
 
 //question no 41 to 50
-$question[]="회사원입니까?";
-$answer[]=["아니요, 변호사입니다.","네, 회사원이 아닙니다.","아니요, 회사원입니다.","네, 대학생입니다."];
+$question[] ="41.   몇시 (        ) 에 옵니까?";
+$answer[]=["가","는","에","를"];
 
-$question[]="책이 있어요?";
-$answer[]=["네, 책이 많아요.","아니요, 책이 없어요.","네, 책을 좋아해요.","아니요, 책을 읽어요."];
+$question[]="42.  여기 (          ) 시장입니다.";
+$answer[]=["가","에","와","를"];
 
-$question[]="지금 무엇을 먹어요?";
-$answer[]=["자주 먹어요.","집에서 먹어요.","언니하고 먹어요.","김밥을 먹어요."];
+$question[]="43. 지갑에 돈 (         ) 없어요.";
+$answer[]=["까지","마다 ","밖에","부터 "];
 
-$question[]="맛있게 드세요.";
-$answer[]=["좋겠습니다.","잘 먹겠습니다.","모르겠습니다.","죄송합니다."];
+$question[]="44. 동생이 책 (         )읽어요.";
+$answer[]=["을","은 ","이"," 와 "];
 
-$question[]="생일 축하해요.";
-$answer[]=["고마워요.","미안해요.","괜찮아요.","반가워요."];
+$question[]="45. 김치는 (         ) 맵습니다.";
+$answer[]=["맛있으면 ","맛있지만","맛있어서","맛있으나 "];
 
-$question[]="안녕히 계세요.";
-$answer[]=["안녕히 계세요","들어가세요.","안녕히 가세요.","어서 오세요."];
+$question[]="46. 머리가 깁니다. 그래서  (            ) 싶습니다.";
+$answer[]=["자르고","나오고","가지고","마시고"];
 
-$question[]="영화를 봐요?";
-$answer[]=["네, 영화를 해요.","네, 영화가 아닙니다.","아니요, 영화가 재미있어요.","아니요, 영화를 안 봐요."];
+$question[]="47. 예나 씨는 대학생입니다. 수빈 씨 (            ) 대학생입니다.";
+$answer[]=["는","도","에"," 가"];
 
-$question[]="수업이 어때요?";
-$answer[]=["학교에 가요.","수업이 있어요.","아주 재미있어요.","지금 읽어요."];
+$question[]="48. 어제 친구 (            ) 백화점에 갔어요.";
+$answer[]=["과","하고","이랑","고"];
 
-$question[]="언제 친구를 만나요?";
-$answer[]=["학생을 만나요.","동생하고 만나요.","공원에서 만나요.","내일 만나요."];
+$question[]="49. 제 오빠는 농구 선수  (        ) 농구를 잘해요.";
+$answer[]=["처럼","에게","마다","밖에"];
 
-$question[]="이 빨간색 모자 어때요?";
-$answer[]=["아주 예뻐요.","오늘 입어요.","제 모자예요.","어제 샀어요."];
+$question[]="50. 이따가 저녁을 (            ) 영화를 볼 거예요. ";
+$answer[]=["먹어서 ","먹으러","먹고","먹으연"];
+
 
 
 function questionFormatOne($question, $answer,$no){
@@ -326,13 +328,14 @@ function questionFormatThree($question, $answer,$no){
 
     <div style="position:fixed;right: 10px;;"><span class="fixedTime" id="timer" >Time Left</span></div><br>
     <h3 align="center">Calamus Education</h2>
-    <h4 align="center">Easy Korean - Basic Course Exam</h3>
+    <h5 align="center">Easy Korean - Basic Course Exam 2</h5>
 
     <span >Allowed Time - 30 min</span>
     <span style="float:right">Marks - 50</span>
     <br>
     <br>
-    <p align="justify" class="question" >다음을 보고 빈칸에 들어갈 알맞은 것을 고르십시오. <br/>
+    <p align="justify" class="question" >다음을 보고 빈칸에 들어갈 알맞은 것을 고르십시오.<br/>
+
     [ အောက်ပါ စာကြောင်းကို ဖတ်ပြီး ကွက်လပ်ထဲ ထည့်ရမယ့် စာလုံးကို ရွေးပါ။]</p>
 
 
@@ -343,51 +346,51 @@ function questionFormatThree($question, $answer,$no){
         }
     ?>
 
-    <p align="justify" class="question" >다음을 보고 빈칸에 들어갈 알맞은 문법을 고르십시오.<br/>
-    [အောက်ပါ စာကြောင်းကို ဖတ်ပြီး ကွက်လပ်ထဲ ထည့်ရမယ့် Grammar ကို ရွေးပါ။]</p>
+    <p align="justify" class="question" >다음 대화를 보고  B  가 이어서 할 말을 고르십시오.<br/>
+    [ အောက်ပါ စကားပြောကို ဖတ်ပြီး B ဆက်ပြောမယ့် စာကြောင်းကို ရွေးပါ။]</p>
 
     <?php  
         //for question 11 to 20
         for($i=10;$i<20;$i++){
+            questionFormatThree($question[$i],$answer[$i],$i+1);
+        }
+    ?>
+
+    <p align="justify" class="question" >무엇에 대한 이야기입니까? 알맞은 것을 고르십시오.<br/>  
+    [ ဘာအကြောင်းနဲ့ ပက်သက်ပြီး ပြောနေတာလဲ? ကိုက်ညီတဲ့ စကားလုံးကို ရွေးချယ်ပါ]</p>
+
+    <?php  
+        //for question 21 to 30
+        for($i=20;$i<30;$i++){
             questionFormatOne($question[$i],$answer[$i],$i+1);
         }
     ?>
 
+
     <p align="justify" class="question" >다음 사진을 보고 알맞은 어휘를 고르십시오.<br/>  
-    [အောက်ပါ ပုံကို ကြည့်ပြီး ပုံနဲ့ ကိုက်ညီတဲ့ စာလုံးကို ရွေးပါ။]</p>
+    [ အောက်ပါ ပုံကို ကြည့်ပြီး ပုံနဲ့ ကိုက်ညီတဲ့ စာလုံးကို ရွေးပါ။]</p>
 
     <?php  
-        //for question 11 to 20
-        for($i=20;$i<30;$i++){
+        //for question 31 to 40
+        for($i=30;$i<40;$i++){
             questionFormatTwo("https://www.calamuseducation.com/uploads/lessons/images/".$question[$i],$answer[$i],$i+1);
         }
     ?>
 
 
-    <p align="justify" class="question" > 무엇에 대한 이야기입니까? 알맞은 것을 고르십시오.<br/>  
-    [ ဘာအကြောင်းနဲ့ ပက်သက်ပြီး ပြောနေတာလဲ? ကိုက်ညီတဲ့ စကားလုံးကို ရွေးချယ်ပါ]</p>
+
+    <p align="justify" class="question" > 다음을 보고 빈칸에 들어갈 알맞은 문법을 고르십시오.<br/>  
+    [အောက်ပါ စာကြောင်းကို ဖတ်ပြီး ကွက်လပ်ထဲ ထည့်ရမယ့် Grammar ကို ရွေးပါ။]</p>
 
     <?php  
-        //for question 1 to 10
-        for($i=30;$i<40;$i++){
+        //for question 41 to 50
+        for($i=40;$i<50;$i++){
             questionFormatOne($question[$i],$answer[$i],$i+1);
         }
     ?>
 
-
-
-    <p align="justify" class="question" > 다음 대화를 보고  B  가 이어서 할 말을 고르십시오.<br/>  
-    [ အောက်ပါ စကားပြောကို ဖတ်ပြီး B ဆက်ပြောမယ့် စာကြောင်းကို ရွေးပါ။]</p>
-
-    <?php  
-        //for question 1 to 10
-        for($i=40;$i<50;$i++){
-            questionFormatThree($question[$i],$answer[$i],$i+1);
-        }
-    ?>
-
     <div style="display:flex;">
-        <button id="bt-checkAns" class="btn btn-primary" onClick="checkAnswer()" >Check Answer</button>
+        <button id="bt-checkAns" class="btn btn-primary" onclick="checkingAnswer();">Check Answer</button>
         <button id="bt-showAns" class="btn btn-danger" onclick="showAnswer();" style="display:none;">Show Answer</button>
     </div>
    
@@ -400,7 +403,8 @@ function questionFormatThree($question, $answer,$no){
 
 
     <script>
-        var ansChecker=["13","21","32","41","54","62","74","81","93","103","113","122","134","141","151","161","174","183","191","202","212","221","233","244","252","264","273","284","292","301","312","322","331","344","353","361","372","384","391","403","411","422","434","442","451","463","474","483","494","501"];
+       
+        var ansChecker=["12","24","33","41","52","64","72","82","94","103","113","122","131","143","151","161","173","182","193","204","214","223","233","241","252","264","272","281","294","303","311","322","334","342","352","363","372","382","393","404","413","421","433","441","452","461","472","482","491","503"];
        
         function showAnswer(){
             for(var i=0,j=ansChecker.length;i<j;i++){
@@ -409,11 +413,11 @@ function questionFormatThree($question, $answer,$no){
             }    
         }
 
-        function checkAnswer(){
+        function checkingAnswer(){
 
-            var result=0;
+             var result=0;
 
-            document.getElementById("bt-showAns").setAttribute('Style','');
+            document.getElementById("bt-showAns").setAttribute('style','');
 
             // var inputEle=document.getElementsByTagName('span');
             // for(var i=0,j=inputEle.length;i<j;i++){

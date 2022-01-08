@@ -9,7 +9,11 @@ use Hash;
 
 class PasswordController extends Controller
 {
-      public function searchAccount($phone,$major){
+      public function searchAccount(Request $req){
+        
+        $major=$req->appname;
+        $phone=$req->phone;
+        
         $result=learner::where('learner_phone',$phone)->first();
         if($result){
             
@@ -29,7 +33,7 @@ class PasswordController extends Controller
             }else{
                 $response['code']=52;
                 
-                $response['msg']="သင်၏ account တွင် ယခင်က email ထည့်သွင်းထားခြင်းမရှိသောကြောင့် password reset မပြုလုပ်နိုင်ပါ။ ထို့ကြောင့် Easy Korean Facebook သို့ ဆက်သွယ် အကူအညီတောင်းခံနိုင်ပါသည်။ ";
+                $response['msg']="သင်၏ account တွင် ယခင်က email ထည့်သွင်းထားခြင်းမရှိသောကြောင့် password reset မပြုလုပ်နိုင်ပါ။ ထို့ကြောင့် ".$major." Facebook သို့ ဆက်သွယ် အကူအညီတောင်းခံနိုင်ပါသည်။ ";
                 
                 return $response;
             }
@@ -43,9 +47,15 @@ class PasswordController extends Controller
     }
     
     
-    public function verifyEmail($phone, $code){
+    public function verifyEmail(Request $req){
+        
+        $phone=$req->phone;
+        $code=$req->code;
+        
         $user=learner::where('learner_phone',$phone)->first();
+    
         $otp=$user->otp;
+     
         if($otp==$code and $code!=0){
             $response['code']="50";
             $response['msg']="သင်၏ password အသစ်ကို ရိုက်ထည့်ပါ။";
@@ -58,7 +68,12 @@ class PasswordController extends Controller
         return $response;
     }
     
-    public function resetPasswordByCode($phone, $code, $password){
+    public function resetPasswordByCode(Request $req){
+        
+        $phone=$req->phone;
+        $code=$req->code;
+        $password=$req->newPassword;
+        
         $user=learner::where('learner_phone',$phone)->first();
         $otp=$user->otp;
         
@@ -82,7 +97,11 @@ class PasswordController extends Controller
     
     
     
-    public function checkCurrentPassword($phone , $password){
+    public function checkCurrentPassword(Request $req){
+        
+        $phone=$req->phone;
+        $password=$req->password;
+        
         $user=learner::where('learner_phone',$phone)->first();
         if($user){
             if(Hash::check($password, $user->password)){
@@ -98,7 +117,12 @@ class PasswordController extends Controller
     }
     
     
-    public function resetPasswordByUser($phone, $currentPassword, $newPassword){
+    public function resetPasswordByUser(Request $req){
+        
+        $phone=$req->phone;
+        $currentPassword=$req->currentPassword;
+        $newPassword=$req->newPassword;
+        
         $user=learner::where('learner_phone',$phone)->first();
     
         if(Hash::check($currentPassword, $user->password)){

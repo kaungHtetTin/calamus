@@ -9,84 +9,15 @@ use App\Models\Notification;
 use Illuminate\Support\Facades\DB;
 use App\Models\Comment;
 use App\Models\Song;
-
+date_default_timezone_set("Asia/Yangon");
 class LikeController extends Controller
 {
-     
-    public function addPostLikeT(Request $req){
-         
-        //old method;
-        $user_id=$req->user_id;
-        $post_id=$req->post_id;
-        $time=$req->time;
-        
-        $likeCheck=like::where('content_id',$post_id)
-                        ->where('user_id',$user_id)->exists();
-       
-        if(!$likeCheck){
-
-            DB::table('likes')
-    	        ->updateOrInsert(
-    	        ['content_id'=>$post_id,'user_id'=>$user_id],
-    	        [
-    	            
-    	            'content_id'=>$post_id,
-    	            'user_id'=>$user_id
-    	       ]
-    	   );
-            
-        
-            post::where('post_id',$post_id)
-            ->update([
-                'post_like'=>DB::raw('post_like+1')
-            
-            ]);
-            
-            $postOwner_id =post::where('post_id',$post_id)->get();
-            $postOwner_id=$postOwner_id[0]['learner_id'];
-            
-            if($user_id!=$postOwner_id){
-                
-                $notification=new Notification;
-                $notification->post_id=$post_id;
-                $notification->comment_id=0;
-                $notification->owner_id=$postOwner_id;
-                $notification->writer_id=$user_id;
-                $notification->action=5;
-                $notification->time=$time;
-                $notification->seen=0;
-                $notification->save();
-                
-            }
-        }else{
-            
-            
-            like::where('content_id',$post_id)
-                ->where('user_id',$user_id)
-                ->delete();
-                
-            post::where('post_id',$post_id)
-            ->update([
-                'post_like'=>DB::raw('post_like-1')
-            
-            ]);
-            
-            notification::where('post_id',$post_id)
-                ->where('writer_id',$user_id)
-                ->where('action',5)
-                ->delete();
-        }
-        
-       
-        
-    }
-    
     public function addCommentLike(Request $req){
         
         $post_id=$req->post_id;
         $user_id=$req->user_id;
         $comment_id=$req->comment_id;
-        $time=$req->time;
+        $time=round(microtime(true) * 1000);
         
         $likeCheck=CommentLike::where('comment_id',$comment_id)
                         ->where('user_id',$user_id)->exists();
@@ -152,67 +83,34 @@ class LikeController extends Controller
     }
     
     
-    
-    public function fetchPostLikes(Request $req){
-        //new method
-        $major=$req->major;
-        $postId=$req->post_id;
-        $count=$req->count;
+    public function fetchCommentsLikes(Request $req, $major){
         
-        if($count<1){
-            
-            $likeRows=mylike::where('content_id',$postId)->get();
-            foreach($likeRows as $likeRow){
-
-                $likesArr=json_decode($likeRow->likes,true);
-                $user_ids=array_column($likesArr,"user_id");
-                foreach( array_reverse($user_ids) as $user_id){
-                    $user=DB::table('learners')
-                                ->selectRaw("
-                        learners.learner_phone as userId,
-                        learners.learner_name as userName,
-                        learners.learner_image as userImage,
-                        $major.is_vip as vip
-                    ")
-                     ->where('learners.learner_phone',$user_id)
-                     ->join($major,$major.'.phone','=','learners.learner_phone')
-                     ->limit(1)
-                     ->get()
-                     ->first();
-                    
-                    
-                    if($user!=null)$arr[]=$user;
+        $mCode=$req->mCode;
+        $contentId=$req->contentId;
+        $page=$req->page;
+        $major=$mCode."_user_datas";
+        $limit=50;
+        $count=($page-1)*$limit;
         
-                }
-            }
-            return $arr;
-        }
-    }
-    
-    
-    public function fetchCommentsLikes(Request $req){
-        
-        $major=$req->major;
-        $postId=$req->post_id;
-        $count=$req->count;
-        
-        $list=DB::table('comment_likes')
+        $lists=DB::table('comment_likes')
             ->selectRaw("
                 learners.learner_phone as userId,
                 learners.learner_name as userName,
                 learners.learner_image as userImage,
                 $major.is_vip as vip
             ")
-            ->where('comment_likes.comment_id',$postId)
+            ->where('comment_likes.comment_id',$contentId)
             ->join('learners','learners.learner_phone','=','comment_likes.user_id')
             ->join($major,$major.'.phone','=','comment_likes.user_id')
             ->orderBy('comment_likes.id','desc')
             ->offset($count)
-            ->limit(50)
+            ->limit($limit)
             ->get();
-        return $list;
+            
+        $response['likes']=$lists;
+        $response['nextPageToke']='notDefinedNow';
+        return $response;
     }
-    
     
     
     public function addPostLike(Request $req){
@@ -221,7 +119,7 @@ class LikeController extends Controller
         
         $user_id=$req->user_id;
         $post_id=$req->post_id;
-        $time=$req->time;
+        $time=round(microtime(true)*1000);
         
         $likeCheck=mylike::where('content_id',$post_id)->get();
         $rowCount=$likeCheck->count();
@@ -390,14 +288,53 @@ class LikeController extends Controller
         return $myArr;
         
     }
+   
+    public function fetchPostLikes(Request $req,$major){
+        
+        $mCode=$req->mCode;
+        $postId=$req->contentId;
+        $count=$req->page;
+        $major=$mCode."_user_datas";
+        
+        if($count<2){
+            
+            $likeRows=mylike::where('content_id',$postId)->get();
+           
+            foreach($likeRows as $likeRow){
+
+                $likesArr=json_decode($likeRow->likes,true);
+                $user_ids=array_column($likesArr,"user_id");
+                foreach( array_reverse($user_ids) as $user_id){
+                    $user=DB::table('learners')
+                                ->selectRaw("
+                        learners.learner_phone as userId,
+                        learners.learner_name as userName,
+                        learners.learner_image as userImage,
+                        $major.is_vip as vip
+                    ")
+                     ->where('learners.learner_phone',$user_id)
+                     ->join($major,$major.'.phone','=','learners.learner_phone')
+                     ->limit(1)
+                     ->get()
+                     ->first();
+                    if($user!=null){
+                        $arr[]=$user;
+                       
+                    }
+                }
+            }
+            $response['likes']=$arr;
+            return $response;
+        }
+    }
     
     
-       public function addSongLike(Request $req){
+    public function addSongLike(Request $req){
         
         
         $user_id=$req->user_id;
         $post_id=$req->post_id;
-        $time=$req->time;
+        $time=round(microtime(true)*1000);
         
         $likeCheck=mylike::where('content_id',$post_id)->get();
         $rowCount=$likeCheck->count();
