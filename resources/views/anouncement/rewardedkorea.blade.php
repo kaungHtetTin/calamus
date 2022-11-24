@@ -20,7 +20,26 @@
         hr {
            margin:10px; 
         }
+
+        h5{
+            text-align: center;
+            background-color: yellow;
+            padding: 5px;
+            border-radius: 3px;
+            margin: 5px;
+        }
+
+        p{
+            text-align: center;
+        }
         
+        .reward{
+            background-color: aquamarine;
+            padding: 5px;
+            margin: 5px;
+
+        }
+
         .users{
             margin:4px 4px 20px 4px;
             border-radius:3px;
@@ -55,23 +74,42 @@
 
         <div class="">
             <div class="cate">
-                <i class="material-icons">school</i> ကြိုးစားအားထုတ်မှုအကောင်းဆုံးဆု
+                <i class="material-icons">school</i> Oct/2021 အတွက် ဆုချီးမြင့်ပေးအပ်မှု
                 
             </div>
         
-            @foreach($learners as $learner)
-                
-                <div class="userList">
-                    <img src="{{$learner->image}}" class="userImg"> <b>{{$learner->name}} </b>
-                </div>
-                
-            @endforeach
+            <div class="reward">
+                <h5>လေ့လာမှု အကောင်းဆုံးဆု </h5> 
+                <p>Phone Bill 2000 mmk + Genreral Video များ Download ရယူနိုင်ခွင့်</p>
+              
+            </div>
+         
+            <div class="reward">
+                <h5>ပါဝင်ဆွေးနွေးမှု အများဆုံးသောဆု</h5> 
+                <p>Drama Lyrics Video များ Download ရယူနိုင်ခွင့်</p>
+              
+            </div>
+
+            <div class="reward">
+                <h5>တေးဂီတ ကြိုက်နှစ်သက်ဆုံးဆု</h5> 
+                <p>Drama Lyrics Video များ Download ရယူနိုင်ခွင့်</p>
+              
+            </div>
+
+            <div class="reward">
+                <h5>App အသုံးပြုမှု အများဆုံးဆု</h5>
+                <p>General Video များ Download ရယူနိုင်ခွင့်</p>
+            </div>
     
             <p class="text-primary" style="padding:15px; text-align:justify;">
-*** ဆုရရှိသူများအား Easy Korean မှ phone bill 2000 MMK ချီးမြင့်ပေးမည်ဖြစ်ပါသဖြင့်
+*** Phone bill ဆုရရှိသူများအား Easy Korean မှ phone bill 2000 MMK ချီးမြင့်ပေးမည်ဖြစ်ပါသဖြင့်
 Easy Korean Developer Group သို့ ဆက်သွယ်ပေးပါရန် ***
             </p>
   
+            <p class="text-primary" style="padding:15px; text-align:justify;">
+             *** Video Download ချခွင့်ရရှိသူများသည် Easy Korean App က version 2.19 အသုံးပြုထားရန် လိုအပ်ပါသည် ***
+            </p>
+
         </div>
         
     </div>

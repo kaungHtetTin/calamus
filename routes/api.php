@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\NotificationController;
@@ -63,6 +64,8 @@ Route::get('/gamers/korean/scores',[LearnerController::class,'getKoreanTopGamer'
 Route::post('/gamers/korean/scores/update',[KoreanUserDataController::class,'updateGameScore']);
 Route::get('/wordofdays/korean',[WordOfTheDayController::class,'getKoreaWordOfTheDay']);
 Route::post('/login/korean',[LearnerController::class,'koreanLogin']);
+Route::get('/login/korean',[LearnerController::class,'koreanLogin']);
+
 Route::post('/click/korean',[KoreanUserDataController::class,'recordAClickOnKorea']);
 
 
@@ -125,7 +128,9 @@ Route::get('/form/korea', function () {
 
 Route::get('/songs/lyrics/{url}', function ($url) {
 
-    return file_get_contents("https://www.calamuseducation.com/uploads/songs/lyrics/".$url.".txt");
+    $url="../uploads/songs/lyrics/".$url.".txt";
+    return readfile($url);
+    
    
 });
 

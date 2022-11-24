@@ -20,7 +20,7 @@ class PostController extends Controller
  
     
     
-     public function fetchEnglishPost(Request $req){
+    public function fetchEnglishPost(Request $req){
        
         $major="english";
         $userId=$req->userId;
@@ -39,7 +39,8 @@ class PostController extends Controller
         	    posts.comments,
         	    posts.image as postImage,
         	    posts.view_count as viewCount,
-        	    posts.has_video
+        	    posts.has_video,
+        	    posts.vimeo
             ")
         ->where('posts.major',$major)
         ->join('learners','learners.learner_phone','=','posts.learner_id')
@@ -95,7 +96,8 @@ class PostController extends Controller
             	    posts.comments,
             	    posts.image as postImage,
             	    posts.view_count as viewCount,
-            	    posts.has_video
+            	    posts.has_video,
+            	    posts.vimeo
             	    
                 ")
             ->where('posts.major',$major)
@@ -132,6 +134,7 @@ class PostController extends Controller
             	    posts.comments,
             	    posts.image as postImage,
             	    posts.view_count as viewCount,
+            	    posts.vimeo,
             	    posts.has_video
             	    
                 ")

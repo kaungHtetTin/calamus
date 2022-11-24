@@ -64,10 +64,43 @@
       "code" : "LevelTwoPartA",
       "eCode" : "c",
       "pic" : "https://www.calamuseducation.com/uploads/icons/level1a.png"
+    },
+    {
+      "cate" : "Part B \nLevel Two",
+      "code" : "LevelTwoPartB",
+      "eCode" : "c",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/level1b.png"
+    },
+    {
+      "cate" : "Part C \nLevel Two",
+      "code" : "LevelTwoPartC",
+      "eCode" : "c",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/level1c.png"
     }
     ]
   }
   ,
+  
+  {
+    "eCode" : "d",
+    "enroll" : 75,
+    "level" : "Vocabulary Course",
+    "sub" : [ {
+      "cate" : "Daily Vocabulary",
+      "code" : "Daily_Vocabulary",
+      "eCode" : "d",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/level1a.png"
+    },
+    {
+      "cate" : "Test",
+      "code" : "Vocab_Test",
+      "eCode" : "d",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/vocab_test.png"
+    }
+    ]
+  }
+  ,
+  
    {
     "eCode" : "z",
     "enroll" : 20,
@@ -127,7 +160,7 @@
   },
   {
     "cate" : "KoreanBlog",
-    "pic" : "https://www.calamuseducation.com/uploads/icons/koreanblog.jpg "
+    "pic" : "https://www.calamuseducation.com/uploads/icons/korean_blog.png"
   },
    {
     "cate" : "NumberAndTime",

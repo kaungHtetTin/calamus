@@ -35,6 +35,17 @@
         <a href="{{route('showEnglishLevelTest',1)}}?userid={{$userid}}" style="text-decoration:none"><button class="btn-success rounded">Start Exam</button></a>
         
         <hr style="height:10px;">
+        
+        <hr style="height:10px;">
+        
+        <h6 class="text-primary"><i class="fa fa-mortar-board"></i>Basic Course Exam</h6>
+        <p>Total Time -  15 min</p>
+        <p>Total Mark - 50 </p>
+        <p>စာမေးပွဲဝင်ရောက်ဖြေဆိုရန် Start Exam ကို နှိပ် ပါ။</p>
+     
+        <a href="{{route('showEnglishBasicTest',1)}}?userid={{$userid}}" style="text-decoration:none"><button class="btn-success rounded">Start Exam</button></a>
+        
+        <hr style="height:10px;">
             
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

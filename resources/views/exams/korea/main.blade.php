@@ -39,6 +39,16 @@
         <a href="{{route('showKoreaBasicCourseExam',rand(1,2))}}?userid={{$userid}}" style="text-decoration:none"><button class="btn-success rounded">Start Exam</button></a>
         
         <hr style="height:10px;">
+        
+        <h6 class="text-primary"><i class="fa fa-mortar-board"></i>Level One Course Exam</h6>
+        <!--<p>မိမိရဲ့လက်ရှိ ကျွမ်းကျင်မှုအဆင့် (Level) ကို Level Test Exam တွင် ဝင်ရောက်စစ်ဆေးနိုင်ပါသည်။</p>-->
+        <p>Total marks - 50</p>
+        <p>Allowed Time - 30 min</p>
+        <p>စာမေးပွဲဝင်ရောက်ဖြေဆိုရန် Start Exam ကို နှိပ် ပါ။</p>
+     
+        <a href="{{route('showKoreaLevelOneCourseExam',1)}}?userid={{$userid}}" style="text-decoration:none"><button class="btn-success rounded">Start Exam</button></a>
+        
+        <hr style="height:10px;">
             
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

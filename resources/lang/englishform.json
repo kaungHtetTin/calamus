@@ -49,6 +49,38 @@
   },
   
    {
+    "eCode" : "c",
+    "enroll" : 100,
+    "level" : "Elementary Course",
+    "sub" : [{
+      "cate" : "Grammar",
+      "code" : "elementary_grammar",
+      "eCode" : "c",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/basic_grammar1.png"
+    }
+    ,
+     {
+      "cate" : "Speaking",
+      "code" : "elementary_speaking",
+      "eCode" : "c",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/basic_speaking.png"
+    },
+    {
+      "cate" : "Reading",
+      "code" : "elementary_reading",
+      "eCode" : "c",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/basic_reading.jpg"
+    },
+    {
+      "cate" : "Listening",
+      "code" : "elementary_listening",
+      "eCode" : "c",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/listening1.png"
+    }
+    ]
+  },
+  
+   {
     "eCode" : "z",
     "enroll" : 110,
     "level" : "Let's Learn English (VOA)",
@@ -68,12 +100,23 @@
       "code" : "HowToPronounce",
       "eCode" : "z",
       "pic" : "https://www.calamuseducation.com/uploads/icons/learning.png"
+    },
+    {
+      "cate" : "English At The Movie",
+      "code" : "EnglishAtTheMovie",
+      "eCode" : "z",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/learning.png"
     }]
   }],
   "function" : [ {
     "cate" : "Exam",
     "link" : "https://www.calamuseducation.com/calamus/exam/english",
     "pic" : "https://www.calamuseducation.com/uploads/icons/exam.png"
+  },
+   {
+    "category" : "StudyPlan",
+    "link" : "http://www.calamuseducation.com/calamus-v2/studyplan/english",
+    "pic" : "https://www.calamuseducation.com/uploads/icons/studyplan.jpg"
   },
   {
     "cate" : "Activity",

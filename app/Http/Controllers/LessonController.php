@@ -189,7 +189,10 @@ class LessonController extends Controller
         
         $lessons=DB::table('lessons')
         ->selectRaw("
-                 *
+                 link,
+                 title,
+                 category as cate,
+                 date 
             ")
         ->where('lessons.major',$major)
         ->where('lessons_categories.category',$cate)

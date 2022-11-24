@@ -64,13 +64,13 @@ Route::get('/activity/english',[AnouncementController::class,'activityOfEnglishU
 Route::get('/activity/korea/reward/{userid}',[AnouncementController::class,'koreaRewardedUser']);
 
 //exam
-
-
 Route::get('/exam/english/',[ExamController::class,'showEnglishExam']);
 Route::get('/exam/english/leveltest/{test}',[ExamController::class,'showEnglishLevelTest'])->name('showEnglishLevelTest');
+Route::get('/exam/english/basic/{test}',[ExamController::class,'showEnglishBasicTest'])->name('showEnglishBasicTest');
 
 Route::get('/exam/korea',[ExamController::class,'showKoreaExam']);
 Route::get('/exam/korea/basic/{test}',[ExamController::class,'showKoreaBasicCourseExam'])->name('showKoreaBasicCourseExam');
+Route::get('/exam/korea/levelone/{test}',[ExamController::class,'showKoreaLevelOneCourseExam'])->name('showKoreaLevelOneCourseExam');
 
 
 Route::get('/english/credit',function(){
