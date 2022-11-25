@@ -23,6 +23,11 @@ class CommentController extends Controller
 	    $owner_id=$req->owner_id;
 		$action=$req->action;
 		$image="";
+		$parent=0;
+		
+		if(isset($req->parent)){
+		    $parent=$req->parent;
+		}
 		
 		if(!empty($req->body)){
 		      $body=$req->body;
@@ -46,6 +51,7 @@ class CommentController extends Controller
         $comment->time=$time;
         $comment->likes=0;
         $comment->image=$image;
+        $comment->parent=$parent;
         $comment->save();
      
         // make increment in comments colomn of post table
@@ -88,7 +94,7 @@ class CommentController extends Controller
             ]);
          }
          
-        return "added";
+        return $parent;
     }
     
 
@@ -118,7 +124,9 @@ class CommentController extends Controller
         	    posts.body as body,
         	    posts.post_like as postLikes,
         	    posts.comments,
-        	    posts.image as postImage
+        	    posts.image as postImage,
+        	    posts.share,
+        	    posts.share_count as shareCount
         	  
             ")
         ->where('posts.post_id',$post_id)
@@ -150,7 +158,6 @@ class CommentController extends Controller
            
             
         }
-        
     
 	    $go['post']=$arr;
 	    
@@ -162,8 +169,10 @@ class CommentController extends Controller
     	    $dataStore.is_vip as vip,
     	    comment.body,
     	    comment.time,
+    	    comment.parent,
     	    comment.writer_id as userId,
     	    comment.likes,
+    	    comment.parent,
     	    comment.image as commentImage,
     	    CASE
             WHEN  EXISTS (SELECT NULL FROM comment_likes l 
@@ -184,7 +193,6 @@ class CommentController extends Controller
 	    
     }
 
-    
     public function deleteComment(Request $req){
         $time=$req->time;
         $post=$req->postId;

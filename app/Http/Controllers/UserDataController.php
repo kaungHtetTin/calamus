@@ -21,6 +21,8 @@ class UserDataController extends Controller
         
     }
     
+    
+    
     public function recordAClickOnEnglish(Request $req){
         $userId=$req->user_id;
         $record=$req->record;

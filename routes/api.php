@@ -9,6 +9,8 @@ use App\Http\Controllers\GameWordController;
 use App\Http\Controllers\LearnerController;
 use App\Http\Controllers\EnglishUserDataController;
 use App\Http\Controllers\KoreanUserDataController;
+use App\Http\Controllers\ChineseUserDataController;
+use App\Http\Controllers\JapaneseUserDataController;
 use App\Http\Controllers\WordOfTheDayController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\AnouncementController;
@@ -21,6 +23,8 @@ use App\Http\Controllers\AppController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\UserDataController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\SpeakingController;
+use App\Http\Controllers\RatingController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -38,8 +42,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //course routing
 Route::post('/{major}/start/course',[CourseController::class,'startACourse']);
+Route::get('/{major}/courses/started',[CourseController::class,'getStartedCourse']);
 Route::get('/{major}/course/enroll',[CourseController::class,'getCourseEnrollData']);
+Route::get('/{major}/course/reviews',[CourseController::class,'getReviews']);
 
+//rating routes
+Route::post('/{major}/rates',[RatingController::class,'addRating']);
+Route::post('/{major}/rates/delete',[RatingController::class,'deleteRating']);
+Route::get('/{major}/rates',[RatingController::class,'getRating']);
 
 //studying routing
 Route::post('/{major}/studyalesson',[UserDataController::class,'studyALesson']);
@@ -60,16 +70,19 @@ Route::get('/{major}/announcement',[AnouncementController::class,'getAnouncement
 //post routing
 Route::get('/{major}/posts',[PostController::class,'fetchPost']);
 Route::get('/{major}/posts/user',[PostController::class,'fetchDiscussion']);
+Route::get('/{major}/posts/user-share',[PostController::class,'fetchDiscussion2']);
 Route::post('/{major}/posts/add',[PostController::class,'addPost']);
 Route::post('/{major}/posts/delete',[PostController::class,'deletePost']);
 Route::post('/{major}/posts/report',[PostController::class,'reportPost']);
 Route::post('/{major}/posts/viewcount',[PostController::class,'getAndUpdateViewCount']);
 Route::post('/{major}/posts/edit',[PostController::class,'editPost']);
 Route::get('/{major}/posts/videourl',[PostController::class,'getVideodownloadLink']);
+Route::get('/{major}/posts/share-content',[PostController::class,'getShareContent']);
 
 //comment routing
 Route::get('/{major}/comments',[CommentController::class,'fetchComment']); //comment time =notificatio time(0 for commentactivity)
 Route::post('/{major}/comments/add',[CommentController::class,'addComment']);
+Route::post('/{major}/comments/reply',[CommentController::class,'addReply']);
 Route::post('/{major}/comments/delete',[CommentController::class,'deleteComment']);
 
 //like routing
@@ -127,7 +140,13 @@ Route::get('/{major}/gameword',[GameWordController::class,'getGameWord']);
 Route::get('/english/wordofdays',[WordOfTheDayController::class,'getEnglishWordOfTheday']);
 Route::get('/english/credit',function(){return view('anouncement.englishcredit');});
 Route::post('/english/gamers/scores/update',[EnglishUserDataController::class,'updateGameScore']);
-Route::post('/{major}/click/english',[EnglishUserDataController::class,'recordAClickOnEnglish']);
+Route::post('/{major}/click/english',[EnglishUserDataController::class,'recordAClickOnEnglish']); //only used for song in new version
+// speaking chat bot
+Route::get('/{major}/getdialogues',[SpeakingController::class,'getDialogue']);
+Route::get('/{major}/chatbot/level',[SpeakingController::class,'getCurrentLevel']);
+Route::get('/{major}/chatbot/saturations',[SpeakingController::class,'getSaturation']);
+Route::post('/{major}/chatbot/updatelevel',[SpeakingController::class,'updateLevel']);
+Route::post('/{major}/chatbot/recorderrorspeech',[SpeakingController::class,'recordErrorSpeech']);
 
 
 
@@ -137,14 +156,27 @@ Route::get('/korea/wordofdays',[WordOfTheDayController::class,'getKoreaWordOfThe
 Route::post('/korea/gamers/scores/update',[KoreanUserDataController::class,'updateGameScore']);
 Route::post('/{major}/click/korean',[KoreanUserDataController::class,'recordAClickOnKorea']);
 
+//Easy Chinese
+Route::get('/chinese/wordofdays',[WordOfTheDayController::class,'getChineseWordOfTheDay']);
+Route::post('/chinese/gamers/scores/update',[ChineseUserDataController::class,'updateGameScore']);
+Route::post('/{major}/click/chinese',[ChineseUserDataController::class,'recordAClickOnChinese']);
+
+// Easy Japanese
+Route::get('/japanese/wordofdays',[WordOfTheDayController::class,'getJapaneseWordOfTheDay']);
+Route::post('/japanese/gamers/scores/update',[JapaneseUserDataController::class,'updateGameScore']);
+Route::post('/{major}/click/japanese',[JapaneseUserDataController::class,'recordAClickJapanese']);
+
 
 //there are common routes
 
 Route::post('/{major}/signup',[LearnerController::class,'signUp']);
+Route::get('/{major}/checkaccount',[LearnerController::class,'checkAccount']);
 Route::post('/{major}/login',[LearnerController::class,'logIng']);
 Route::post('/{major}/login/data',[LearnerController::class,'loadUserData']);
 Route::get('/{major}/login/data',[LearnerController::class,'loadUserData']);
 Route::post('/{major}/editprofile',[LearnerController::class,'editProfile']);
+Route::post('/{major}/coverphoto',[LearnerController::class,'changeCoverPhoto']);
+Route::post('/{major}/updatebio',[LearnerController::class,'changeBio']);
 Route::get('/{major}/getprofile/{userId}',[LearnerController::class,'getProfileData']);
 Route::get('/{major}/getprofile/{myId}/{otherId}',[LearnerController::class,'getUserProfile']);
 
@@ -156,6 +188,7 @@ Route::get('/{major}/login/data',[LearnerController::class,'loadUserData']);
 //app ads routing
 Route::get('/{major}/appads/{page}',[AppController::class,'getAppAds']);
 Route::post('/{major}/appads/click',[AppController::class,'clickAds']);
+Route::get('/apps',[AppController::class,'getApps']);
 
 //app form routing
 Route::get('/{major}/appform',[CourseController::class,'getAppForm']);

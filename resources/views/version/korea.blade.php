@@ -9,7 +9,7 @@ $check['status']="
 
 ";
 
-$check['link']="https://www.mediafire.com/file/xib3jely3vaugy1/Easy+Korean+v2.19.apk/file";
+$check['link']="https://apkpure.com/korean-for-myanmar/com.calamus.easykorean";
 $check['length']=6800000;
 
 $product[0]['name']="Easy English";

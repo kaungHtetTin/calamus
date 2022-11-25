@@ -47,19 +47,20 @@
             </h6>
         </div>
       
-      <p>
-Calamus Education ရဲ့ Learning App တွေထဲက တစ်ခုဖြစ်တဲ့ Easy English App ကို စတင်အသုံးပြုနိုင်ပါပြီ။
+    <h6>
+        Easy Korean app ရဲ့ Discussion Room က Social Media မဟုတ်တဲ့အတွက် မသက်ဆိုင်တဲ့ post တွေကို ဖယ်ရှားရှင်းလင်းသွား ပါမယ်နော်
+    </h6>
+    
+    <p>
+သင်ခန်းစာဆွေနွေးသော post များကို မြန်မာ/ကိုရီးယား နှစ်မျိုးလုံးနှင့် ‌ရေးသားဆွေးနွေးနိုင်ပါသည်။
 </p>
+
 <p>
-Easy English App တွင် အင်္ဂလိပ်ဘာသာစကားကို Intermediate Level အထိသင်ကြားပေးသွားမှာဖြစ်ပြီး
-App အသုံးပြုသူများအနေဖြင့် အခမဲ့ ဝင်ရောက်လေ့လာနိုင်မှာပဲဖြစ်ပါတယ်။
+personal, social နှင့် အခြားအခြားသော အကြောင်းအရာများအားလုံးကို ကိုရီယားဘာသာစကားဖြင့်သာ post ရေးသား နိုင်ပါမည်
 </p>
+
 <p>
-ယခုအခါတွင် Easy English ၏ Teacher များအနေဖြင့် Lesson များကို ပြင်ဆင်လျက်ရှိပြီး Easy English တွင် Basic course နှင့် အခြားသော
-Additional Lesson မြောက်များစွာကိုလေ့လာနိုင်နေပြီဖြစ်ပါသည်။
-</p>
-<p>
-Elementary Level, Pre Intermediate Level, Intermediate Level သင်ခန်းစာများကိုလည်း Easy English မှ အမြန်ဆုံးတင်ပေးသွားမည်ဖြစ်ပါသည်။
+ Movie, Music နှင့် Drama Series link များ ပြန်လည်မျှဝေနိုင်ပါသည်။
 </p>
       
       

@@ -329,15 +329,15 @@ function questionFormatThree($question, $answer,$no){
     <div style="position:fixed;right: 10px;;"><span class="fixedTime" id="timer" >Time Left</span></div><br>
     <h3 align="center">Calamus Education</h2>
     <h5 align="center">Easy Korean - Basic Course Exam 2</h5>
-
+   
     <span >Allowed Time - 30 min</span>
     <span style="float:right">Marks - 50</span>
     <br>
     <br>
     <p align="justify" class="question" >다음을 보고 빈칸에 들어갈 알맞은 것을 고르십시오.<br/>
-
+    
     [ အောက်ပါ စာကြောင်းကို ဖတ်ပြီး ကွက်လပ်ထဲ ထည့်ရမယ့် စာလုံးကို ရွေးပါ။]</p>
-
+ 
 
     <?php  
         //for question 1 to 10
@@ -484,11 +484,7 @@ function questionFormatThree($question, $answer,$no){
             
                 }
             }
-<<<<<<< HEAD
-            ajax.open("POST","https://www.calamuseducation.com/calamus-v2/api/exam/result/update",true);
-=======
             ajax.open("POST","https://www.calamuseducation.com/calamus/api/exam/result/update",true);
->>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
             ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             ajax.send("userid=<?php echo $userid?>&major=korea&test=basic_exam&result="+result);
 

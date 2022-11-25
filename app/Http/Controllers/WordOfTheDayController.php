@@ -27,6 +27,8 @@ class WordOfTheDayController extends Controller
                [
                     'korea'=>DB::raw('korea+1'),
                     'english'=>DB::raw('english+1'),
+                    'chinese'=>DB::raw('chinese+1'),
+                    'japanese'=>DB::raw('japanese+1'),
                     'day'=>$thisDay
                ]
                );
@@ -70,6 +72,8 @@ class WordOfTheDayController extends Controller
                [
                     'korea'=>DB::raw('korea+1'),
                     'english'=>DB::raw('english+1'),
+                    'chinese'=>DB::raw('chinese+1'),
+                    'japanese'=>DB::raw('japanese+1'),
                     'day'=>$thisDay
                ]);
             
@@ -84,6 +88,93 @@ class WordOfTheDayController extends Controller
                 DB::table('Timer')
                 ->update(['korea'=>$fetchId]);
                  $word=DB::table('ko_word_of_days')
+                ->where('id',$fetchId)
+                ->get();
+                return $word;
+            }
+        }
+    }
+    
+    public function getChineseWordOfTheDay(){
+        $thisDay =date('j');
+        $saveDay=DB::table('Timer')->value('day');
+        $fetchId=DB::table('Timer')->value('chinese');
+        
+        
+        if($thisDay==$saveDay){
+            $word=DB::table('cn_word_of_days')
+            ->where('id',$fetchId)
+            ->get();
+            
+            return $word;
+            
+        }else{
+           $fetchId++;
+           $affected =DB::table('Timer')
+           ->update(
+               [
+                    'korea'=>DB::raw('korea+1'),
+                    'english'=>DB::raw('english+1'),
+                    'chinese'=>DB::raw('chinese+1'),
+                    'japanese'=>DB::raw('japanese+1'),
+                    'day'=>$thisDay
+               ]);
+            
+            $word=DB::table('cn_word_of_days')
+            ->where('id',$fetchId)
+            ->get();
+            
+            if(!sizeof($word)==0){
+                 return $word;  
+            }else{
+                $fetchId=1;
+                DB::table('Timer')
+                ->update(['chinese'=>$fetchId]);
+                 $word=DB::table('cn_word_of_days')
+                ->where('id',$fetchId)
+                ->get();
+                return $word;
+            }
+        }
+    }
+    
+    
+    public function getJapaneseWordOfTheDay(){
+        $thisDay =date('j');
+        $saveDay=DB::table('Timer')->value('day');
+        $fetchId=DB::table('Timer')->value('japanese');
+        
+        
+        if($thisDay==$saveDay){
+            $word=DB::table('jp_word_of_days')
+            ->where('id',$fetchId)
+            ->get();
+            
+            return $word;
+            
+        }else{
+           $fetchId++;
+           $affected =DB::table('Timer')
+           ->update(
+               [
+                    'korea'=>DB::raw('korea+1'),
+                    'english'=>DB::raw('english+1'),
+                    'chinese'=>DB::raw('chinese+1'),
+                    'japanese'=>DB::raw('japanese+1'),
+                    'day'=>$thisDay
+               ]);
+            
+            $word=DB::table('jp_word_of_days')
+            ->where('id',$fetchId)
+            ->get();
+            
+            if(!sizeof($word)==0){
+                 return $word;  
+            }else{
+                $fetchId=1;
+                DB::table('Timer')
+                ->update(['japanese'=>$fetchId]);
+                 $word=DB::table('jp_word_of_days')
                 ->where('id',$fetchId)
                 ->get();
                 return $word;

@@ -8,6 +8,8 @@ use App\Models\Friend;
 use App\Models\learner;
 use App\Models\KoreanUserData;
 use App\Models\EnglishUserData;
+use App\Models\ChineseUserData;
+use App\Models\JapaneseUserData;
 use Illuminate\Support\Facades\DB;
 
 class FriendController extends Controller
@@ -24,6 +26,8 @@ class FriendController extends Controller
         $myName=learner::where('learner_phone',$myId)->pluck('learner_name')->first();
         if($major=="korea")$friToken=KoreanUserData::where('phone',$otherId)->pluck('token')->first();
         if($major=="english")$friToken=EnglishUserData::where('phone',$otherId)->pluck('token')->first();
+        if($major=="chinese")$friToken=ChineseUserData::where('phone',$otherId)->pluck('token')->first();
+        if($major=="japanese")$friToken=JapaneseUserData::where('phone',$otherId)->pluck('token')->first();
         
         $reqRow=FriendRequest::where("user_id",$otherId)->first();
         if($reqRow){
@@ -138,6 +142,8 @@ class FriendController extends Controller
         $myName=learner::where('learner_phone',$myId)->pluck('learner_name')->first();
         if($major=="korea")$friToken=KoreanUserData::where('phone',$otherId)->pluck('token')->first();
         if($major=="english")$friToken=EnglishUserData::where('phone',$otherId)->pluck('token')->first();
+        if($major=="chinese")$friToken=ChineseUserData::where('phone',$otherId)->pluck('token')->first();
+        if($major=="japanese")$friToken=JapaneseUserData::where('phone',$otherId)->pluck('token')->first();
        
         
         $myFriCount=Friend::where('user_id',$myId)->pluck($count)->first();
@@ -288,10 +294,12 @@ class FriendController extends Controller
                         learners.learner_name as userName,
                         learners.learner_image as userImage,
                         learners.learner_phone as phone,
+                        friends.$major as friends,
                         $joinTable.token
                 ")
                 ->where('learners.learner_phone',$user_id)
                 ->join($joinTable,$joinTable.'.phone','=','learners.learner_phone')
+                ->join('friends','friends.user_id','=','learners.learner_phone')
                 ->first();
                     
                 if($user!=null)$arr[]=$user;
@@ -327,17 +335,23 @@ class FriendController extends Controller
                 ")
                 ->where('learners.learner_phone',$user_id)
                 ->join($joinTable,$joinTable.'.phone','=','learners.learner_phone')
+                
                 ->first();
-                    
+                
+                $friendRow=Friend::where('user_id',$user_id)->first();
+                if($friendRow!=null){
+                    $friend=$friendRow->$major;
+                    $user->friends=$friend;
+                }else{
+                    $user->friends=null;
+                }
                 if($user!=null)$arr[]=$user;
         
             }
         }else{
             $arr=null;
         }
-        
-        $dataResponse['request']=$arr;
-        
+    
         //get people you may know
         
         $users=DB::table('learners')
@@ -387,6 +401,17 @@ class FriendController extends Controller
         //filtering people in their friend request
         foreach($requestFilteredUsers as $user){
             $friReqRow=FriendRequest::where('user_id',$user->phone)->first();
+            
+            $friendRow=Friend::where('user_id',$user->phone)->first();
+            if($friendRow){
+                $friend=$friendRow->$major;
+                $user->friends=$friend;
+            }else{
+                $user->friends=null;
+            }
+          
+        
+            
             if($friReqRow){
                 $friReqArr=json_decode($friReqRow->$major,true);
                 if($friReqArr==null){
@@ -402,6 +427,7 @@ class FriendController extends Controller
             }
         }
         
+        $dataResponse['request']=$arr;
         $dataResponse['people']=$finalFilteredUsers;
         return $dataResponse;
     }

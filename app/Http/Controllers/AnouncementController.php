@@ -61,6 +61,15 @@ class AnouncementController extends Controller
         ]);
     }
     
+    
+    public function showKoreaOne($userid){
+        
+        return view('anouncement.ano.koreaone',[
+            'userid'=>$userid
+        ]);
+    }
+    
+    
 
 
     public function requestSong(Request $req,$userid){

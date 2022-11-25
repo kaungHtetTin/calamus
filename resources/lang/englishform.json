@@ -57,6 +57,12 @@
       "pic" : "https://www.calamuseducation.com/uploads/icons/basic_grammar1.png"
     },
     {
+      "category" : "Speaking",
+      "category_id" :"51",
+      "eCode" : "c",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/basic_speaking.png"
+    },
+    {
       "category" : "Reading",
       "category_id" :"45",
       "eCode" : "c",
@@ -104,14 +110,11 @@
     "category" : "Exam",
     "link" : "https://www.calamuseducation.com/calamus/exam/english",
     "pic" : "https://www.calamuseducation.com/uploads/icons/exam.png"
-<<<<<<< HEAD
   },
   {
     "category" : "StudyPlan",
     "link" : "http://www.calamuseducation.com/calamus-v2/studyplan/english",
     "pic" : "https://www.calamuseducation.com/uploads/icons/studyplan.jpg"
-=======
->>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
   },
   {
     "category" : "Activity",
@@ -125,7 +128,6 @@
   } ],
   
   "secondform" : [ {
-<<<<<<< HEAD
     "category" : "Game",
     "category_id" :"0",
     "pic" : "https://www.calamuseducation.com/uploads/icons/game.png"
@@ -144,33 +146,19 @@
   }, {
     "category" : "Phrase",
     "category_id" :"38",
-=======
-    "cate" : "Game",
-    "pic" : "https://www.calamuseducation.com/uploads/icons/game.png"
-  }, {
-    "cate" : "TipsAndSlang",
-    "pic" : "https://www.calamuseducation.com/uploads/icons/tip_and_slang.png"
-  }, {
-    "cate" : "WordsOnTopics",
-    "pic" : "https://www.calamuseducation.com/uploads/icons/word_on_topic.png"
-  }, {
-    "cate" : "Proverbs",
-    "pic" : "https://www.calamuseducation.com/uploads/icons/proverb.png"
-  }, {
-    "cate" : "Phrase",
->>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
     "pic" : "https://www.calamuseducation.com/uploads/icons/general_note.png"
   } ],
-  "videoform" : [ {
+  "videoform" : [ 
+  {
+    "category" : "One Minute English",
+    "category_id" : "54"
+  },
+      {
     "category" : "Idioms",
     "category_id" : "42"
   }, {
-<<<<<<< HEAD
     "category" : "Proverbs",
     "category_id" : "43"
-=======
-    "cate" : "WeeklyProverbs"
->>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
   }, {
     "category" : "Translation",
     "category_id" : "32"

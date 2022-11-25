@@ -14,13 +14,7 @@ use App\Models\KoreanUserData;
 use App\Models\lesson;
 use App\Models\study;
 use App\Models\EnglishUserData;
-<<<<<<< HEAD
 date_default_timezone_set("Asia/Yangon");
-=======
-use App\Models\lesson;
-use App\Models\study;
-
->>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
 class PostController extends Controller
 {
     
@@ -29,6 +23,7 @@ class PostController extends Controller
         $dataStore=$req->mCode;
         $userId=$req->userId;
         $page=$req->page;
+     
         
         $limit=10;
         $count=($page-1)*$limit;
@@ -48,10 +43,13 @@ class PostController extends Controller
             	    posts.comments,
             	    posts.image as postImage,
             	    posts.view_count as viewCount,
+            	    posts.share_count as shareCount,
+            	    posts.share,
             	    posts.has_video
             	    
                 ")
             ->where('posts.major',$major)
+            ->where('posts.share',0)
             ->join('learners','learners.learner_phone','=','posts.learner_id')
             ->join($dataStore,"$dataStore.phone",'=','posts.learner_id')
             ->orderBy('posts.id','desc')
@@ -92,6 +90,7 @@ class PostController extends Controller
     }
     
  
+    // this is for older version
     public function fetchDiscussion(Request $req,$major){
         $userId=$req->userId;
         $count=$req->count;
@@ -109,6 +108,7 @@ class PostController extends Controller
             posts.has_video
         ")
         ->where('posts.major',$major)
+        ->where('posts.share',0)
         ->where('posts.learner_id',$userId)
         ->join('learners','learners.learner_phone','=','posts.learner_id')
         ->orderBy('posts.id','desc')
@@ -117,6 +117,79 @@ class PostController extends Controller
         ->get();
             
         return $posts;
+        
+    }
+    
+    // this is for new UI version
+    public function fetchDiscussion2(Request $req,$major){
+        $myId=$req->myId;
+        $dataStore=$req->mCode;
+        $userId=$req->userId;
+        $page=$req->page;
+     
+        
+        $limit=10;
+        $count=($page-1)*$limit;
+        
+        $dataStore=$dataStore."_user_datas";
+
+        $posts=DB::table('posts')
+            ->selectRaw("
+                    learners.learner_name as userName,
+            	    learners.learner_phone as userId,
+            	    $dataStore.token as userToken,
+            	    learners.learner_image as userImage,
+            	    $dataStore.is_vip as vip,
+            	    posts.post_id as postId,
+            	    posts.body as body,
+            	    posts.post_like as postLikes,
+            	    posts.comments,
+            	    posts.image as postImage,
+            	    posts.view_count as viewCount,
+            	    posts.share_count as shareCount,
+            	    posts.has_video,
+            	    posts.share
+            	    
+                ")
+            ->where('posts.major',$major)
+            ->where('posts.learner_id',$userId)
+            ->join('learners','learners.learner_phone','=','posts.learner_id')
+            ->join($dataStore,"$dataStore.phone",'=','posts.learner_id')
+            ->orderBy('posts.id','desc')
+            ->offset($count)
+            ->limit($limit)
+            ->get();
+        
+            if(!sizeof($posts)==0){
+                
+                foreach($posts as $post){
+                    
+                    $post->is_liked=0;
+                    $likeRows=mylike::where('content_id',$post->postId)->get();
+                    
+                    foreach ($likeRows as $row){
+                    
+                         $likesArr=json_decode($row->likes,true);
+                    
+                         $user_ids=array_column($likesArr,"user_id");
+                         
+                        if(in_array( $myId, $user_ids)){
+                            $post->is_liked=1;
+                            
+                        }
+                    }
+                        $arr[]=$post;
+                
+                }
+                $response['posts']=$arr;
+                $response['nextPageToken']='notDefinedNow';
+                return $response;
+                    
+            }else{
+                $response['posts']=false;
+                $response['nextPageToken']=null;
+                return $response;
+            }
         
     }
     
@@ -138,6 +211,13 @@ class PostController extends Controller
 	    }else{
 	        $imagePath="";
 	    }
+	    
+	    if(isset($req->share)){
+	        $share=$req->share;
+	    }else{
+	        $share=0;
+	    }
+	    
 	    $has_video=$req->hasVideo;
         
         $myPath="https://www.calamuseducation.com/uploads/";
@@ -157,11 +237,19 @@ class PostController extends Controller
        $post->image=$imagePath;
        $post->has_video=$has_video;
        $post->major=$major;
+       $post->share=$share;
        $post->post_like=0;
        $post->comments=0;
        $post->video_url="";
        $post->view_count=0;
        $post->save();
+       
+       if($share!=0){
+           post::where('post_id',$share)
+           ->update([
+                'share_count'=>DB::raw('share_count+1')
+               ]);
+       }
        
        if($major=="korea" and $learner_id!="1000" and $learner_id!="09979638384"){
             KoreanUserData::where('phone', $learner_id)
@@ -302,50 +390,6 @@ class PostController extends Controller
             ->update(['frequent'=>DB::raw("frequent+1")]);
         }
         
-<<<<<<< HEAD
-=======
-         $postData=DB::table('posts')
-        ->selectRaw("
-               
-        	    posts.post_like as postLikes,
-        	    posts.comments,
-        	    posts.view_count,
-        	    CASE
-                WHEN  EXISTS (SELECT NULL FROM likes l 
-                WHERE l.user_id ='$userId'and l.content_id =posts.post_id) THEN 1
-                ELSE 0
-                END as is_liked
-        	    
-            ")
-        ->where('posts.post_id',$post_id)
-        ->get();
-        
-        return $postData;
-    }
-    
-    
-    
-    public function getAndUpdateViewCount(Request $req){
-        //new method
-        $post_id=$req->post_Id;
-        $userId=$req->user_id;
-        
-        $lessonId=lesson::where('date',$post_id)->first();
-        $lessonId=$lessonId->id;
-        
-         $lessonInfo=study::where('lesson_id',$lessonId)->where('learner_id',$userId)->first();
-        if(!$lessonInfo){
-            $study=new study;
-            $study->learner_id=$userId;
-            $study->lesson_id=$lessonId;
-            $study->frequent=1;
-            $study->save();
-        }else{
-            study::where('lesson_id',$lessonId)->where('learner_id',$userId)
-            ->update(['frequent'=>DB::raw("frequent+1")]);
-        }
-        
->>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
         post::where('post_id', $post_id)
         ->update([
           'view_count'=>DB::raw('view_count+1')
@@ -361,7 +405,9 @@ class PostController extends Controller
         	    posts.comments,
         	    posts.view_count,
         	    posts.video_url,
-        	    lessons.title
+        	    posts.share_count as shareCount,
+        	    lessons.title,
+        	    lessons.title_mini
         	    
             ")
         ->where('posts.post_id',$post_id)
@@ -390,6 +436,40 @@ class PostController extends Controller
                 
         }
     }
+    
+    
+    public function getShareContent(Request $req,$major){
+        
+        $dataStore=$req->mCode;
+        $postId=$req->postId;
+        $dataStore=$dataStore."_user_datas";
+
+        $post=DB::table('posts')
+            ->selectRaw("
+                    learners.learner_name as userName,
+            	    learners.learner_phone as userId,
+            	    $dataStore.token as userToken,
+            	    learners.learner_image as userImage,
+            	    $dataStore.is_vip as vip,
+            	    posts.post_id as postId,
+            	    posts.body as body,
+            	    posts.post_like as postLikes,
+            	    posts.comments,
+            	    posts.image as postImage,
+            	    posts.view_count as viewCount,
+            	    posts.share_count as shareCount,
+            	    posts.share,
+            	    posts.has_video
+            	    
+                ")
+            ->where('posts.post_id',$postId)
+            ->join('learners','learners.learner_phone','=','posts.learner_id')
+            ->join($dataStore,"$dataStore.phone",'=','posts.learner_id')
+            ->get();
+        
+        return $post;
+    }
+    
     
     
     public function getVideodownloadLink(Request $req,$major){

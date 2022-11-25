@@ -13,41 +13,88 @@
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
           crossorigin="anonymous"
         />
-        <title>Korea Exam</title>
+        <title>Study Plan</title>
         
         <style>
             .button{
                 padding:20px;
             }
+            
+            .bg-header{
+                padding:7px;
+                background:{{$course->background_color}};
+                color:white;
+            }
+            
+            .day-plan{
+                margin:3px;
+                border-radius:5px;
+                width:100%;
+               
+            }
         </style>
     </header>
     <body style="padding:5px;background-color:white">
-        
-        
-        @for($i=0;$i<count($plans);$i++)
        
-       <div style="background-color:#E7F3FF;padding:1px; margin-top:2px;margin-bottom:2px; border-radius:2px;">
-            @if($i==0)
-                <h4 class="text-primary"><i class="fa fa-mortar-board"></i> {{"Day - ".$plans[$i]->day}} </h4>
-            @elseif($i>0 and $plans[$i-1]->day!=$plans[$i]->day)
-                <h4 class="text-primary"><i class="fa fa-mortar-board"></i> {{"Day - ".$plans[$i]->day}} </h4>
-            @endif
+       <div class="container">
+         <div class="bg-header">
+          
             
-            <div style="width:100%; margin-top:2px;margin-bottom:2px;padding:5px; background-color:white">
-                <div style="font-size:16px; margin-bottom:15px;">
-                     {{$plans[$i]->lesson_title}} 
+            <div style="display: flex;">
+                <div style="margin-right: 20px;">
+                    <img src="{{$course->cover_url}}" style="height:100px;"/>
                 </div>
                 
-                <div align="right" style="font-size:10px; font-weight:bold; margin-bottom:3px;color:rgb(150,150,150)">
-                    <i>{{$plans[$i]->course_title}}  </i>
+                <div style="">
+                  
+                    <h5>{{$course->title}} - Detail</h5>
+                    {{$course->description}} <br>
+                    {{$course->duration}} Days <br>
                 </div>
                 
+            </div> 
+            
+         </div>
+          
+          
+        <div class="row">
+            
+            @for($i=0;$i<count($plans);$i++)
+            @php
+            $day=$i+1;
+            $lessons=$plans[$i];
+            $duration=0;
+            
+            
+            @endphp
+            
+            <div class="col-lg-6 col-sm-12 col-xs-12">
+             <div class="day-plan card">
+               
+               <div style="padding:5px">
+                    <h6 class="card-title" style="color:{{$course->background_color}}">Day {{$day}}</h6>
+                 
+                    <ul style="font-size:12px">
+        
+                        @foreach($lessons as $lesson)
+                        @php
+                            $duration+=$lesson->duration;
+                        @endphp
+                        
+                        <li>{{$lesson->lesson_title}} </li>
+                         
+                        @endforeach
+                    </ul>
+                    
+               </div>
+             </div>
+            
             </div>
             
-           
-        </div>    
-        @endfor
+            @endfor
             
+    </div>
+       
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

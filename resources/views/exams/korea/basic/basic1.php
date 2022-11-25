@@ -345,7 +345,7 @@ function questionFormatThree($question, $answer,$no){
 
     <p align="justify" class="question" >다음을 보고 빈칸에 들어갈 알맞은 문법을 고르십시오.<br/>
     [အောက်ပါ စာကြောင်းကို ဖတ်ပြီး ကွက်လပ်ထဲ ထည့်ရမယ့် Grammar ကို ရွေးပါ။]</p>
-
+  
     <?php  
         //for question 11 to 20
         for($i=10;$i<20;$i++){
@@ -480,7 +480,7 @@ function questionFormatThree($question, $answer,$no){
             
                 }
             }
-            ajax.open("POST","https://www.calamuseducation.com/calamus-v2/api/exam/result/update",true);
+            ajax.open("POST","https://www.calamuseducation.com/calamus/api/exam/result/update",true);
             ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             ajax.send("userid=<?php echo $userid?>&major=korea&test=basic_exam&result="+result);
 

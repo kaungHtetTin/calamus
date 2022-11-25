@@ -20,5 +20,11 @@ class AppController extends Controller
         ->update([
               'click'=>DB::raw('click+1')
         ]);
+        
+    }
+    
+    public function getApps(){
+        $app=App::where('type','install')->get();
+        return $app;
     }
 }

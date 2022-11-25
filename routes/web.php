@@ -7,6 +7,7 @@ use App\Http\Controllers\AnouncementController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\InAppAdController;
 use App\Http\Controllers\RequestedSongController;
 use App\Http\Controllers\StudyPlanController;
 /*
@@ -50,9 +51,7 @@ Route::post('/anounce/song/{userid}',[AnouncementController::class,'requestSong'
 Route::post('/songs/vote/{userid}',[RequestedSongController::class,'voteASong'])->name("voteASong");
 Route::get('/anounce/advertist/english/{userid}',[AnouncementController::class,'advertiseEasyEnglish']);
 Route::get('/anounce/advertist/korea/{userid}',[AnouncementController::class,'advertiseEasyKorean']);
-Route::get('/anounce/englishtwo/{userid}',function(){
-   return view('anouncement.ano.englishtwo'); 
-});
+Route::get('/anounce/koreaone/{userid}',[AnouncementController::class,'showKoreaOne']);
 
 Route::get('/artists/{nation}',[ArtistController::class,'getArtist']);
 Route::get('/artists/request/{id}',[RequestedSongController::class,'getRequestSong'])->name("requestedSongList");
@@ -65,13 +64,13 @@ Route::get('/activity/english',[AnouncementController::class,'activityOfEnglishU
 Route::get('/activity/korea/reward/{userid}',[AnouncementController::class,'koreaRewardedUser']);
 
 //exam
-
-
 Route::get('/exam/english/',[ExamController::class,'showEnglishExam']);
 Route::get('/exam/english/leveltest/{test}',[ExamController::class,'showEnglishLevelTest'])->name('showEnglishLevelTest');
+Route::get('/exam/english/basic/{test}',[ExamController::class,'showEnglishBasicTest'])->name('showEnglishBasicTest');
 
 Route::get('/exam/korea',[ExamController::class,'showKoreaExam']);
 Route::get('/exam/korea/basic/{test}',[ExamController::class,'showKoreaBasicCourseExam'])->name('showKoreaBasicCourseExam');
+Route::get('/exam/korea/levelone/{test}',[ExamController::class,'showKoreaLevelOneCourseExam'])->name('showKoreaLevelOneCourseExam');
 
 Route::get('/studyplan/korea',[StudyPlanController::class,'showKoreaStudyPlan']);
 Route::get('/studyplan/english',[StudyPlanController::class,'showEnglishStudyPlan']);
@@ -81,7 +80,10 @@ Route::get('/english/credit',function(){
      return view('anouncement.englishcredit');
 });
 
+// inapp ads
+Route::get('/ads/{major}',[InAppAdController::class,'showInAppAds']);
 
+ 
 
  
 

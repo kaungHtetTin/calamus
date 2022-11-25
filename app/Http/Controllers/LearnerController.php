@@ -8,12 +8,33 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\learner;
 use App\Models\KoreanUserData;
 use App\Models\EnglishUserData;
+use App\Models\ChineseUserData;
+use App\Models\JapaneseUserData;
 use App\Models\FriendRequest;
 use App\Models\Friend;
 use Hash;
 date_default_timezone_set("Asia/Yangon");
 class LearnerController extends Controller
 {
+    
+    
+    
+    public function checkAccount(Request $req){
+        
+        $phone=$req->phone;
+        
+        $result=learner::where('learner_phone',$phone)->first();
+        if($result){
+            $response['exist']=true;
+        }else{
+            $response['exist']=false;
+        }
+        
+        return $response;
+    }
+    
+    
+    
     
     public function signUp(Request $req){
         
@@ -37,8 +58,9 @@ class LearnerController extends Controller
     	   if($isExist){
     	       $result['result']="This phone has already registered!\nPlease try again using another phone number";
     	   }else{
+    	        $name=$req->name." ";
     	        learner::create([
-                  'learner_name' => $req->name,
+                  'learner_name' => $name,
                   'learner_phone' => $req->phone,
                   'password' => Hash::make($req->password),
                   'learner_image'=>$placeholder,
@@ -50,6 +72,8 @@ class LearnerController extends Controller
                   'work'=>"",
                   'education'=>"",
                   'region'=>"",
+                  'bio'=>"",
+                  'cover_image'=>"",
                   'otp'=>0
                 ]);
                 
@@ -99,11 +123,27 @@ class LearnerController extends Controller
 		if($major=="english"){
 		    $dataTable="ee_user_datas";
 		    $loginTime=EnglishUserData::where('phone',$phone)->first();
-		    $data['version']="2.14"; 
+		    $data['version']="3.1.6"; 
+		    $data['music']="on";
+		    $data['inappads']="on";
 		}else if($major=="korea"){
 		    $dataTable="ko_user_datas";
 		    $loginTime=KoreanUserData::where('phone',$phone)->first();
-		    $data['version']="2.21";
+		    $data['version']="3.2.4";
+		    $data['music']="on";
+		    $data['inappads']="on";
+		}else if($major=="chinese"){
+		    $dataTable="cn_user_datas";
+		    $loginTime=ChineseUserData::where('phone',$phone)->first();
+		    $data['version']="1.0.0";
+		    $data['music']="on";
+		    $data['inappads']="on";
+		}else if($major=="japanese"){
+		    $dataTable="jp_user_datas";
+		    $loginTime=JapaneseUserData::where('phone',$phone)->first();
+		    $data['version']="1.0.0";
+		    $data['music']="on";
+		    $data['inappads']="on";
 		}
 		
 		if(!$loginTime){
@@ -142,6 +182,8 @@ class LearnerController extends Controller
         ->join("$dataTable","$dataTable.phone",'=',"learners.learner_phone")
         ->first();
         
+        $userData->name=$userData->name." ";
+        
         $vipCourses=DB::table('VipUsers')
         ->selectRaw('
             VipUsers.course_id
@@ -177,9 +219,44 @@ class LearnerController extends Controller
         return learner::where('learner_phone',$phone)->first();
     }
     
+    public function changeBio(Request $req){
+        $phone=$req->userId;
+        $bio=$req->bio;
+        
+        learner::where('learner_phone',$phone)->update(['bio'=>$bio]);
+        
+        return "Saved";
+    }
+    
+    public function changeCoverPhoto(Request $req){
+        $phone=$req->phone;
+        if(!empty($req->cover_photo)){
+            //delete old image
+            $cover_image =learner::where('learner_phone',$phone)->get();
+            $cover_image=$cover_image[0]['cover_image'];
+            
+            if($cover_image!=""){
+                $cover_image = basename($cover_image);
+                $file=$_SERVER['DOCUMENT_ROOT'].'/uploads/covers/'.$cover_image;
+                if(file_exists($file)){
+                    unlink($file);
+                }
+            }
+           
+            //insert new image
+            $file=$req->file('cover_photo');
+            $result=Storage::disk('calamusPost')->put('covers',$file);
+            $myPath="https://www.calamuseducation.com/uploads/";
+            $imagePath=$myPath.$result;
+            learner::where('learner_phone',$phone)->update(['cover_image'=>$imagePath]);
+        }
+        
+        return "changed";
+    }
+    
     public function editProfile(Request $req){
         $phone=$req->phone;
-        
+    
         if(!empty($req->myfile)){
             //delete old image
             $image =learner::where('learner_phone',$phone)->get();
@@ -198,11 +275,32 @@ class LearnerController extends Controller
             $myPath="https://www.calamuseducation.com/uploads/";
             $imagePath=$myPath.$result;
             learner::where('learner_phone',$phone)->update(['learner_image'=>$imagePath]);
+            
+        }
         
+        if(!empty($req->cover_photo)){
+            //delete old image
+            $cover_image =learner::where('learner_phone',$phone)->get();
+            $cover_image=$cover_image[0]['cover_image'];
+            
+            if($cover_image!=""){
+                $cover_image = basename($cover_image);
+                $file=$_SERVER['DOCUMENT_ROOT'].'/uploads/covers/'.$cover_image;
+                if(file_exists($file)){
+                    unlink($file);
+                }
+            }
+           
+            //insert new image
+            $file=$req->file('cover_photo');
+            $result=Storage::disk('calamusPost')->put('covers',$file);
+            $myPath="https://www.calamuseducation.com/uploads/";
+            $imagePath=$myPath.$result;
+            learner::where('learner_phone',$phone)->update(['cover_image'=>$imagePath]);
         }
         
         if(!empty($req->name)&&isset($req->name)){
-            $name=$req->name;
+            $name=$req->name." ";
             learner::where('learner_phone',$phone)->update(['learner_name'=>$name]);
         }
         
@@ -267,6 +365,7 @@ class LearnerController extends Controller
         ->selectRaw("
                 learners.learner_name,
                 learners.learner_image,
+                learners.learner_phone as user_id,
         	    $dataStore.game_score
             ")
         ->join($dataStore,"$dataStore.phone",'=','learners.learner_phone')
@@ -286,8 +385,12 @@ class LearnerController extends Controller
       
         if($major=="korea"){
             $token=KoreanUserData::where('phone',$otherId)->first();
-        }else{
+        }else if($major=="english"){
             $token=EnglishUserData::where('phone',$otherId)->first();
+        }else if($major=="chinese"){
+            $token=ChineseUserData::where('phone',$otherId)->first();
+        }else if($major=="japanese"){
+             $token=JapaneseUserData::where('phone',$otherId)->first();
         }
         
         $data['token']=$token->token;
@@ -309,6 +412,12 @@ class LearnerController extends Controller
             ->get();
         
         $data['enroll']=$enrolls;
+        
+        if($myId==$otherId){
+            $data['friendship']="me";
+                 
+            return $data;
+        }
         
         $reqRow=FriendRequest::where("user_id",$otherId)->first();
         if($reqRow){
@@ -360,9 +469,6 @@ class LearnerController extends Controller
             }
         }
         
-        if($myId==$otherId){
-            $data['friendship']="me";
-        }
         
         return $data;
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\course;
+use App\Models\rating;
 use App\Models\CourseEnroll;
 use Hash;
 
@@ -24,7 +25,7 @@ class CourseController extends Controller
         
         //video Channels
         $videoChannels=DB::table('lessons_categories')
-                    ->selectRaw("category_title as category, id as category_id")->where('course_id',9)->where('major',$major)->orderBy('sort_order','asc')->get();
+                    ->selectRaw("category_title as category, id as category_id")->where('course_id',9)->where('major',$major)->orderBy('sort_order','desc')->get();
         $myResponse['videoChannels']=$videoChannels;
         
         //additonal lessons
@@ -63,6 +64,7 @@ class CourseController extends Controller
         $user_id=$req->user_id;
         $course_id=$req->course_id;
         
+        
         $courseEnroll=CourseEnroll::where('course_id',$course_id)->where('user_id',$user_id)->first();
         if(!$courseEnroll){
             $enroll=new CourseEnroll;
@@ -87,4 +89,36 @@ class CourseController extends Controller
         return $courseEnroll;
         
     }
+    
+    public function getReviews($major,Request $req){
+        $user_id=$req->user_id;
+        $course_id=$req->course_id;
+        $course=course::where('major',$major)->where('course_id',$course_id)->first();
+        
+        
+        $rating=DB::table('ratings')
+            ->selectRaw("
+                  count(*) as total_rating,
+                  star
+                ")
+            ->where('course_id',$course_id)
+            ->groupBy('star')
+            ->get();
+        
+        
+        $rated=rating::where('user_id',$user_id)->where('course_id',$course_id)->first();
+        if($rated){
+            $response['rated']=true;
+            $response['my_review']=$rated;
+        }else{
+            $response['rated']=false;
+        }
+        
+        $response['course']=$course;
+        $response['rating']=$rating;
+        
+        return $response;
+        
+    }
+    
 }

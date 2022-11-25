@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>Level Test</title>
+    <title>Basic Exam 1</title>
 
 
     <style>
@@ -74,80 +74,156 @@
 
 
 
-$question[]="(1)    Is this seat taken?";
-$answer[]=["(a)	No, it isn’t.","(b)	Daniel took it too far.","(c)	No, it does."];
+$question[]="1. -----am a student.";
+$answer[]=["a. He","b. She","c. I"];
 
-$question[]="(2)	Angela is ….. university student.";
-$answer[]=["(a)	a","(b)	an","(c)	the"];
+$question[]="2. It is ----- orange.";
+$answer[]=["an","a","the"];
 
-$question[]="(3)	Would you mind if I borrow your book for a few days?";
-$answer[]=["(a)	What do you do?","(b)	Never mind.","(c)	Not at all."];
+$question[]="3. A:  Hello! <br> B: ----";
+$answer[]=["a. Hi.","b. Good night.","c. Have a nice day."];
 
-$question[]="(4)	Are you still free or do you have ………?";
-$answer[]=["(a)	plan","(b)	business","(c)	meeting","(d)	plans"];
+$question[]="4. Maung Maung is my brother. He ----- 4 years old.";
+$answer[]=["a. is","b. are","c. am"];
 
-$question[]="(5)	When you board a plane, you have to …….your seatbelt.";
-$answer[]=["(a)	load","(b)	fasten","(c)	connect","(d)	screw"];
+$question[]="5. Daw Theingi is my mother. ----- is a housewife.";
+$answer[]=["a. They","b. She","c. He"];
 
-$question[]="(6)	I quit my previous job because I had no …….to sleep.";
-$answer[]=["(a)	place","(b)	time","(c)	moment","(d)	way"];
+$question[]="6. A: What do you do? <br> B: -----";
+$answer[]=["a. I am 30 years old.","b. I am a teacher.","c. I like cakes."];
 
-$question[]="(7)	She left her hometown …..three years ago.";
-$answer[]=["(a)	about","(b)	when","(c)	then","(d)	already"];
+$question[]="7. Si Si and Ni Ni are friends. ----- are students.";
+$answer[]=["a. She","b. I","c. They"];
 
-$question[]="(8)	If I had studied, I ……….my exam.";
-$answer[]=["(a)	will pass","(b)	would pass","(c)	would have passed"];
+$question[]="8. Myanmar ----- a small country.";
+$answer[]=["a. am","b. is","c. are"];
 
-$question[]="(9)	There are several ……..to a matter that we must take in consideration.";
-$answer[]=["(a)	issues","(b)	features","(c)	sides","(d)	factors"];
+$question[]="9. The moon ----- around the earth.";
+$answer[]=["a. rotated","b. rotating ","c. rotates"];
 
-$question[]="(10)	 Will you eat ……. rice today since you are on a diet?";
-$answer[]=["(a)	more","(b)	less","(c)	several","(d)	lots"];
+$question[]="10. Si Si ----- my house yesterday.";
+$answer[]=["a. visits","b. visited","c. visiting"];
 
-$question[]="(11)	 I don’t have …… money right now.";
-$answer[]=["(a)	some","(b)	any","(c)	many"];
+$question[]="11. My sister is ----- right now.";
+$answer[]=["a. study","b. studies","c. studying"];
 
-$question[]="(12)	 Yesterday was my bad hair day and my hair was very ….. damaged.";
-$answer[]=["(a)	little","(b)	much","(c)	many","(d)	lightly"];
+$question[]="12. She is a ----- girl.";
+$answer[]=["a. beautiful","b. more beautiful","c. most beautiful"];
 
-$question[]="(13)	 Such a …… dog cannot be kept inside the house! He will wreak havoc.";
-$answer[]=["(a)	fierce","(b)	big","(c)	clumsy","(d)	stupid"];
+$question[]="13. There are 10 ----- in the basket.";
+$answer[]=["a. egg","b. apples","c. apple"];
 
-$question[]="(14)	 Suzy loves to ……. Yoga";
-$answer[]=["(a)	go'","(b)	do","(c)	play","(d)	make"];
+$question[]="14. Nyi Nyi is ----- than Maung Maung.";
+$answer[]=["a. tall","b. taller","c. tallest"];
 
-$question[]="(15)	 Geographical definition of the Sahel …. Can vary.";
-$answer[]=["(a)	region","(b)	nation","(c)	country","(d)	union"];
+$question[]="15. I didn't eat much ----- .";
+$answer[]=["a. rice","b. rices","c. water"];
 
-$question[]="(16)	 It rained heavily just when she’s so …… dressed and ready to party.";
-$answer[]=["(a)	beautifully","(b)	raggedly","(c)	vainly","(d)	thickly"];
+$question[]="16. A: See you later. <br> B: -----";
+$answer[]=["a. Yes, please.","b. Good evening.","c. Good bye!"];
 
-$question[]="(17)	 Sai Sai Kham Leng was born …….. 1979.";
-$answer[]=["(a)	at","(b)	on","(c)	in"];
+$question[]="17. Cherry Cinema is the ------ cinema in my town.";
+$answer[]=["a. big","b. bigger","c. biggest"];
 
-$question[]="(18)	 Try to look at a problem from another ….. and you’ll find the answer.";
-$answer[]=["(a)	angle","(b)	angel","(c)	ankle","(d)	uncle"];
+$question[]="18. A: What's your favourite sport? <br> B: -----";
+$answer[]=["a. I like jeans.","b. No, I don't.","c. I like volleyball."];
 
-$question[]="(19)	 Don’t ….. these lovebirds! Let them be.";
-$answer[]=["(a)	seperate","(b)	severe","(c)	separate","(d)	several"];
+$question[]="19. A: What do you do for fun? <br> B: I like to go ----- .";
+$answer[]=["a. swimming","b. doctor","c. hamburger"];
 
-$question[]="(20)	 I love …….. music.";
-$answer[]=["(a)	reading","(b)	listening","(c)	walking","(d)	running"];
+$question[]="20. My mother ----- for us everyday.";
+$answer[]=["a. cook","b. cooks","c. cooking"];
 
-$question[]="(21)	 Ni Ni always …… to bed at 9 pm.";
-$answer[]=["(a)	go ","(b)	goes","(c)	sleep","(d)	lying"];
+$question[]="21. There are a ----- pencils.";
+$answer[]=["a. much","b. many","c. few"];
 
-$question[]="(22)	 I forgot to bring my phone with me. It’s …… my table.";
-$answer[]=["(a)	on","(b)	in","(c)	above","(d)	off"];
+$question[]="22. A: Would you like some tea? <br> B: ----- .";
+$answer[]=["a. No, thank you.","b. I don't think so.","c. Sorry."];
 
-$question[]="(23)	 The clouds are ……..";
-$answer[]=["(a)	black","(b)	white","(c)	yellow","(d)	brown"];
+$question[]="23. We ----- dinner together last night.";
+$answer[]=["a. eated","b. ate","c. eaten"];
 
-$question[]="(24)	 ……….. matter how hard you try, you will never beat me.";
-$answer[]=["(a)	No","(b)	Any","(c)	How","(d)	Every"];
+$question[]="24. A: are you feeling sick. <br> B: ------";
+$answer[]=["a. I'm sorry.","b. I have got a toothache.","c. Sure."];
 
-$question[]="(25)	 Thu Ya is crying because his crush rejected him. She …….him back.";
-$answer[]=["(a)	doesn’t love","(b)	loves","(c)	don’t love"];
+$question[]="25. Don't make a noise! My sister ----- .";
+$answer[]=["a. study","b. was studying","c. is studying"];
+
+$question[]="26. It was hot so I ----- the window.";
+$answer[]=["a. open","b. opens","c. opened"];
+
+$question[]="27. We ----- to the cinema tonight.";
+$answer[]=["a. are going","b. go","c. went"];
+
+$question[]="28. Do you like coffee ----- tea?";
+$answer[]=["a. and","b. or","c. so"];
+
+$question[]="29. Our class starts ----- 9 am.";
+$answer[]=["a. at","b. on","c. in"];
+
+$question[]="30. I go to school ----- eating my breakfast.";
+$answer[]=["a. and ","b. after ","c. so"];
+
+$question[]="31. I ----- go to the club because I don't like noisy music.";
+$answer[]=["a. always","b. sometimes","c. never"];
+
+$question[]="32. She was 22 years old ----- 2016 .";
+$answer[]=["a. on","b. in","c. at"];
+
+$question[]="33. They are speaking ----- .";
+$answer[]=["a. loud","b. louder","c. loudly."];
+
+$question[]="34. Let's throw a party ----- Sunday.";
+$answer[]=["a. at ","b. on ","c. in"];
+
+$question[]="35. It ----- on comming Thursday.";
+$answer[]=["a. rain","b. rains","c. will rain"];
+
+$question[]="36. The team ----- won the match.";
+$answer[]=["a. easily ","b. easy","c. ease"];
+
+$question[]="37. ----- you text me tomorrow?";
+$answer[]=["a. Are","b. Will","c. Do"];
+
+$question[]="38. I ----- tell anyone.I promise.";
+$answer[]=["a. didn't ","b. won't","c. don't"];
+
+$question[]="39. Si Si goes to school ----- bus.";
+$answer[]=["a. in","b. on","c. by"];
+
+$question[]="40. I can speak ----- .";
+$answer[]=["a. Spain","b. Spanish","c. England"];
+
+$question[]="41. She is angry -----she is silent.";
+$answer[]=["a. but ","b. because ","c. before"];
+
+$question[]="42. Let's go ----- the park.";
+$answer[]=["a. at","b. on","c. to "];
+
+$question[]="43. You need to do exercise ----- you want to lose weight.";
+$answer[]=["a. so","b. and","c. if"];
+
+$question[]="44. This is an ----- dress.";
+$answer[]=["a. easy ","b. elegant","c. comfortable"];
+
+$question[]="45. Nyi Nyi lives in a ----- mansion.";
+$answer[]=["a. attractive ","b. homely","c. huge"];
+
+$question[]="46. I bought milk ----- the market.";
+$answer[]=["a. from","b. on","c. to"];
+
+$question[]="47. There are lamp-posts ----- the street.";
+$answer[]=["a. along","b. on","c. in"];
+
+$question[]="48. Today is a  ----- and sunny day.";
+$answer[]=["a. cold","b. hot","c. humid"];
+
+$question[]="49. She is brushing her teeth ----- the mirror.";
+$answer[]=["a. in front of","b. behind","c. above"];
+
+$question[]="50. Our field trip was very ----- and we had a great time.";
+$answer[]=["a. interesting ","b. boring","c. Tiring"];
+
 
 
 
@@ -182,19 +258,19 @@ function questionFormatThree($question, $answer,$no){
 
     <div style="position:fixed;right: 10px;;"><span class="fixedTime" id="timer" >Time Left</span></div><br>
     <h3 align="center">Calamus Education</h2>
-    <h4 align="center">Easy English - Level Test</h3>
+    <h4 align="center">Easy English - Basic Exam 1</h3>
 
-    <span >Allowed Time - 10 min</span>
-    <span style="float:right">Marks - 25</span>
+    <span >Allowed Time - 15 min</span>
+    <span style="float:right">Marks - 50</span>
     <br>
     <br>
 
-    <p align="justify" class="question" >This level test includes 25 questions to test your English Level. 
+    <p align="justify" class="question" >This basic course exam  includes 50 questions to test your English Level. 
                 Please do not use dictionary, google and other materials for the exam.</p>
-
+ 
     <?php  
         //for question 1 to 10
-        for($i=0;$i<25;$i++){
+        for($i=0;$i<50;$i++){
             questionFormatThree($question[$i],$answer[$i],$i+1);
         }
     ?>
@@ -213,7 +289,7 @@ function questionFormatThree($question, $answer,$no){
 
  
     <script>
-        var ansChecker=[ '11', '21', '33', '44', '52', '62', '71', '83', '94', '102', '112', '122', '131', '142', '151', '161', '173', '181', '193', '202', '212', '221', '232', '241', '251' ];
+        var ansChecker=['13','21','31','41','52','62','73','82','93','102','113','121','132','142','151','163','173','183','191','202','213','221','232','242','253','263','271','282','291','302','313','322','333','342','353','361','372','382','393','402','411','423','433','442','453','461','471','482','491','501'];
         
         function showAnswer(){
             for(var i=0,j=ansChecker.length;i<j;i++){
@@ -260,6 +336,28 @@ function questionFormatThree($question, $answer,$no){
             clearInterval(stop);
            
         }
+
+        function showFinalResult(result){
+            var finalResult=document.getElementById('final-result');
+            if(result<8){
+                finalResult.setAttribute('style','background-color:red');
+                if(result <1){
+                    finalResult.innerHTML="You are basic level. <br> "+result+"/50 mark";
+                }else{
+                    finalResult.innerHTML="You are basic level. <br> "+result+"/50 marks";
+                }
+              
+           }else if(result>=8 && result<=13){
+                finalResult.setAttribute('style','background-color:rgb(255,165,0)');
+                finalResult.innerHTML="You are elementary level. <br> "+result+"/50 marks";
+           }else if(result>13 && result<=20){
+                finalResult.setAttribute('style','background-color:yellow; color:black;');
+                finalResult.innerHTML="You are pre-intermediate level. <br> "+result+"/50 marks";
+           }else{
+                finalResult.setAttribute('style','background-color:green');
+                finalResult.innerHTML="You are intermediate level <br> "+result+"/50 marks";
+           }
+        }
         
         function saveExamResult(result){
             var ajax=new XMLHttpRequest();
@@ -270,30 +368,8 @@ function questionFormatThree($question, $answer,$no){
             }
             ajax.open("POST","https://www.calamuseducation.com/calamus/api/exam/result/update",true);
             ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            ajax.send("userid=<?php echo $userid?>&major=english&test=level_test&result="+result);
+            ajax.send("userid=<?php echo $userid?>&major=english&test=basic_exam&result="+result);
 
-        }
-
-        function showFinalResult(result){
-            var finalResult=document.getElementById('final-result');
-            if(result<8){
-                finalResult.setAttribute('style','background-color:red');
-                if(result <1){
-                    finalResult.innerHTML="You are basic level. <br> "+result+"/25 mark";
-                }else{
-                    finalResult.innerHTML="You are basic level. <br> "+result+"/25 marks";
-                }
-              
-           }else if(result>=8 && result<=13){
-                finalResult.setAttribute('style','background-color:rgb(255,165,0)');
-                finalResult.innerHTML="You are elementary level. <br> "+result+"/25 marks";
-           }else if(result>13 && result<=20){
-                finalResult.setAttribute('style','background-color:yellow; color:black;');
-                finalResult.innerHTML="You are pre-intermediate level. <br> "+result+"/25 marks";
-           }else{
-                finalResult.setAttribute('style','background-color:green');
-                finalResult.innerHTML="You are intermediate level <br> "+result+"/25 marks";
-           }
         }
 
         var second=0;
@@ -304,7 +380,7 @@ function questionFormatThree($question, $answer,$no){
             second++;
            timerEle.innerHTML=formatTime(second);
 
-           if(second==600){
+           if(second==900){
                clearInterval(stop);
                timerEle.setAttribute('style','background-color:red;');
                checkAnswer();

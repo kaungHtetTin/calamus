@@ -22,6 +22,13 @@ class ExamController extends Controller
           'userid'=>$req->userid
         ]);
     }
+    
+     public function showEnglishBasicTest(Request $req, $test){
+        $view ='exams.english.basic.basicexam'.$test;
+        return view($view,[
+          'userid'=>$req->userid
+        ]);
+    }
   
   
     public function updateExamResult(Request $req){
@@ -50,5 +57,12 @@ class ExamController extends Controller
       return view($view,[
           'userid'=>$req->userid
           ]);
-  }
+    }
+    
+    public function showKoreaLevelOneCourseExam(Request $req, $test){
+      $view ='exams.korea.levelone.levelone'.$test;
+      return view($view,[
+          'userid'=>$req->userid
+          ]);
+    }
 }

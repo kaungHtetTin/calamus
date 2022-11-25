@@ -3,12 +3,27 @@
 $check['available']='true';
 
 $check['status']="
-**Easy English ရဲ့ Latest Version ကတော့ version 2.12 ပဲဖြစ်ပါတယ်။
+**Easy English ရဲ့ Latest Version ကတော့ version3.1.5 ပဲဖြစ်ပါတယ်။
+
+** Easy English ရဲ့  Version 3.1.5 မှာတော့ App Design ပိုင်းကို အဓိက ပြောင်းလဲထားပါတယ်
+
+** အရင် version တွေ ဖြစ်တတ်တဲ့ Error အားလုံးကို ပြင်ဆင်ပေးထားပါတယ်
+
+** Google Service ပါရှိတဲ့ ဖုန်းများအတွက် Speaking Bot တစ်ခု အသုံးပြုနိုင်မှာဖြစ်ပြီး မိမိရဲ့ Speaking Skill  အတွက် 
+ထိထိရောက် အသုံးချနိုင်မှာဖြစ်ပါတယ်
+
+** Songs, Video တွေရဲ့ Download စနစ်တွေကို ပိုမိုကောင်းမွန်အောင်ပြင်ဆင်ဆောင်ရွက်ထားပါတယ်။
+
+** VIP user တွေအတွက် downloaded video တွေကို folder လေးတွေခွဲပြီး Management ပြုလုပ်နိုင်အောင် 
+ဆောင်ရွက်ပေးထားပါတယ်။
+
+** App ရဲ့ Performance ပိုင်းကို အ‌ version တွေထက် သိသိသာသာပြောင်းလဲထားတာမို့ version 3.1.5 ကို
+မဖြစ်အနေ download ရယူ အသုံးပြုဖို့ အကြံပြုလိုပါတယ်
 
 **လတ်တလော မြန်မာပြည်တွင် mobile data အခက်ခဲကြောင့် logIn သို့မဟုတ် Register(signUp) ပြုလုပ်၌ ၍ မရသူများ အနေဖြင့် Pshiphon pro vpn ကို အသုံးပြုပြီး ဝင်ရောက်ပေးဖို့ အကြုံပြုလိုပါတယ်။
 ";
 
-$check['link']="https://www.mediafire.com/file/sq7x1ww77fef0kq/Easy+English+v2.12.apk/file";
+$check['link']="https://apkpure.com/english-for-myanmar/com.qanda.learnroom";
 $check['length']=6800000;
 
 $product[0]['name']="Easy Korean";

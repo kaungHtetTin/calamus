@@ -25,14 +25,8 @@
     } ]
   },
    {
-<<<<<<< HEAD
     "id" : "2",
     "title" : "Level One Course",
-=======
-    "eCode" : "b",
-    "enroll" : 75,
-    "level" : "Level One Course",
->>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
     "sub" : [ {
       "category" : "Part A \nLevel One",
       "category_id" : "14",
@@ -60,7 +54,6 @@
   }
   ,
    {
-<<<<<<< HEAD
     "id" : "3",
     "title" : "Level Two Course",
     "sub" : [ {
@@ -80,16 +73,23 @@
       "category_id" : "47",
       "eCode" : "c",
       "pic" : "https://www.calamuseducation.com/uploads/icons/level1c.png"
-=======
-    "eCode" : "c",
-    "enroll" : 45,
-    "level" : "Level Two Course",
-    "sub" : [ {
-      "cate" : "Part A \nLevel Two",
-      "code" : "LevelTwoPartA",
+    },
+     {
+      "category" : "Exercise",
+      "category_id" : "55",
       "eCode" : "c",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/vocab_test.png"
+    }
+    ]
+  }
+  ,{
+    "id" : "4",
+    "title" : "Level Three Course",
+    "sub" : [ {
+      "category" : "Part A \nLevel Two",
+      "category_id" : "53",
+      "eCode" : "d",
       "pic" : "https://www.calamuseducation.com/uploads/icons/level1a.png"
->>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
     }
     ]
   }
@@ -110,17 +110,29 @@
       "pic" : "https://www.calamuseducation.com/uploads/icons/singleready.jpg"
     }
     ]
+  },
+  {
+    "id" : "15",
+    "title" : "Vocabulary Course",
+    "sub" : [ {
+      "category" : "Daily Vocabulary",
+      "category_id" : "50",
+      "eCode" : "d",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/vocabulary.png"
+    },
+    {
+      "category" : "Test",
+      "category_id" : "52",
+      "eCode" : "d",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/vocab_test.png"
+    }
+    ]
   }
   
   ],
   "function" : [ {
-<<<<<<< HEAD
     "category" : "Exam",
     "link" : "https://www.calamuseducation.com/calamus-v2/exam/korea",
-=======
-    "cate" : "Exam",
-    "link" : "https://www.calamuseducation.com/calamus/exam/korea",
->>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
     "pic" : "https://www.calamuseducation.com/uploads/icons/exam.png"
   },
   {
@@ -151,7 +163,6 @@
   
   ],
   "secondform" : [ {
-<<<<<<< HEAD
     "category" : "Game",
     "category_id" : "0",
     "pic" : "https://www.calamuseducation.com/uploads/icons/game.png"
@@ -160,14 +171,6 @@
     "category" : "Korean Blog",
     "category_id" : "25",
     "pic" : "https://www.calamuseducation.com/uploads/icons/koreanblog.jpg"
-=======
-    "cate" : "Game",
-    "pic" : "https://www.calamuseducation.com/uploads/icons/game.png"
-  },
-  {
-    "cate" : "KoreanBlog",
-    "pic" : "https://www.calamuseducation.com/uploads/icons/koreanblog.jpg "
->>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
   },
    {
     "category" : "Number And Time",
@@ -180,17 +183,12 @@
     "pic" : "https://www.calamuseducation.com/uploads/icons/conversation.png"
   },
   {
-<<<<<<< HEAD
     "category" : "Tips And Slang",
     "category_id" : "7",
-=======
-    "cate" : "TipsAndSlang",
->>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
     "pic" : "https://www.calamuseducation.com/uploads/icons/tip_and_slang.png"
   },
   
   {
-<<<<<<< HEAD
     "category" : "Words On Topics",
     "category_id" : "5",
     "pic" : "https://www.calamuseducation.com/uploads/icons/word_on_topic.png"
@@ -201,15 +199,6 @@
   }, {
     "category" : "Useful Words",
     "category_id" : "13",
-=======
-    "cate" : "WordsOnTopics",
-    "pic" : "https://www.calamuseducation.com/uploads/icons/word_on_topic.png"
-  }, {
-    "cate" : "Phrase",
-    "pic" : "https://www.calamuseducation.com/uploads/icons/general_note.png"
-  }, {
-    "cate" : "UsefulWords",
->>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
     "pic" : "https://www.calamuseducation.com/uploads/icons/usefulverb.png"
   } ],
   "videoform" : [ {

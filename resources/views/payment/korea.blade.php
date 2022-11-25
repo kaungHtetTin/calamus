@@ -17,7 +17,7 @@
         }
         .payment{
             font-size: 1em;
-            padding: 5px;
+            
         }
         .card{
             margin-bottom: 5px !important;
@@ -27,16 +27,87 @@
 <body>
     <div class="container">
         <h2>Vip အဖြစ် မှတ်ပုံတင်ခြင်း &#128081;</h2>
-        <p>Vip user အဖြစ် မှတ်ပုံတင်ထားပါက Vip user များအနေဖြင့် သင်ခန်းစာများလေ့လာရာတွင် ကြောငြာ (ads) များ ကြည့်ရှုစရာမလိုပဲ လွတ်လပ်စွာ ဝင်ရောက်လေ့လာနိုင်မှာဖြစ်ပါတယ်။ </p>
-        <p>Video သင်ခန်းစာများအားလုံးကိုလည်း Download ချခွင့်ရရှိဉီးမှာနော်</p>
-        <p>Easy Korean အနေဖြင့် korea ဘာသာစကားကို Level 4 အထိသင်ကြားပို့ချသွားမှာဖြစ်ပြီး Level 3 နဲ့ Level 4 သင်ခန်းစာများကိုတော့ Vip user များသာ ဝင်ရောက်လေ့လာနိုင်မှာ ဖြစ်ပါတယ်။</p>
-        <p>VIP user အဖြစ် တစ်ခါတည်း မှတ်ပုံတင်ပြီးတာနဲ့  life time လွတ်လပ်စွာ လေ့လာခွင့်ရရှိမှာပါနော် </p>
+        <P>VIP User အဖြစ် အောက်ပါ Plan များအတိုင်း မိမိကြိုက်နှစ်သက်ရာကို မှတ်ပုံတင်နိုင်ပါသည်။</P>
         <div class="card text-left">
             <div class="card-header bg-warning text-white">သင်တန်းများ </div>
           <div class="card-body">
             <div>
-                
-                <div  class="payment">&#x1F4DD; Korean Language<br> <b>All courses -  30,000 kyats</b> </div></div>
+                <div  class="payment">&#x1F4DD; Korean Language
+                <br>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th  scope="col">Course</th>
+                            <th>Fees</th>
+                            <th>Blue Mark</th>
+                            <th>Remark</th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>Basic Course</td>
+                            <td>5,000 kyats</td>
+                            <td>Yes</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>Level 1 Course</td>
+                            <td>10,000 kyats</td>
+                            <td>Yes</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>Level 2 Course</td>
+                            <td>10,000 kyats</td>
+                            <td>Yes</td>
+                            <td></td>
+                          
+                        </tr>
+
+                        <tr>
+                            <td>Level 3-1 Course</td>
+                            <td>15,000 kyats</td>
+                            <td>Yes</td>
+                            <td>On Going</td>
+                        </tr>
+
+                        <tr>
+                            <td>Level 3-2 Course</td>
+                            <td>-</td>
+                            <td></td>
+                            <td>Soon</td>
+                        </tr>
+
+                        <tr>
+                            <td>Level 4-1 Course</td>
+                            <td>-</td>
+                            <td></td>
+                            <td>Soon</td>
+                        </tr>
+
+                        <tr>
+                            <td>Level 4-2 Course</td>
+                            <td>-</td>
+                            <td></td>
+                            <td>Soon</td>
+                        </tr>
+
+                        <tr>
+                            <td>Gold Plan</td>
+                            <td>35,000 kyats</td>
+                            <td>Yes</td>
+                            <td>Basic to Level 4-2</td>
+                        </tr>
+                    </tbody>
+                        
+                    </table>
+              
+                </div>
+            </div>
         </div>
         </div>
         <div class="card text-left">
@@ -47,19 +118,15 @@
                 <div  class="payment">&#128179; Wavepay<br> <b>09979638384</b> </div></div>
                 <div  class="payment">&#128179; KBZpay / Mytel pay<br> <b>09682537158</b> </div></div>
               
-               
-
           </div>
-        <div class="card" style="width: 18rem;">
+        <div class="card text-left">
             <div class="card-body">
               <h5 class="card-title">ကျသင့်ငွေပေးချေပြီးပါက </h5>
               <p class="card-text">
                   ကျသင့်ငွေအားပေးချေပြီးပါက ငွေပေးချေထားသည့်ဖြတ်ပိုင်း Screentshot အား ဖော်ပြပါ "Click Me" ကို နှိပ်၍ Easy Korean Developer Group သို့ ပေးပို့ရမည်ဖြစ်ပါသည်။ 
-သို့မဟုတ် Classmates chatting ထဲမှ Developer သို့လည်း ဝင်ရောက်ပေးပို့နိုင်ပါသည်။
+                သို့မဟုတ် Classmates chatting ထဲမှ Developer သို့လည်း ဝင်ရောက်ပေးပို့နိုင်ပါသည်။
               </p>
-              
-     
-              
+
                 <span onclick="showAndroidToast('Hello Android!')" style="color:blue; border:1px solid blue ; padding:8px ; " >
                     Click Me
                 </span>
@@ -71,10 +138,72 @@
 
                     }
                 </script>
-              
-              
             </div>
-          </div>
         </div>
+        <hr>
+        <p>
+            <h5>Blue Mark</h5>
+            Easy Koran App ၏ Additional Lesson များဖြစ်တဲ့
+            <ul>
+                <li>Basic Vocabular Course</li>
+                <li>Korean Blog</li>
+                <li>Number And Time</li>
+                <li>Words On Topics</li>
+                <li>Phrase</li>
+                <li>Tips and Slangs</li>
+                <li>Basic Conservation</li>
+                <li>Useful Words</li>
+                <li>Learnin With K Drama</li>
+            </ul>
+            စသော သင်ခန်းစာများအပြင် Easy Korean ၏ Video Channel ဖြစ်တဲ့
+            <ul>
+                <li>Drama Lyircs</li>
+                <li>Kid's Song</li>
+                <li>Translation</li>
+                <li>Drama Lyrics</li>
+                <li>General</li>
+            </ul>
+            အစရှိတဲ့ Additional Lesson များစွာကို  Ads Free အပြင်
+            video download ရယူပြီး Offline လေ့လာခွင့်ရရှိမှာပဲဖြစ်ပါတယ်။ Lyircs Song များ download ပြုလုပ်ရာတွင်လည်း ကြော်ငြာကြည့်စရာမလိုဘဲ
+            download ရယူနိုင်မှာဖြစ်ပါတယ်။
+        </p>
+
+        <hr>
+        <p>
+            <h5>Gold Plan (<span style="color: #0f0;">Recommended</span>)</h5>
+            Easy Korean ၏ လက်ရှိဖွင့်လစ်ထားပြီးဖြစ်သော Basic, Level 1, Level 2 , Level 3-1 စသော Course များအပြင် နောက်ထပ် ဖွင့်လစ်မည့်
+            Level 3-2, Level 4-1 , Level 4-2 စသော Course များကို 35,000 ကျပ်ဖြင့် ရာသက်ပန် ဝင်ရောက်လေ့လာနိုင်မှာဖြစ်ပါတယ်။
+            Ads Free နှင့် Video များကို download ရယူနိုင်မှာ ဖြစ်သည့်အပြင် Blue Mark Access လည်း ရရှိမှာဖြစ်ပါတယ်။
+        </p>
+
+        <hr>
+        <p>
+            <h5>Basic Couse</h5>
+            Easy Korean ၏ Basic Course မှ သင်ခန်းစာများကို 5,000 ကျပ်တည်းဖြင့် ရာသက်ပန်ဝင်ရောက် လေ့လာနိုင်မှာဖြစ်ပါတယ်။
+            Ads Free အပြင် Video များ download ရယူပြီး Offline လေ့လာနိုင်မှာပဲဖြစ်ပါတယ်။Blue Mark Access လည်းရရှိဉီးမှာပါ။
+        </p>
+        <hr>
+        <p>
+            <h5>Level 1 Course</h5>
+            Easy Korean ၏ Level 1 Course မှာ သင်ခန်းစာများကို 10,000 ကျပ်တည်းဖြင့် ရာသက်ပန်ဝင်ရောက်လေ့လာနိုင်မှာ ဖြစ်ပါတယ်။
+            Ads Free အပြင် Video များ download ရယူပြီး Offline လေ့လာနိုင်မှာပဲဖြစ်ပါတယ်။Blue Mark Access လည်းရရှိဉီးမှာပါ။
+        </p>
+
+        <hr>
+        <p>
+            <h5>Level 2 Course</h5>
+            Easy Korean ၏ Level 2 Course မှာ သင်ခန်းစာများကို 10,000 ကျပ်တည်းဖြင့် ရာသက်ပန်ဝင်ရောက်လေ့လာနိုင်မှာ ဖြစ်ပါတယ်။
+            Ads Free အပြင် Video များ download ရယူပြီး Offline လေ့လာနိုင်မှာပဲဖြစ်ပါတယ်။Blue Mark Access လည်းရရှိဉီးမှာပါ။
+        </p>
+
+        <hr>
+        <p>
+            <h5>Level 3-1 Course</h5>
+            Easy Korean ၏ Level 1 Course မှာ သင်ခန်းစာများကို 15,000 ကျပ်တည်းဖြင့် ရာသက်ပန်ဝင်ရောက်လေ့လာနိုင်မှာ ဖြစ်ပါတယ်။
+            Ads Free အပြင် Video များ download ရယူပြီး Offline လေ့လာနိုင်မှာပဲဖြစ်ပါတယ်။ Blue Mark Access လည်းရရှိဉီးမှာပါ။
+        </p>
+
+    </div>
+ 
 </body>
 </html>
