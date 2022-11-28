@@ -11,6 +11,7 @@ use App\Http\Controllers\EnglishUserDataController;
 use App\Http\Controllers\KoreanUserDataController;
 use App\Http\Controllers\ChineseUserDataController;
 use App\Http\Controllers\JapaneseUserDataController;
+use App\Http\Controllers\RussianUserDataController;
 use App\Http\Controllers\WordOfTheDayController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\AnouncementController;
@@ -165,6 +166,11 @@ Route::post('/{major}/click/chinese',[ChineseUserDataController::class,'recordAC
 Route::get('/japanese/wordofdays',[WordOfTheDayController::class,'getJapaneseWordOfTheDay']);
 Route::post('/japanese/gamers/scores/update',[JapaneseUserDataController::class,'updateGameScore']);
 Route::post('/{major}/click/japanese',[JapaneseUserDataController::class,'recordAClickJapanese']);
+
+// Easy Russian
+Route::get('/russian/wordofdays',[WordOfTheDayController::class,'getRussianWordOfTheDay']);
+Route::post('/russian/gamers/scores/update',[RussianUserDataController::class,'updateGameScore']);
+Route::post('/{major}/click/russian',[RussianUserDataController::class,'recordAClickRussian']);
 
 
 //there are common routes

@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\JapaneseUserData;
+use App\Models\RussianUserData;
 
-class JapaneseUserDataController extends Controller
+class RussianUserDataController extends Controller
 {
     public function updateGameScore(Request $req){
        $score=$req->score;
 	   $phone=$req->phone;
 	   
-	   JapaneseUserData::where('phone', $phone)
+	   RussianUserData::where('phone', $phone)
         ->update([
           'game_score'=>$score
         ]);
@@ -20,24 +20,24 @@ class JapaneseUserDataController extends Controller
     }
     
     //no longer use in new version and only used for song
-    public function recordAClickOnJapanese(Request $req){
+    public function recordAClickOnRussian(Request $req){
         $userId=$req->user_id;
         $record=$req->record;
         
        
-        JapaneseUserData::where('phone',$userId)
+        RussianUserData::where('phone',$userId)
             ->update([
                 $record=>DB::raw("$record+1")
             
         ]);
         
-        JapaneseUserData::where('phone',$userId)
+        RussianUserData::where('phone',$userId)
             ->update([
                 'learn_count'=>DB::raw("learn_count+1")
             
         ]);
         
-        $data=JapaneseUserData::where('phone',$userId)->get();
+        $data=RussianUserData::where('phone',$userId)->get();
         return $data;
     }
 }

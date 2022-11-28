@@ -10,6 +10,7 @@ use App\Models\KoreanUserData;
 use App\Models\EnglishUserData;
 use App\Models\ChineseUserData;
 use App\Models\JapaneseUserData;
+use App\Models\RussianUserData;  
 use App\Models\FriendRequest;
 use App\Models\Friend;
 use Hash;
@@ -32,8 +33,6 @@ class LearnerController extends Controller
         
         return $response;
     }
-    
-    
     
     
     public function signUp(Request $req){
@@ -144,7 +143,13 @@ class LearnerController extends Controller
 		    $data['version']="1.0.0";
 		    $data['music']="on";
 		    $data['inappads']="on";
-		}
+		}else if($major=="russian"){
+            $dataTable="ru_user_datas";
+		    $loginTime=RussianUserData::where('phone',$phone)->first();
+		    $data['version']="1.0.0";
+		    $data['music']="on";
+		    $data['inappads']="on";
+        }
 		
 		if(!$loginTime){
 	       DB::table("$dataTable")
@@ -391,6 +396,8 @@ class LearnerController extends Controller
             $token=ChineseUserData::where('phone',$otherId)->first();
         }else if($major=="japanese"){
              $token=JapaneseUserData::where('phone',$otherId)->first();
+        }else if($major=="russian"){
+            $token=RussianUserData::where('phone',$otherId)->first();
         }
         
         $data['token']=$token->token;
@@ -468,7 +475,6 @@ class LearnerController extends Controller
                  $data['friendship']="friLimit";
             }
         }
-        
         
         return $data;
     }

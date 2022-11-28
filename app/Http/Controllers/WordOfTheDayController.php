@@ -181,6 +181,51 @@ class WordOfTheDayController extends Controller
             }
         }
     }
+
+    public function getRussianWordOfTheDay(){
+        $thisDay =date('j');
+        $saveDay=DB::table('Timer')->value('day');
+        $fetchId=DB::table('Timer')->value('russian');
+        
+        
+        if($thisDay==$saveDay){
+            $word=DB::table('ru_word_of_days')
+            ->where('id',$fetchId)
+            ->get();
+            
+            return $word;
+            
+        }else{
+           $fetchId++;
+           $affected =DB::table('Timer')
+           ->update(
+               [
+                    'korea'=>DB::raw('korea+1'),
+                    'english'=>DB::raw('english+1'),
+                    'chinese'=>DB::raw('chinese+1'),
+                    'japanese'=>DB::raw('japanese+1'),
+                    'japanese'=>DB::raw('japanese+1'),
+                    'russian'=>DB::raw('russian+1'),
+                    'day'=>$thisDay
+               ]);
+            
+            $word=DB::table('ru_word_of_days')
+            ->where('id',$fetchId)
+            ->get();
+            
+            if(!sizeof($word)==0){
+                 return $word;  
+            }else{
+                $fetchId=1;
+                DB::table('Timer')
+                ->update([''=>$fetchId]);
+                 $word=DB::table('ru_word_of_days')
+                ->where('id',$fetchId)
+                ->get();
+                return $word;
+            }
+        }
+    }
     
     public function getKoreanWordOfTheDayLists(Request $req){
         $count=$req->count;
