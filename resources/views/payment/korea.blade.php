@@ -140,6 +140,13 @@
                 </script>
             </div>
         </div>
+
+         <div style="color: white;background-color:red;padding:7px; border-radius:2px;">
+            Internet Connection ပြသနာတချို့ ရှိနေပါသဖြင့် ငွေလွှဲ Screentshot များကို Developer ထံပေးပို့ရာတွင် VPN 
+            ဖွင့်ပြီး ပေးပို့ပေးပါရန် ...
+        </div>
+
+
         <hr>
         <p>
             <h5>Blue Mark</h5>
