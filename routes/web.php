@@ -9,6 +9,7 @@ use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\InAppAdController;
 use App\Http\Controllers\RequestedSongController;
+use App\Http\Controllers\LiveClassController;
 use App\Http\Controllers\StudyPlanController;
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,9 @@ Route::get('/exam/korea/levelone/{test}',[ExamController::class,'showKoreaLevelO
 Route::get('/studyplan/korea',[StudyPlanController::class,'showKoreaStudyPlan']);
 Route::get('/studyplan/english',[StudyPlanController::class,'showEnglishStudyPlan']);
 Route::get('/studyplan/korea/detail',[StudyPlanController::class,'studyPlanDetail'])->name('studyPlanDetail');
+
+Route::get('live-classes/learning-and-brain',[LiveClassController::class,'brainTrainingClass']);
+Route::post('live-classes/learning-and-brain',[LiveClassController::class,'registerBrainTrainingClass'])->name('registerBrainTrainingClass');
 
 Route::get('/english/credit',function(){
      return view('anouncement.englishcredit');

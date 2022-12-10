@@ -56,7 +56,6 @@
             
          </div>
           
-          
         <div class="row">
             
             @for($i=0;$i<count($plans);$i++)
