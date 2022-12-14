@@ -25,7 +25,7 @@ class LiveClassController extends Controller
     }
 
     public function registerBrainTrainingClass(Request $req){
-
+        $brainClass=LiveClass::find(1);
         $req->validate([
             'phone'=>'required'
         ]);
@@ -44,15 +44,18 @@ class LiveClassController extends Controller
         $english=EnglishUserData::where('phone',$phone)->first();
         $korea=KoreanUserData::where('phone',$phone)->first();
 
-        if(
-            $english->is_vip==0 &&
-            $korea->is_vip==0
-        ){
-            return back()->with('err',"ဝမ်းနည်းပါတယ် $user->learner_name .. သင်သည် Calamus Education ၏ VIP Member တစ်ဦးမဟုတ်ပါ ");
+        if($english){
+            if($english->is_vip==1){
+                return back()->with('link',$brainClass->link);
+            }
         }
 
-        $brainClass=LiveClass::find(1);
-        
-        return back()->with('link',$brainClass->link);
+        if($korea){
+            if($korea->is_vip==1){
+                return back()->with('link',$brainClass->link);
+            }
+        }
+
+        return back()->with('err',"ဝမ်းနည်းပါတယ် $user->learner_name .. သင်သည် Calamus Education ၏ VIP Member တစ်ဦးမဟုတ်ပါ ");
     }
 }
