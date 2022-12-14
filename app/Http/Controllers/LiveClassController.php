@@ -8,7 +8,8 @@ use App\Models\KoreanUserData;
 use App\Models\EnglishUserData;
 use App\Models\ChineseUserData;
 use App\Models\JapaneseUserData;
-use App\Models\RussianUserData;  
+use App\Models\RussianUserData;
+use App\Models\LiveClass;  
 
 class LiveClassController extends Controller
 {
@@ -44,14 +45,14 @@ class LiveClassController extends Controller
         $korea=KoreanUserData::where('phone',$phone)->first();
 
         if(
-            $english->gold_plan==0 &&
-            $korea->gold_plan==0
+            $english->is_vip==0 &&
+            $korea->is_vip==0
         ){
-            return back()->with('err',"ဝမ်းနည်းပါတယ် $user->learner_name .. သင်သည် Calamus Education ၏ Gold Plan Member တစ်ဦးမဟုတ်ပါ ");
+            return back()->with('err',"ဝမ်းနည်းပါတယ် $user->learner_name .. သင်သည် Calamus Education ၏ VIP Member တစ်ဦးမဟုတ်ပါ ");
         }
 
-
+        $brainClass=LiveClass::find(1);
         
-        return back()->with('link','This is link');
+        return back()->with('link',$brainClass->link);
     }
 }

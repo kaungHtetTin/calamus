@@ -57,14 +57,14 @@
                 <div style="">
                     <br>
                     <h5>Learning And Brain Live Class</h5>
-                    Only For Gold Plan Members <br>
+                    Only For VIP Members <br>
                     2 hrs <br>
                 </div>
             </div> 
             
          </div>
          <br><br>
-        {{-- @if (!session('link'))
+        @if (!session('link'))
             <h4>Register Now</h4>
             <p> Calamus Education တွင် Register လုပ်ထားသော Account ၏ ဖုန်းနံပါတ်ကို အသုံးပြု၍ စာရင်းပေးသွင်းပါ။
             </p>
@@ -91,8 +91,8 @@
             </form>        
         @else
             <div class="bg-success msg">
-               စာရင်းပေးသွင်းမှု အောင်မြင်ပါသည်။ အောက်တွင် ဖော်ပြထားသော Telegram Group ကို Join ပေးပါ။ Zoom, Google Meet , Telegram Group တစ်ခုခုမှ သတ်မှတ်ရက် သတ်မှတ်အချိန်တွင်
-               ဆွေးနွေးပို့ချသွားမည်ဖြစ်ပြီး Meeting Inviting Link ကို အောက်ပါ Telegram Group တွင် အချိန်နှင့် တပြေးညီ ပေးပို့သွားမည် ဖြစ်ပါသည်။
+               စာရင်းပေးသွင်းမှု အောင်မြင်ပါသည်။ အောက်တွင် ဖော်ပြထားသော Calamus Live Brain Training Class Telegram Group ကို Join ပေးပါ။ ဆွေးနွေးပို့ချမည့် အချိန်ကို 
+               အဆိုပါ Telegram Group တွင် ပြန်လည် ကြေငြာပေးသွားမှာပဲဖြစ်ပါတယ် ။
             </div>
 
             <br><br>
@@ -113,11 +113,15 @@
         @endif
 
         <br>
-        --}}
+     
+
+        {{-- <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/live_stream?channel=UCiT5Z87doWwc-SpR7spe1XQ" 
+        frameborder="0" allowfullscreen></iframe> --}}
 
         <h4>About Class</h4>
         <ul>
-            <li>Learning and Brain Live Class ကို Calamus Education မှ Gold Plan Member ဝင်များအတွက် သင်ကြားပေးသွားမှာ ဖြစ်ပါတယ်။</li>
+            <li>Learning and Brain Live Class ကို Calamus Education မှ VIP Member ဝင်များအတွက် သင်ကြားပေးသွားမှာ ဖြစ်ပါတယ်။</li>
             <li>သင်ကြားချိန် ၂ နာရီကြာမြင့်မှာဖြစ်ပါတယ်</li>
             <li>ဦးနှောက်ဉာဏ်ရည်နဲ့ ပတ်သက်ပြီး အဓိက သင်ကြားရမှာဖြစ်ပါတယ်</li>
             <li>ပညာရပ်တစ်ခုကို ကျွမ်းကျင်အောင်ဘယ်လို လေ့လာရမယ်ဆိုတဲ့ Learning Tips လေးတွေလည်း ဆွေးနွေးပို့ချပေးသွားမှာပါ။ </li>
@@ -160,6 +164,12 @@
                 </div>
             </li>
            
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold"><b>Calamus Education's App</b></div>
+                    Calamus Education ရဲ့ သင်ကြားရေး Platform တွေကို ဘယ်လို အသုံးပြုနိုင်မလဲ
+                </div>
+            </li>
         </ol>
 
         <br>
