@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\CourseCategory;
 use App\Models\App;
 use App\Models\Pricing;
+use App\Models\Learner;
+use App\Models\Teacher;
 
 use Illuminate\Http\Request;
 
@@ -33,4 +36,33 @@ class MainController extends Controller
             'pricing'=>$pricing->pricing
         ]);
     }
+
+    // api route 
+
+    function getHome(){
+        $courseCategories=CourseCategory::get();
+
+        $courses=Course::limit(6)->get();
+
+        return $courses[0]->teacher;
+        
+        $totalStudent=Learner::count();
+        $totalTeacher=Teacher::count();
+        $totalCourse=Course::count();
+        $teachers=Teacher::get();
+
+        
+
+        $response['categories']=$courseCategories;
+        $response['courses']=$courses;
+        $response['teachers']=$teachers;
+
+        $response['general']['total_student']=$totalStudent;
+        $response['general']['total_teacher']=$totalTeacher;
+        $response['general']['total_course']=$totalCourse;
+
+        return $response;
+    }
+
+
 }
