@@ -9,6 +9,8 @@ use App\Models\Pricing;
 use App\Models\Learner;
 use App\Models\Teacher;
 
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -44,7 +46,14 @@ class MainController extends Controller
 
         $courses=Course::limit(6)->get();
 
-        return $courses[0]->teacher;
+        
+        $courses=DB::table('courses')
+            ->selectRaw("
+                    *
+                ")
+            ->join('teachers','teachers.id','=','courses.teacher_id')
+            ->limit(6)
+            ->get();
         
         $totalStudent=Learner::count();
         $totalTeacher=Teacher::count();
