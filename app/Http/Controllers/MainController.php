@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\CourseCategory;
 use App\Models\App;
 use App\Models\Pricing;
+use App\Models\Learner;
+use App\Models\Teacher;
 
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -33,4 +38,37 @@ class MainController extends Controller
             'pricing'=>$pricing->pricing
         ]);
     }
+
+    // api route 
+
+    function getHome(){
+        $courseCategories=CourseCategory::get();
+
+        $courses=DB::table('courses')
+            ->selectRaw("
+                    *
+                ")
+            ->join('teachers','teachers.id','=','courses.teacher_id')
+            ->limit(6)
+            ->get();
+        
+        $totalStudent=Learner::count();
+        $totalTeacher=Teacher::count();
+        $totalCourse=Course::count();
+        $teachers=Teacher::get();
+
+        
+
+        $response['categories']=$courseCategories;
+        $response['courses']=$courses;
+        $response['teachers']=$teachers;
+
+        $response['general']['total_student']=$totalStudent;
+        $response['general']['total_teacher']=$totalTeacher;
+        $response['general']['total_course']=$totalCourse;
+
+        return $response;
+    }
+
+
 }
