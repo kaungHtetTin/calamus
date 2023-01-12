@@ -1,54 +1,78 @@
 {
   "firstform" : [ {
-    "eCode" : "a",
-    "enroll" : 110,
-    "level" : "Note Books",
+    "id" : "10",
+    "title" : "Note Books",
     "sub" : [ {
-      "cate" : "Basic Grammar",
-      "code" : "b_grammar",
+      "category" : "Basic Grammar",
+      "category_id" : "28",
       "eCode" : "a",
       "pic" : "https://www.calamuseducation.com/uploads/icons/basic_notes.png"
     }, {
-      "cate" : "Sentence Construction",
-      "code" : "b_sentence_construction",
+      "category" : "Sentence Construction",
+      "category_id" : "30",
       "eCode" : "a",
       "pic" : "https://www.calamuseducation.com/uploads/icons/basic_notes.png"
     }, {
-      "cate" : "Translation",
-      "code" : "b_translation",
+      "category" : "Translation",
+      "category_id" : "29",
       "eCode" : "a",
       "pic" : "https://www.calamuseducation.com/uploads/icons/basic_notes.png"
     } ]
   },
   
    {
-    "eCode" : "b",
-    "enroll" : 100,
-    "level" : "Basic English Course",
+    "id" : "11",
+    "title" : "Basic English Course",
     "sub" : [ {
-      "cate" : "Grammar",
-      "code" : "basic_grammar",
+      "category" : "Grammar",
+      "category_id" : "39",
       "eCode" : "b",
       "pic" : "https://www.calamuseducation.com/uploads/icons/basic_grammar1.png"
     }, {
-      "cate" : "Basic Speaking",
-      "code" : "basic_speaking",
+      "category" : "Basic Speaking",
+      "category_id" : "37",
       "eCode" : "b",
       "pic" : "https://www.calamuseducation.com/uploads/icons/basic_speaking.png"
     }, {
-      "cate" : "Basic Listening",
-      "code" : "basic_listening",
+      "category" : "Basic Listening",
+      "category_id" : "40",
       "eCode" : "b",
       "pic" : "https://www.calamuseducation.com/uploads/icons/listening1.png"
     },{
-      "cate" : "Basic Reading",
-      "code" : "basic_reading",
+      "category" : "Basic Reading",
+      "category_id" : "41",
       "eCode" : "b",
       "pic" : "https://www.calamuseducation.com/uploads/icons/basic_reading.jpg"
     } ]
   },
   
+  {
+    "id" : "13",
+    "title" : "Elementary Course",
+    "sub" : [
+    {
+      "category" : "Grammar",
+      "category_id" :"46",
+      "eCode" : "c",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/basic_grammar1.png"
+    },
+    {
+      "category" : "Reading",
+      "category_id" :"45",
+      "eCode" : "c",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/basic_reading.jpg"
+    },
+    {
+      "category" : "Listening",
+      "category_id" :"48",
+      "eCode" : "c",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/listening1.png"
+    }]
+  },
+  
+  
    {
+<<<<<<< HEAD
     "eCode" : "c",
     "enroll" : 100,
     "level" : "Elementary Course",
@@ -84,22 +108,27 @@
     "eCode" : "z",
     "enroll" : 110,
     "level" : "Let's Learn English (VOA)",
+=======
+    "id" : "12",
+    "title" : "Let's Learn English (VOA)",
+>>>>>>> 7df0cb33cc936684113ec31c527c724ec23ee430
     "sub" : [ {
-      "cate" : "Beginning\nLevel 1",
-      "code" : "voa_b_level1",
+      "category" : "Beginning\nLevel 1",
+      "category_id" : "34",
       "eCode" : "z",
       "pic" : "https://www.calamuseducation.com/uploads/icons/learning.png"
     }, {
-      "cate" : "Beginning\nLevel 2",
-      "code" : "voa_b_level2",
+      "category" : "Beginning\nLevel 2",
+      "category_id" : "35",
       "eCode" : "z",
       "pic" : "https://www.calamuseducation.com/uploads/icons/learning.png"
     },
      {
-      "cate" : "How To Pronouce",
-      "code" : "HowToPronounce",
+      "category" : "How To Pronouce",
+      "category_id" : "36",
       "eCode" : "z",
       "pic" : "https://www.calamuseducation.com/uploads/icons/learning.png"
+<<<<<<< HEAD
     },
     {
       "cate" : "English At The Movie",
@@ -107,11 +136,23 @@
       "eCode" : "z",
       "pic" : "https://www.calamuseducation.com/uploads/icons/learning.png"
     }]
+=======
+    }
+    ,
+     {
+      "category" : "English At The Movie",
+      "category_id" : "49",
+      "eCode" : "z",
+      "pic" : "https://www.calamuseducation.com/uploads/icons/learning.png"
+    }
+    ]
+>>>>>>> 7df0cb33cc936684113ec31c527c724ec23ee430
   }],
   "function" : [ {
-    "cate" : "Exam",
+    "category" : "Exam",
     "link" : "https://www.calamuseducation.com/calamus/exam/english",
     "pic" : "https://www.calamuseducation.com/uploads/icons/exam.png"
+<<<<<<< HEAD
   },
    {
     "category" : "StudyPlan",
@@ -119,16 +160,44 @@
     "pic" : "https://www.calamuseducation.com/uploads/icons/studyplan.jpg"
   },
   {
-    "cate" : "Activity",
+    "category" : "StudyPlan",
+    "link" : "http://www.calamuseducation.com/calamus-v2/studyplan/english",
+    "pic" : "https://www.calamuseducation.com/uploads/icons/studyplan.jpg"
+=======
+>>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
+  },
+  {
+    "category" : "Activity",
     "link" : "https://www.calamuseducation.com/calamus/activity/english",
     "pic" : "https://www.calamuseducation.com/uploads/icons/activity.png"
   },
     {
-    "cate" : "Song Request",
+    "category" : "Song Request",
     "link" : "https://www.calamuseducation.com/calamus/artists/english",
     "pic" : "https://www.calamuseducation.com/uploads/icons/requestsong.png"
   } ],
+  
   "secondform" : [ {
+<<<<<<< HEAD
+    "category" : "Game",
+    "category_id" :"0",
+    "pic" : "https://www.calamuseducation.com/uploads/icons/game.png"
+  }, {
+    "category" : "Tips And Slang",
+    "category_id" :"33",
+    "pic" : "https://www.calamuseducation.com/uploads/icons/tip_and_slang.png"
+  }, {
+    "category" : "Words On Topics",
+    "category_id" :"26",
+    "pic" : "https://www.calamuseducation.com/uploads/icons/word_on_topic.png"
+  }, {
+    "category" : "Proverbs",
+    "category_id" :"27",
+    "pic" : "https://www.calamuseducation.com/uploads/icons/proverb.png"
+  }, {
+    "category" : "Phrase",
+    "category_id" :"38",
+=======
     "cate" : "Game",
     "pic" : "https://www.calamuseducation.com/uploads/icons/game.png"
   }, {
@@ -142,15 +211,24 @@
     "pic" : "https://www.calamuseducation.com/uploads/icons/proverb.png"
   }, {
     "cate" : "Phrase",
+>>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
     "pic" : "https://www.calamuseducation.com/uploads/icons/general_note.png"
   } ],
   "videoform" : [ {
-    "cate" : "Idioms"
+    "category" : "Idioms",
+    "category_id" : "42"
   }, {
+<<<<<<< HEAD
+    "category" : "Proverbs",
+    "category_id" : "43"
+=======
     "cate" : "WeeklyProverbs"
+>>>>>>> 2c350371eaf59bd255c30ea95ef38a700d32f3a2
   }, {
-    "cate" : "Translation"
+    "category" : "Translation",
+    "category_id" : "32"
   }, {
-    "cate" : "General"
+    "category" : "General",
+    "category_id" : "31"
   } ]
 }
