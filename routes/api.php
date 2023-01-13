@@ -27,3 +27,7 @@ Route::get('/home',[MainController::class,'getHome']);
 
 Route::get('/courses/{category}',[CourseController::class,'getCourses']);
 
+Route::get('/demo-url',  function  (Request $request)  {
+   return response()->json(['Laravel CORS Demo']);
+});
+
