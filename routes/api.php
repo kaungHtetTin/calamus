@@ -21,8 +21,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Home Page Routes
+//Page Routes
 Route::get('/home',[MainController::class,'getHome']);
+Route::get('/courses',[MainController::class,'getCoursePage']);
+Route::get('/courses/detail/{courseId}',[MainController::class,'getCourseDetailPage']);
+Route::get('/instructors',[MainController::class,'getInstructorPage']);
 
 
 Route::get('/courses/{category}',[CourseController::class,'getCourses']);

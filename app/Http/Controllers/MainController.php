@@ -70,5 +70,103 @@ class MainController extends Controller
         return $response;
     }
 
+    public function getCoursePage(Request $req){
+        if(isset($req->page)){
+            $page=$req->page;
+        }else{
+            $page=1;
+        }
+     
+        $page=$page-1;
+        $count=10;
+        $offset=$page*10;
+
+        $courseCategories=CourseCategory::get();
+
+        $courses=DB::table('courses')
+            ->selectRaw("
+                    *
+                ")
+            ->join('teachers','teachers.id','=','courses.teacher_id')
+          
+            ->offset($offset)
+            ->limit($count)
+            ->get();
+
+        $popularCourses=DB::table('course_enroll')
+            ->selectRaw("
+                count(*)as enrolls,courses.course_id,courses.title,courses.fee,courses.cover_url,background_color
+            ")
+            ->join('courses','courses.course_id','=','course_enroll.course_id')
+            ->groupBy("course_id")
+            ->orderBy("enrolls","desc")
+            ->limit(4)
+            ->get();
+        
+        
+        $response['categories']=$courseCategories;
+        $response['courses']=$courses;
+        $response['popular_courses']=$popularCourses;
+
+        return $response;
+            
+    }
+
+    public function getCourseDetailPage(Request $req,$courseId){
+        
+        if(isset($req->userid)){
+            $userid=$req->userid;
+        }else{
+            $userid="000";
+        }
+
+        $course=Course::where('course_id',$courseId)
+            ->first();
+        $cateogry=CourseCategory::where('keyword',$course->major)->first();
+       
+        
+      
+        $plans=DB::table('study_plan')
+            ->selectRaw("
+               
+                lessons.title as lesson_title,
+                lessons.duration,
+                day,
+                CASE
+                WHEN  EXISTS (SELECT NULL FROM studies std 
+                WHERE std.learner_id ='$userid'and std.lesson_id =study_plan.lesson_id) THEN 1
+                ELSE 0
+                END as learned
+            ")
+            ->join('lessons','lessons.id','=','study_plan.lesson_id')
+            ->where('study_plan.course_id',$courseId)
+            ->orderby('day','asc')
+            ->orderby('study_plan.id','asc')
+            ->get();
+ 
+            
+        for($i=0;$i<count($plans);$i++){
+            $day=$plans[$i]->day;
+            $day--;
+           
+            $lessons[$day][]=$plans[$i];
+             
+        }
+        
+
+        $response['course']=$course;
+        $response['teacher']=$course->teacher;
+        $response['category']=$cateogry;
+        $response['curriculum']=$lessons;
+        return $response;
+    }
+
+    public function getInstructorPage(){
+
+        $teachers=Teacher::get();
+        return $teachers;
+
+    }
+
 
 }
