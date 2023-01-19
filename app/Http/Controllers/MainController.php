@@ -120,8 +120,7 @@ class MainController extends Controller
             $userid="000";
         }
 
-        $course=Course::where('course_id',$courseId)
-            ->first();
+        $course=Course::where('course_id',$courseId)->first();
         $cateogry=CourseCategory::where('keyword',$course->major)->first();
        
         
@@ -165,7 +164,6 @@ class MainController extends Controller
 
         $teachers=Teacher::get();
         return $teachers;
-
     }
 
 

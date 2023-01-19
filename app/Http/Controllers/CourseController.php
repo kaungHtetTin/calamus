@@ -15,7 +15,6 @@ class CourseController extends Controller
         }else {
             $courses=Course::where('major',$category)->get();
         }
-
         return $courses;
     }
 }

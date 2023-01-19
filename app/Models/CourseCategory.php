@@ -9,4 +9,5 @@ class CourseCategory extends Model
 {
     
     use HasFactory;
+    public $timestamps=false;
 }
