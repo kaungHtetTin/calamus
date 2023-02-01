@@ -46,7 +46,10 @@ class MainController extends Controller
 
         $courses=DB::table('courses')
             ->selectRaw("
-                    *
+                    courses.title,courses.description,courses.fee,courses.background_color, courses.cover_url,courses.rating,
+                    courses.duration,courses.rating,courses.lessons_count,
+                    teachers.name,teachers.profile,teachers.total_course
+
                 ")
             ->join('teachers','teachers.id','=','courses.teacher_id')
             ->limit(6)
@@ -55,7 +58,7 @@ class MainController extends Controller
         $totalStudent=Learner::count();
         $totalTeacher=Teacher::count();
         $totalCourse=Course::count();
-        $teachers=Teacher::get();
+        $teachers=Teacher::selectRaw("name,profile,rank")->get();
 
         
 
