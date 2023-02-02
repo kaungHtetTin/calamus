@@ -13,6 +13,7 @@ use App\Models\JapaneseUserData;
 use App\Models\RussianUserData;  
 use App\Models\FriendRequest;
 use App\Models\Friend;
+use App\Models\Block;
 use Hash;
 date_default_timezone_set("Asia/Yangon");
 class LearnerController extends Controller
@@ -475,6 +476,12 @@ class LearnerController extends Controller
                  $data['friendship']="friLimit";
             }
         }
+        $block=Block::where('user_id',$myId)->where('blocked_user_id',$otherId)->first();
+        if($block){
+            $data['block']=true;
+        }else{
+            $data['block']=false;
+        }
         
         return $data;
     }
@@ -515,6 +522,32 @@ class LearnerController extends Controller
         $responseData['post']=$posts;
         return $responseData;
         
+    }
+
+    public function blockUser(Request $req){
+        $user_id=$req->user_id;
+        $blocked_user_id=$req->blocked_user_id;
+        $block=new Block();
+        $block->user_id=$user_id;
+        $block->blocked_user_id=$blocked_user_id;
+        $block->save();
+
+        return "User was blocked!";
+    }
+
+    public function unblockUser(Request $req)
+    {
+        $user_id=$req->user_id;
+        $blocked_user_id=$req->blocked_user_id;
+        Block::where('user_id',$user_id)->where('blocked_user_id',$blocked_user_id)->delete();
+
+        return "User unblocked";
+
+    }
+    public function getBlockUsers(Request $req){
+        $user_id=$req->user_id;
+        $blockedUsers=Block::join('learners','learners.learner_phone','=','blocks.blocked_user_id')->where('blocks.user_id',$user_id)->get();
+        return $blockedUsers;
     }
 
 }

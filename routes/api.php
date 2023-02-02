@@ -79,6 +79,8 @@ Route::post('/{major}/posts/viewcount',[PostController::class,'getAndUpdateViewC
 Route::post('/{major}/posts/edit',[PostController::class,'editPost']);
 Route::get('/{major}/posts/videourl',[PostController::class,'getVideodownloadLink']);
 Route::get('/{major}/posts/share-content',[PostController::class,'getShareContent']);
+Route::post('/{major}/posts/hide',[PostController::class,'hidePost']);
+ 
 
 //comment routing
 Route::get('/{major}/comments',[CommentController::class,'fetchComment']); //comment time =notificatio time(0 for commentactivity)
@@ -111,6 +113,11 @@ Route::get('/{major}/songs/artists',[SongController::class,'getArtist']);
 
 //user routing
 Route::get('/{major}/search',[LearnerController::class,'searchSomeone']);
+Route::post('/{major}/learners/block',[LearnerController::class,'blockUser']);
+Route::post('/{major}/learners/unblock',[LearnerController::class,'unblockUser']);
+Route::get('/{major}/learners/unblock',[LearnerController::class,'unblockUser']);
+Route::get('/{major}/learners/block',[LearnerController::class,'getBlockUsers']);
+
 
 
 //password reset

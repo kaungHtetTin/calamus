@@ -14,6 +14,7 @@ use App\Models\KoreanUserData;
 use App\Models\lesson;
 use App\Models\study;
 use App\Models\EnglishUserData;
+use App\Models\HiddenPost;
 date_default_timezone_set("Asia/Yangon");
 class PostController extends Controller
 {
@@ -45,7 +46,17 @@ class PostController extends Controller
             	    posts.view_count as viewCount,
             	    posts.share_count as shareCount,
             	    posts.share,
-            	    posts.has_video
+            	    posts.has_video,
+                    CASE
+                    WHEN EXISTS (SELECT NULL FROM hidden_posts hp
+                    WHERE hp.user_id='$userId' and hp.post_id=posts.post_id) THEN 1
+                    ELSE 0
+                    END as hidden,
+                    CASE
+                    WHEN EXISTS (SELECT NULL FROM blocks b
+                    WHERE b.user_id='$userId' and b.blocked_user_id=learners.learner_phone) THEN 1
+                    ELSE 0
+                    END as blocked
             	    
                 ")
             ->where('posts.major',$major)
@@ -148,7 +159,18 @@ class PostController extends Controller
             	    posts.view_count as viewCount,
             	    posts.share_count as shareCount,
             	    posts.has_video,
-            	    posts.share
+            	    posts.share,
+                    CASE
+                    WHEN EXISTS (SELECT NULL FROM hidden_posts hp
+                    WHERE hp.user_id='$userId' and hp.post_id=posts.post_id) THEN 1
+                    ELSE 0
+                    END as hidden,
+                    CASE
+                    WHEN EXISTS (SELECT NULL FROM blocks b
+                    WHERE b.user_id='$userId' and b.blocked_user_id=learners.learner_phone) THEN 1
+                    ELSE 0
+                    END as blocked
+                     
             	    
                 ")
             ->where('posts.major',$major)
@@ -481,6 +503,19 @@ class PostController extends Controller
         return $link;
     }
     
+
+    public function hidePost(Request $req){
+        $post_id=$req->post_id;
+        $user_id=$req->user_id;
+
+        $hiddenPost=new HiddenPost();
+        $hiddenPost->post_id=$post_id;
+        $hiddenPost->user_id=$user_id;
+
+        $hiddenPost->save();
+
+        return "Post hidden!";
+    }
     
     //testing area
 
