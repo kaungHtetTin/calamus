@@ -13,7 +13,7 @@ class CourseController extends Controller
 {
     public function getAppForm($major){
         //main course
-        $mainCourse=course::where('major',$major)->get();
+        $mainCourse=course::where('major',$major)->orderBy('sorting','asc')->get();
         $myResponse['mainCourse']=$mainCourse;
     
         //main function    

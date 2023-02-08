@@ -444,7 +444,6 @@ class LearnerController extends Controller
             }
         }
         
-
         
         $reqRow=FriendRequest::where("user_id",$myId)->first();
         if($reqRow){
