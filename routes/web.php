@@ -87,6 +87,15 @@ Route::get('/english/credit',function(){
 // inapp ads
 Route::get('/ads/{major}',[InAppAdController::class,'showInAppAds']);
 
+//terms and conditions
+Route::get('/terms-of-use',function(){
+    return view('terms.terms');
+});
+
+Route::get('/privacy-policy',function(){
+    return view('terms.privacy');
+});
+
  
 
  
