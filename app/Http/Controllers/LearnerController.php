@@ -123,13 +123,13 @@ class LearnerController extends Controller
 		if($major=="english"){
 		    $dataTable="ee_user_datas";
 		    $loginTime=EnglishUserData::where('phone',$phone)->first();
-		    $data['version']="3.1.6"; 
+		    $data['version']="3.1.7"; 
 		    $data['music']="on";
 		    $data['inappads']="on";
 		}else if($major=="korea"){
 		    $dataTable="ko_user_datas";
 		    $loginTime=KoreanUserData::where('phone',$phone)->first();
-		    $data['version']="3.2.4";
+		    $data['version']="3.2.9";
 		    $data['music']="on";
 		    $data['inappads']="on";
 		}else if($major=="chinese"){
