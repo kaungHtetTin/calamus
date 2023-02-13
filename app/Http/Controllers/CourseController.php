@@ -96,7 +96,7 @@ class CourseController extends Controller
         $course=course::where('major',$major)->where('course_id',$course_id)->first();
         
         
-        $rating=DB::table('ratings')
+        $ratings=DB::table('ratings')
             ->selectRaw("
                   count(*) as total_rating,
                   star
@@ -104,6 +104,22 @@ class CourseController extends Controller
             ->where('course_id',$course_id)
             ->groupBy('star')
             ->get();
+        
+        $total_star=0;
+        $total_rating=0;
+        
+        foreach($ratings as $rating){
+            $star=$rating->star;
+            $count=$rating->total_rating;
+            $temp=$star*$count;
+            $total_star+=$temp;
+            $total_rating+=$count;
+        }
+        
+        if($total_rating>0){
+            $courseRating=$total_star/$total_rating;
+            $course->where('course_id',$course_id)->update(['rating'=>$courseRating]);
+        }
         
         
         $rated=rating::where('user_id',$user_id)->where('course_id',$course_id)->first();
@@ -115,7 +131,7 @@ class CourseController extends Controller
         }
         
         $response['course']=$course;
-        $response['rating']=$rating;
+        $response['rating']=$ratings;
         
         return $response;
         

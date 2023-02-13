@@ -70,8 +70,14 @@
                                     <td>Translation Course</td>
                                     <td>10,000 kyats</td>
                                     <td>Yes</td>
-                                    <td>On Going</td>
+                                    <td></td>
+                                </tr>
 
+                                <tr>
+                                    <td>Listening Course</td>
+                                    <td>မေတ္တာလက်ဆောင်</td>
+                                    <td>Yes</td>
+                                    <td>On going</td>
                                 </tr>
 
                                 <tr>
@@ -131,6 +137,11 @@
         <hr>
         <p>
         <h5>Blue Mark</h5>
+        Easy English ရဲ့ Main Course တစ်ခုဖြစ်တဲ့
+        <ul>
+            <li>Listening Course</li>
+        </ul>
+
         Easy English App ၏ Additional Lesson များဖြစ်တဲ့
         <ul>
             <li>Basic Grammar Book</li>
@@ -158,12 +169,14 @@
         </p>
 
         <hr>
+        <div style="background: rgb(213, 255, 213); padding:7px; border:1px solid green">
         <p>
-        <h5>Gold Plan (<span style="color: #0f0;">Recommended</span>)</h5>
-            Easy English ၏ လက်ရှိဖွင့်လစ်ထားပြီးဖြစ်သော Basic Course, Elementary Course, Translation Course စသော Course များအပြင် နောက်ထပ်
-            ဖွင့်လစ်မည့် Pre-intermediate နှင့် Intermediate Level Course များကို 25,000 ကျပ်ဖြင့် ရာသက်ပန် ဝင်ရောက်လေ့လာနိုင်မှာဖြစ်ပါတယ်။
-            Ads Free နှင့် Video များကို download ရယူနိုင်မှာ ဖြစ်သည့်အပြင် Blue Mark Access လည်း ရရှိမှာဖြစ်ပါတယ်။
-        </p>
+            <h5>Gold Plan </h5>
+                Easy English ၏ လက်ရှိဖွင့်လစ်ထားပြီးဖြစ်သော Basic Course, Elementary Course, Translation Course စသော Course များအပြင် နောက်ထပ်
+                ဖွင့်လစ်မည့် Pre-intermediate နှင့် Intermediate Level Course များကို <b style="color:red">25,000</b> ကျပ်ဖြင့် ရာသက်ပန် ဝင်ရောက်လေ့လာနိုင်မှာဖြစ်ပါတယ်။
+                Ads Free နှင့် Video များကို download ရယူနိုင်မှာ ဖြစ်သည့်အပြင် Blue Mark Access လည်း ရရှိမှာဖြစ်ပါတယ်။
+            </p>
+        </div>
 
         <hr>
         <p>

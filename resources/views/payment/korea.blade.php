@@ -79,14 +79,14 @@
                             <td>Level 3-2 Course</td>
                             <td>15,000 kyats</td>
                             <td>Yes</td>
-                            <td>On Going</td>
+                            <td>On going</td>
                         </tr>
 
                         <tr>
                             <td>Level 4-1 Course</td>
-                            <td>-</td>
-                            <td></td>
-                            <td>Soon</td>
+                            <td>15,000 kyats</td>
+                            <td>Yes</td>
+                            <td>On going</td>
                         </tr>
 
                         <tr>
@@ -176,12 +176,15 @@
         </p>
 
         <hr>
-        <p>
-            <h5>Gold Plan (<span style="color: #0f0;">Recommended</span>)</h5>
-            Easy Korean ၏ လက်ရှိဖွင့်လစ်ထားပြီးဖြစ်သော Basic, Level 1, Level 2 , Level 3-1 စသော Course များအပြင် နောက်ထပ် ဖွင့်လစ်မည့်
-            Level 3-2, Level 4-1 , Level 4-2 စသော Course များကို 35,000 ကျပ်ဖြင့် ရာသက်ပန် ဝင်ရောက်လေ့လာနိုင်မှာဖြစ်ပါတယ်။
-            Ads Free နှင့် Video များကို download ရယူနိုင်မှာ ဖြစ်သည့်အပြင် Blue Mark Access လည်း ရရှိမှာဖြစ်ပါတယ်။
-        </p>
+         
+        <div style="background: rgb(213, 255, 213); padding:7px; border:1px solid green">
+            <p>
+                <h5>Gold Plan </h5>
+                Easy Korean ၏ လက်ရှိဖွင့်လစ်ထားပြီးဖြစ်သော Basic, Level 1, Level 2 , Level 3-1 စသော Course များအပြင် နောက်ထပ် ဖွင့်လစ်မည့်
+                Level 3-2, Level 4-1 , Level 4-2 စသော Course များကို <b style="color:red">35,000</b> ကျပ်ဖြင့် ရာသက်ပန် ဝင်ရောက်လေ့လာနိုင်မှာဖြစ်ပါတယ်။
+                Ads Free နှင့် Video များကို download ရယူနိုင်မှာ ဖြစ်သည့်အပြင် Blue Mark Access လည်း ရရှိမှာဖြစ်ပါတယ်။
+            </p>
+        </div>
 
         <hr>
         <p>
@@ -206,7 +209,19 @@
         <hr>
         <p>
             <h5>Level 3-1 Course</h5>
-            Easy Korean ၏ Level 1 Course မှာ သင်ခန်းစာများကို 15,000 ကျပ်တည်းဖြင့် ရာသက်ပန်ဝင်ရောက်လေ့လာနိုင်မှာ ဖြစ်ပါတယ်။
+            Easy Korean ၏ Level 3-1 Course မှာ သင်ခန်းစာများကို 15,000 ကျပ်တည်းဖြင့် ရာသက်ပန်ဝင်ရောက်လေ့လာနိုင်မှာ ဖြစ်ပါတယ်။
+            Ads Free အပြင် Video များ download ရယူပြီး Offline လေ့လာနိုင်မှာပဲဖြစ်ပါတယ်။ Blue Mark Access လည်းရရှိဉီးမှာပါ။
+        </p>
+
+        <p>
+            <h5>Level 3-2 Course</h5>
+            Easy Korean ၏ Level 3-2 Course မှာ သင်ခန်းစာများကို 15,000 ကျပ်တည်းဖြင့် ရာသက်ပန်ဝင်ရောက်လေ့လာနိုင်မှာ ဖြစ်ပါတယ်။
+            Ads Free အပြင် Video များ download ရယူပြီး Offline လေ့လာနိုင်မှာပဲဖြစ်ပါတယ်။ Blue Mark Access လည်းရရှိဉီးမှာပါ။
+        </p>
+
+        <p>
+            <h5>Level 4-1 Course</h5>
+            Easy Korean ၏ Level 4-1 Course မှာ သင်ခန်းစာများကို 15,000 ကျပ်တည်းဖြင့် ရာသက်ပန်ဝင်ရောက်လေ့လာနိုင်မှာ ဖြစ်ပါတယ်။
             Ads Free အပြင် Video များ download ရယူပြီး Offline လေ့လာနိုင်မှာပဲဖြစ်ပါတယ်။ Blue Mark Access လည်းရရှိဉီးမှာပါ။
         </p>
 
