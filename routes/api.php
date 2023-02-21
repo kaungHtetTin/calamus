@@ -7,6 +7,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\LessonController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,6 +29,9 @@ Route::get('/home',[MainController::class,'getHome']);
 Route::get('/courses',[MainController::class,'getCoursePage']);
 Route::get('/courses/detail/{courseId}',[MainController::class,'getCourseDetailPage']);
 
+
+// lessons
+Route::get('/lessons/detail/{id}',[LessonController::class,'getDetail']);
 
 //instructor routes
 Route::get('/instructors',[MainController::class,'getInstructorPage']);

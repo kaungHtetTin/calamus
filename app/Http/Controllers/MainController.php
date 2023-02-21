@@ -130,9 +130,10 @@ class MainController extends Controller
       
         $plans=DB::table('study_plan')
             ->selectRaw("
-               
+                lessons.id as lesson_id,
                 lessons.title as lesson_title,
                 lessons.duration,
+                lessons.isVideo as is_Video,
                 day,
                 CASE
                 WHEN  EXISTS (SELECT NULL FROM studies std 
