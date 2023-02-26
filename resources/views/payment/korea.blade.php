@@ -96,9 +96,17 @@
                             <td>Soon</td>
                         </tr>
 
-                        <tr>
+                         <tr>
+                                <td>Basic Vocabulary Course</td>
+                                <td>မေတ္တာလက်ဆောင်</td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+
+
+                        <tr style="background:rgb(213, 255, 213);;font-weight:bold">
                             <td>Gold Plan</td>
-                            <td>35,000 kyats</td>
+                            <td><sub style="color:red;text-decoration:line-through">45,000 kyats</sub> <br>25,000 kyats </td>
                             <td>Yes</td>
                             <td>Basic to Level 4-2</td>
                         </tr>
@@ -181,7 +189,7 @@
             <p>
                 <h5>Gold Plan </h5>
                 Easy Korean ၏ လက်ရှိဖွင့်လစ်ထားပြီးဖြစ်သော Basic, Level 1, Level 2 , Level 3-1 စသော Course များအပြင် နောက်ထပ် ဖွင့်လစ်မည့်
-                Level 3-2, Level 4-1 , Level 4-2 စသော Course များကို <b style="color:red">35,000</b> ကျပ်ဖြင့် ရာသက်ပန် ဝင်ရောက်လေ့လာနိုင်မှာဖြစ်ပါတယ်။
+                Level 3-2, Level 4-1 , Level 4-2 စသော Course များကို <b style="color:red">25,000</b> ကျပ်ဖြင့် ရာသက်ပန် ဝင်ရောက်လေ့လာနိုင်မှာဖြစ်ပါတယ်။
                 Ads Free နှင့် Video များကို download ရယူနိုင်မှာ ဖြစ်သည့်အပြင် Blue Mark Access လည်း ရရှိမှာဖြစ်ပါတယ်။
             </p>
         </div>

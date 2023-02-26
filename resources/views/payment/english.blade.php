@@ -77,7 +77,7 @@
                                     <td>Listening Course</td>
                                     <td>မေတ္တာလက်ဆောင်</td>
                                     <td>Yes</td>
-                                    <td>On going</td>
+                                    <td></td>
                                 </tr>
 
                                 <tr>
