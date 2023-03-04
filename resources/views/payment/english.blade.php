@@ -89,7 +89,7 @@
 
                                 <tr>
                                     <td>Gold Plan</td>
-                                    <td>25,000 kyats</td>
+                                    <td><sub style="color:red;text-decoration:line-through">30,000 kyats</sub> <br>25,000 kyats </td>
                                     <td>Yes</td>
                                     <td>Basic to Intermediate</td>
                                 </tr>
