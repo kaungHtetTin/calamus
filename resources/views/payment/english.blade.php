@@ -67,7 +67,14 @@
                                 </tr>
 
                                 <tr>
-                                    <td>Translation Course</td>
+                                    <td>Elementary Translation Course</td>
+                                    <td>10,000 kyats</td>
+                                    <td>Yes</td>
+                                    <td></td>
+                                </tr>
+
+                                 <tr>
+                                    <td>Essential Speaking Course</td>
                                     <td>10,000 kyats</td>
                                     <td>Yes</td>
                                     <td></td>
@@ -193,9 +200,15 @@
 
         <hr>
         <p>
-        <h5>Translation Course</h5>
+        <h5>Elementary Translation Course</h5>
         Easy English ၏ Translation Course မှာ သင်ခန်းစာများကို 10,000 ကျပ်တည်းဖြင့် ရာသက်ပန်ဝင်ရောက်လေ့လာနိုင်မှာ ဖြစ်ပါတယ်။
         Ads Free အပြင် Video များ download ရယူပြီး Offline လေ့လာနိုင်မှာပဲဖြစ်ပါတယ်။Blue Mark Access လည်းရရှိဉီးမှာပါ။
+        </p>
+
+        <p>
+             <h5>Essential Speaking Course</h5>
+             Easy English ၏ Essential Speaking Course မှ သင်ခန်းစာမျာအားလုံးကို 10,000 ကျပ်တည်းဖြင့် ရာသက်ပန်ဝင်ရောက်လေ့လာနိုင်မှာ ဖြစ်ပါတယ်။
+             Video များ download ရယူပြီး Offline လေ့လာနိုင်မည့်အပြင် Blue mark access လည်း ရရှိဦးမှာဖြစ်ပါတယ်။
         </p>
 
     </div>
