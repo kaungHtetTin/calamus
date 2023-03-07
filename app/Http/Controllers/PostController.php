@@ -61,6 +61,7 @@ class PostController extends Controller
                 ")
             ->where('posts.major',$major)
             ->where('posts.share',0)
+            ->where('posts.hide',0)
             ->join('learners','learners.learner_phone','=','posts.learner_id')
             ->join($dataStore,"$dataStore.phone",'=','posts.learner_id')
             ->orderBy('posts.id','desc')
