@@ -79,7 +79,7 @@
                             <td>Level 3-2 Course</td>
                             <td>15,000 kyats</td>
                             <td>Yes</td>
-                            <td>On going</td>
+                            <td></td>
                         </tr>
 
                         <tr>

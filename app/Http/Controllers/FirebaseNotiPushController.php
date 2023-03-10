@@ -57,6 +57,13 @@ class FirebaseNotiPushController extends Controller
         $to=$req->to;
         $title=$req->title;
         $message=$req->message;
+
+        if($to=='adminKorea'){
+            $start_msg=substr($message,0,3);
+            if($start_msg=="Dev"){
+                $to="ekDeveloper";
+            }
+        }
         
         $payload = array();
         $payload['team'] = 'Calamus';
