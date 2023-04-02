@@ -86,14 +86,14 @@
                             <td>Level 4-1 Course</td>
                             <td>15,000 kyats</td>
                             <td>Yes</td>
-                            <td>On going</td>
+                            <td></td>
                         </tr>
 
                         <tr>
                             <td>Level 4-2 Course</td>
-                            <td>-</td>
-                            <td></td>
-                            <td>Soon</td>
+                            <td>15,000 kyats</td>
+                            <td>Yes</td>
+                            <td>On goin</td>
                         </tr>
 
                          <tr>
@@ -106,7 +106,7 @@
 
                         <tr style="background:rgb(213, 255, 213);;font-weight:bold">
                             <td>Gold Plan</td>
-                            <td><sub style="color:red;text-decoration:line-through">45,000 kyats</sub> <br>25,000 kyats </td>
+                            <td><sub style="color:red;text-decoration:line-through">50,000 kyats</sub> <br>25,000 kyats </td>
                             <td>Yes</td>
                             <td>Basic to Level 4-2</td>
                         </tr>
@@ -124,7 +124,7 @@
             <div>
                 
                 <div  class="payment">&#128179; Wavepay<br> <b>09979638384</b> </div></div>
-                <div  class="payment">&#128179; KBZpay / Mytel pay<br> <b>09682537158</b> </div></div>
+                <div  class="payment">&#128179; KBZpay / Mytel pay<br> <b>09682537158</b> <br>Kaung Htet Tin </div></div>
               
           </div>
         <div class="card text-left">
@@ -230,6 +230,12 @@
         <p>
             <h5>Level 4-1 Course</h5>
             Easy Korean ၏ Level 4-1 Course မှာ သင်ခန်းစာများကို 15,000 ကျပ်တည်းဖြင့် ရာသက်ပန်ဝင်ရောက်လေ့လာနိုင်မှာ ဖြစ်ပါတယ်။
+            Ads Free အပြင် Video များ download ရယူပြီး Offline လေ့လာနိုင်မှာပဲဖြစ်ပါတယ်။ Blue Mark Access လည်းရရှိဉီးမှာပါ။
+        </p>
+
+        <p>
+            <h5>Level 4-2 Course</h5>
+            Easy Korean ၏ Level 4-2 Course မှာ သင်ခန်းစာများကို 15,000 ကျပ်တည်းဖြင့် ရာသက်ပန်ဝင်ရောက်လေ့လာနိုင်မှာ ဖြစ်ပါတယ်။
             Ads Free အပြင် Video များ download ရယူပြီး Offline လေ့လာနိုင်မှာပဲဖြစ်ပါတယ်။ Blue Mark Access လည်းရရှိဉီးမှာပါ။
         </p>
 

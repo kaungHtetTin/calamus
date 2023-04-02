@@ -29,5 +29,7 @@ class learner extends Model
         'remember_token',
     ];
     
+    protected $guarded = [];
+
     public $timestamps = false;
 }
