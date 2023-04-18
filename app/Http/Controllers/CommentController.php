@@ -59,9 +59,8 @@ class CommentController extends Controller
         ->update([
           'comments'=> DB::raw('comments+1')
         ]);
-        
-     
-        
+
+
         //save to notification table
         
         if($owner_id!=$writer_id){
@@ -94,7 +93,7 @@ class CommentController extends Controller
             ]);
          }
          
-        return $parent;
+        return $comment;
     }
     
 
