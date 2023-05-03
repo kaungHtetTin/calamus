@@ -209,14 +209,22 @@ class CommentController extends Controller
             }
         }
         
+        $reduce_count=1;
+        $children=Comment::where('parent',$time)->get();
+        $children_count=$children->count();
+
+        $reduce_count=$children_count+$reduce_count;
+
         $comment = Comment::where('time', $time)->delete();
+        Comment::where('parent', $time)->delete();
         
+    
         DB::table('comment_likes')
         ->where('comment_id',$time)->delete();
         
         post::where('post_id', $post)
         ->update([
-          'comments'=> DB::raw('comments-1')
+          'comments'=> DB::raw("comments-$reduce_count")
         ]);
         
         echo "Comment Deleted";
