@@ -106,7 +106,7 @@
 
                         <tr style="background:rgb(213, 255, 213);;font-weight:bold">
                             <td>Gold Plan</td>
-                            <td><sub style="color:red;text-decoration:line-through">50,000 kyats</sub> <br>25,000 kyats </td>
+                            <td><sub style="color:red;text-decoration:line-through">50,000 kyats</sub> <br>35,000 kyats </td>
                             <td>Yes</td>
                             <td>Basic to Level 4-2</td>
                         </tr>
@@ -188,8 +188,8 @@
         <div style="background: rgb(213, 255, 213); padding:7px; border:1px solid green">
             <p>
                 <h5>Gold Plan </h5>
-                Easy Korean ၏ လက်ရှိဖွင့်လစ်ထားပြီးဖြစ်သော Basic, Level 1, Level 2 , Level 3-1 စသော Course များအပြင် နောက်ထပ် ဖွင့်လစ်မည့်
-                Level 3-2, Level 4-1 , Level 4-2 စသော Course များကို <b style="color:red">25,000</b> ကျပ်ဖြင့် ရာသက်ပန် ဝင်ရောက်လေ့လာနိုင်မှာဖြစ်ပါတယ်။
+                Easy Korean ၏ လက်ရှိဖွင့်လစ်ထားပြီးဖြစ်သော Basic, Level 1, Level 2 , Level 3-1, level 3-2, level 4-1, level 4-2 စသော Course များအပြင် နောက်ထပ် ဖွင့်လစ်မည့်
+                Course များကို <b style="color:red">35,000</b> ကျပ်ဖြင့် ရာသက်ပန် ဝင်ရောက်လေ့လာနိုင်မှာဖြစ်ပါတယ်။
                 Ads Free နှင့် Video များကို download ရယူနိုင်မှာ ဖြစ်သည့်အပြင် Blue Mark Access လည်း ရရှိမှာဖြစ်ပါတယ်။
             </p>
         </div>

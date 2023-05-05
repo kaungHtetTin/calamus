@@ -215,8 +215,8 @@ class CommentController extends Controller
 
         $reduce_count=$children_count+$reduce_count;
 
-        $comment = Comment::where('time', $time)->delete();
-        Comment::where('parent', $time)->delete();
+        $comment = Comment::where('time',$time)->delete();
+        Comment::where('parent',$time)->delete();
         
     
         DB::table('comment_likes')
